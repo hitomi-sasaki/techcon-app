@@ -37,11 +37,23 @@ $ curl http://localhost:8080
 
 Androidエミュレータでの動作確認時は http://10.0.2.2:8080 を使う
 
+開発系はdocker-composeで環境構築しています。
+init.shでDBにテーブルが作られ、テストデータが挿入されます。
+
+```
+$ docker-compose up -d
+$ ./init.sh
+```
+
+また、次のコマンドでdocker-composeで立てたDBに接続できます。
+
+```
+$ docker exec -it techcon-mysql mysql -uroot -proot --default-character-set=utf8mb4
+```
+
 ## Infrastructure
 GKEで構築します。
 deployはSpinker or Istioのどちらかになる予定です。
-とりまserver:latestという名前でContainer Repositoryに上げておくので、自由に変更してください。
-make buildでPCでbuildを行い、make build-remoteでCloud Buildでbuildを行います。
 
 ## Multiplatform
 

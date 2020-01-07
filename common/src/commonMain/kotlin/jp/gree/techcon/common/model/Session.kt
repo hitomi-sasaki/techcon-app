@@ -10,7 +10,7 @@ data class Session(
     val endTime: Long,
     val title: String,
     val description: String,
-    val tagList: List<String>,
+    val tagList: List<Tag>,
     val slideUrl: String? = null,
     val movieUrl: String? = null
 ) {
@@ -21,12 +21,12 @@ data class Session(
             val description = getSampleDescription()
             val slideUrl = getSampleSlideUrl()
             val movieUrl = getSampleMovieUrl()
-            val tagList = listOf(getSampleTag(), getSampleTag())
+            val tagList = listOf(Tag.getSample(), Tag.getSample())
             return Session(1, speakers, 1574157622, 1574157622 + 6000, title, description, tagList, slideUrl, movieUrl)
         }
 
         fun getDummyList(): List<Session> {
-            val session = Session(-1, listOf(Speaker.getSample()), 1574157622, 1574157622 + 6000, "", "", listOf(""), "", "")
+            val session = Session(-1, listOf(Speaker.getSample()), 1574157622, 1574157622 + 6000, "", "", listOf(), "", "")
             return MutableList(100) { session.copy(id = it.toLong(), title = getSampleTitle(), description = getSampleDescription()) }
         }
 
@@ -68,24 +68,6 @@ PHPからgoへの移行を行ったところ、トレーニング、開発環境
             "https://www.youtube.com/watch?v=PD4lWpEXE2Q",
             "https://www.youtube.com/watch?v=qad2CqdgjzU",
             "https://www.youtube.com/watch?v=A0Ro_f5kzc8"
-        ).random()
-
-        private fun getSampleTag() = listOf(
-            "iOS",
-            "Android",
-            "Web",
-            "インフラ",
-            "Kotlin",
-            "PHP",
-            "go",
-            "Swift",
-            "Kubernetes",
-            "GCP",
-            "AWS",
-            "Laravel",
-            "Ktor",
-            "Unity",
-            "teraform"
         ).random()
     }
 }
