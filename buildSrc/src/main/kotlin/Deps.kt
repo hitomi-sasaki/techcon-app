@@ -1,6 +1,6 @@
 object Deps {
-    const val kotlinVersion = "1.3.61" // iOS requires 1.3.50, not 1.3.60 for now
-    const val gradleVersion = "4.0.0-alpha08"
+    const val kotlinVersion = "1.3.61"
+    const val gradleVersion = "4.0.0-alpha09"
 
     const val ktorVersion = "1.2.6"
     const val coroutineVersion = "1.3.3"
