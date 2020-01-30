@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:id="@+id/nav_graph"
+        app:startDestination="@+id/sessionListFragment">
+    <fragment
+            android:id="@+id/articleListFragment"
+            android:name="jp.gree.techcon.articlelist.ArticleListFragment" />
+    <fragment
+            android:id="@+id/sessionListFragment"
+            android:name="jp.gree.techcon.sessionlist.SessionListFragment">
+        <action
+                android:id="@+id/to_detail"
+                app:destination="@+id/sessionDetailFragment" />
+        <action
+                android:id="@+id/to_article"
+                app:destination="@+id/articleDetailFragment" />
+    </fragment>
+    <fragment
+            android:id="@+id/sessionDetailFragment"
+            android:name="jp.gree.techcon.sessiondetail.SessionDetailFragment">
+        <argument
+                android:name="sessionId"
+                app:argType="long" />
+    </fragment>
+    <fragment
+            android:id="@+id/articleDetailFragment"
+            android:name="jp.gree.techcon.articledetail.ArticleDetailFragment">
+        <argument
+                android:name="articleId"
+                app:argType="long" />
+    </fragment>
+</navigation>

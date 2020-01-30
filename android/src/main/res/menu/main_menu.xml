@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+            android:id="@+id/articleListFragment"
+            android:icon="@drawable/ic_bookmark_border"
+            android:title="@string/menu_article" />
+    <item
+            android:id="@+id/sessionListFragment"
+            android:icon="@drawable/ic_bookmark_border"
+            android:title="@string/menu_session" />
+
+    <item
+            android:id="@+id/sessionDetailFragment"
+            android:icon="@drawable/ic_bookmark_border"
+            android:title="@string/menu_bookmark" />
+
+    <item
+            android:id="@+id/articleDetailFragment"
+            android:icon="@drawable/ic_bookmark_border"
+            android:title="@string/menu_booth" />
+</menu>

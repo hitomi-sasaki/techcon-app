@@ -1,0 +1,12 @@
+all: build run
+
+build:
+	docker build -t server .
+
+run:
+	docker run -p 8080:8080 --rm server
+
+push:
+	docker tag server:latest gcr.io/gree-tech-conference-dev/server:latest
+	gcloud --project gree-tech-conference-dev docker -- push gcr.io/gree-tech-conference-dev/server:latest
+

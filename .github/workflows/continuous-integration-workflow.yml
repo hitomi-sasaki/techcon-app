@@ -1,0 +1,36 @@
+name: continuous-integration-workflow
+on: [push]
+
+jobs:
+    build-server:
+        runs-on: ubuntu-latest
+        steps:
+            - uses: actions/checkout@v1
+            - name: set up JDK 1.8
+              uses: actions/setup-java@v1
+              with:
+                java-version: 1.8
+            - name: Build with Gradle
+              run: ./gradlew server:build
+
+    build-android:
+        runs-on: ubuntu-latest
+        steps:
+            - uses: actions/checkout@v1
+            - name: set up JDK 1.8
+              uses: actions/setup-java@v1
+              with:
+                java-version: 1.8
+            - name: Build with Gradle
+              run: ./gradlew assembleDebug
+
+    build-ios:
+        runs-on: macos-latest
+        steps:
+            - uses: actions/checkout@v1 # ソースコードをcheckout
+            - name: Select Xcode version # Xcode 11.2 を使う
+              run: sudo xcode-select -s '/Applications/Xcode_11.2.app/Contents/Developer'
+            - name: Show Xcode version
+              run: xcodebuild -version
+            - name: Build # シミュレーター向けにビルド
+              run: xcodebuild -sdk iphonesimulator -configuration Debug build

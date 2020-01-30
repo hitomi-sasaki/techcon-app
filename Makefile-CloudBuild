@@ -1,0 +1,8 @@
+all: build run
+
+build:
+	gcloud --project gree-tech-conference-dev builds submit --config cloudbuild.yaml .
+
+run:
+	docker run -p 8080:8080 gcr.io/gree-tech-conference-dev/server:latest
+
