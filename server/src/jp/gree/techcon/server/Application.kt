@@ -46,10 +46,9 @@ fun Application.module() {
         }
         get("/sessions") {
             call.respond(
-                call.respond(
-                    HttpStatusCode.OK,
-                    SessionService().getAllSessions()
-                )            )
+                HttpStatusCode.OK,
+                SessionService().getAllSessions()
+            )
         }
         get("/bookmarks") {
             call.respond(
