@@ -23,11 +23,10 @@ CREATE TABLE `Speakers` (
 ) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=latin1 COLLATE=latin1_general_ci;
 
 CREATE TABLE `SpeakerRelations` (
-      `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
       `session_id` int(10) unsigned NOT NULL,
       `speaker_id` int(10) unsigned NOT NULL,
-      PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=latin1 COLLATE=latin1_general_ci;
+      PRIMARY KEY (`session_id`,`speaker_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_general_ci;
 
 CREATE TABLE `Tags` (
       `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
@@ -36,9 +35,8 @@ CREATE TABLE `Tags` (
 ) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=latin1 COLLATE=latin1_general_ci;
 
 CREATE TABLE `TagRelations` (
-      `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
       `session_id` int(10) unsigned NOT NULL,
       `tag_id` int(10) unsigned NOT NULL,
-      PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=latin1 COLLATE=latin1_general_ci;
+      PRIMARY KEY (`session_id`,`tag_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_general_ci;
 

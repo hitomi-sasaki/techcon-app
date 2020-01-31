@@ -1,8 +1,8 @@
 package jp.gree.techcon.server.dao
 
-import org.jetbrains.exposed.dao.IntIdTable
+import org.jetbrains.exposed.sql.Table
 
-object TagRelations : IntIdTable() {
-    val sessionId = integer("session_id")
-    val tagId = integer("tag_id")
+object TagRelations : Table() {
+    val session = reference("session_id", Sessions).primaryKey(0)
+    val tag = reference("tag_id", Tags).primaryKey(1)
 }

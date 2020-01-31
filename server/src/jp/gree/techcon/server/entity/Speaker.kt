@@ -9,8 +9,8 @@ class Speaker(id: EntityID<Int>) : IntEntity(id) {
     companion object: IntEntityClass<Speaker>(Speakers)
 
     var name by Speakers.name
-    val title by Speakers.title
-    val githubId by Speakers.githubId
-    val twitterId by Speakers.twitterId
-    val description by Speakers.description
+    var title by Speakers.title
+    var githubId by Speakers.githubId
+    var twitterId by Speakers.twitterId
+    var description by Speakers.description
 }
