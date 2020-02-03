@@ -31,7 +31,9 @@ android {
         sourceCompatibility = JavaVersion.VERSION_1_8
         targetCompatibility = JavaVersion.VERSION_1_8
     }
-    tasks.withType<org.jetbrains.kotlin.gradle.tasks.KotlinCompile> { kotlinOptions.jvmTarget = "1.8" }
+    tasks.withType<org.jetbrains.kotlin.gradle.tasks.KotlinCompile> {
+        kotlinOptions.jvmTarget = "1.8"
+    }
     sourceSets.forEach {
         it.manifest.srcFile("src/androidMain/AndroidManifest.xml")
     }
@@ -51,7 +53,7 @@ kotlin {
         }
     }
     sourceSets {
-        commonMain {
+        val commonMain by getting {
             dependencies {
                 implementation(kotlin("stdlib-common"))
                 implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core-common:${Deps.coroutineVersion}")
@@ -62,7 +64,12 @@ kotlin {
                 implementation("org.kodein.di:kodein-di-erased:${Deps.kodein}")
             }
         }
+        val mobileMain by creating {
+            dependsOn(commonMain)
+        }
         val iosMain by getting {
+            dependsOn(mobileMain)
+
             dependencies {
                 implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core-common:${Deps.coroutineVersion}")
                 implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core-native:${Deps.coroutineVersion}")
@@ -73,6 +80,8 @@ kotlin {
             }
         }
         val androidMain by getting {
+            dependsOn(mobileMain)
+
             dependencies {
                 implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core-common:${Deps.coroutineVersion}")
                 implementation("org.jetbrains.kotlinx:kotlinx-coroutines-android:${Deps.coroutineVersion}")
@@ -115,7 +124,9 @@ task("copyFramework") {
     dependsOn(kotlin.targets.getByName<KotlinNativeTarget>(target).binaries.getFramework(buildType).linkTask)
 
     doLast {
-        val srcFile = kotlin.targets.getByName<KotlinNativeTarget>(target).binaries.getFramework(buildType).outputFile
+        val srcFile =
+            kotlin.targets.getByName<KotlinNativeTarget>(target).binaries.getFramework(buildType)
+                .outputFile
         val targetDir = findProperty("configuration.build.dir") as String
         copy {
             from(srcFile.parent)

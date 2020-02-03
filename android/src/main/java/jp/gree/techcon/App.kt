@@ -3,7 +3,6 @@ package jp.gree.techcon
 import android.app.Application
 import android.os.Build
 import androidx.appcompat.app.AppCompatDelegate
-import jp.gree.techcon.common.CommonModule
 import jp.gree.techcon.common.context
 
 @Suppress("unused")
