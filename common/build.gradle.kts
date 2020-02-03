@@ -49,6 +49,8 @@ kotlin {
         binaries {
             framework {
                 freeCompilerArgs += "-Xobjc-generics"
+                freeCompilerArgs += "-Xmx512m"
+                freeCompilerArgs += "-XX:MaxMetaspaceSize=256m"
             }
         }
     }
@@ -135,8 +137,4 @@ task("copyFramework") {
             include("common.framework.dSYM")
         }
     }
-}
-
-tasks.withType<JavaCompile>().configureEach {
-    options.compilerArgs = listOf("-Xmx512m", "-XX:MaxMetaspaceSize=256m")
 }
