@@ -35,3 +35,5 @@ jobs:
             - name: Build
               working-directory: ./iosApp
               run: xcodebuild -scheme iosApp -sdk iphonesimulator -configuration Debug build
+              env:
+                  GRADLE_OPTS: "-Xmx2048m"
