@@ -3,19 +3,23 @@ package jp.gree.techcon.server.service
 import org.jetbrains.exposed.sql.Database
 import com.zaxxer.hikari.HikariConfig
 import com.zaxxer.hikari.HikariDataSource
+import io.ktor.config.ApplicationConfig
+import io.ktor.util.KtorExperimentalAPI
 import org.jetbrains.exposed.sql.transactions.experimental.newSuspendedTransaction
 
 object DatabaseFactory {
-    fun init() {
-        Database.connect(hikari())
+    @KtorExperimentalAPI
+    fun init(config: ApplicationConfig) {
+        Database.connect(hikari(config))
     }
 
-    private fun hikari(): HikariDataSource {
+    @KtorExperimentalAPI
+    private fun hikari(app: ApplicationConfig): HikariDataSource {
         val config = HikariConfig()
         config.driverClassName = "com.mysql.jdbc.Driver"
-        config.jdbcUrl = "jdbc:mysql://techcon-mysql:3306/techcon?useSSL=false"
-        config.username = "root"
-        config.password = "root"
+        config.jdbcUrl = app.propertyOrNull("ktor.techcon.jdbcUrl")?.getString() ?: ""
+        config.username = app.propertyOrNull("ktor.techcon.username")?.getString() ?: ""
+        config.password = app.propertyOrNull("ktor.techcon.password")?.getString() ?: ""
         config.maximumPoolSize = 3
         config.isAutoCommit = false
         config.transactionIsolation = "TRANSACTION_REPEATABLE_READ"

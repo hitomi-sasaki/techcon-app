@@ -8,38 +8,39 @@ import jp.gree.techcon.common.model.Tag as TagModel
 
 class SessionService {
     suspend fun getAllSessions(): List<SessionModel> {
-        DatabaseFactory.init()
         var sessions: List<Session> = listOf()
+        var result: List<SessionModel> = listOf()
+
         // get data from database
         dbQuery {
             sessions = Session.all().toList()
-        }
-        // format data
-        val result: List<SessionModel> = sessions.map { session ->
-            val names: List<SpeakerModel> = session.speakers.map {speaker ->
-                SpeakerModel(
-                    speaker.name,
-                    speaker.title,
-                    speaker.githubId,
-                    speaker.twitterId,
-                    speaker.description
+            // format data
+            result = sessions.map { session ->
+                val names: List<SpeakerModel> = session.speakers.map { speaker ->
+                    SpeakerModel(
+                        speaker.name,
+                        speaker.title,
+                        speaker.githubId,
+                        speaker.twitterId,
+                        speaker.description
+                    )
+                }
+                val tagNames: List<TagModel> = session.tags.map { tag ->
+                    TagModel(tag.name)
+                }
+
+                SessionModel(
+                    session.id.value.toLong(),
+                    names,
+                    session.startTime.toLong(),
+                    session.endTime.toLong(),
+                    session.title,
+                    session.description,
+                    tagNames,
+                    session.slideUrl,
+                    session.movieUrl
                 )
             }
-            val tagNames: List<TagModel> = session.tags.map { tag ->
-                TagModel(tag.name)
-            }
-
-            SessionModel(
-                session.id.value.toLong(),
-                names,
-                session.startTime.toLong(),
-                session.endTime.toLong(),
-                session.title,
-                session.description,
-                tagNames,
-                session.slideUrl,
-                session.movieUrl
-            )
         }
         return result
     }

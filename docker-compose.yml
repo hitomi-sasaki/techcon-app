@@ -7,12 +7,10 @@ services:
     container_name: "techcon-server"
     environment:
       - "TECHCON_ENV=local"
-      - "TECHCON_IMAGE_HOST=p-local.techcon.gree.jp"
-      - "TECHCON_DATABASE_HOST_MASTER=techcon-mysql"
-      - "TECHCON_DATABASE_HOST_SLAVE=techcon-mysql"
+      - "TECHCON_JDBC_URL=jdbc:mysql://techcon-mysql:3306/techcon?useSSL=false"
       - "TECHCON_DATABASE_USER=root"
       - "TECHCON_DATABASE_PASS=root"
-      - "TECHCON_MEMCACHE_HOST=techcon-memcache"
+      - "TECHCON_MEMCACH=techcon-memcache"
     ports:
       - "8080:8080"
     ulimits:

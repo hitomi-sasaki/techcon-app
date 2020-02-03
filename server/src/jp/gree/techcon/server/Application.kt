@@ -21,11 +21,13 @@ import io.ktor.server.engine.embeddedServer
 import io.ktor.server.netty.Netty
 import jp.gree.techcon.common.model.*
 import jp.gree.techcon.common.model.Session
+import jp.gree.techcon.server.service.DatabaseFactory
 import jp.gree.techcon.server.service.SessionService
 import org.jetbrains.exposed.sql.*
 
 @KtorExperimentalLocationsAPI
 fun Application.module() {
+    DatabaseFactory.init(environment.config)
     install(DefaultHeaders) {
         header(HttpHeaders.AccessControlAllowOrigin, "*")
     }
