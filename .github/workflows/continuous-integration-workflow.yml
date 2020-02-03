@@ -33,4 +33,4 @@ jobs:
             - name: Show Xcode version
               run: xcodebuild -version
             - name: Build # シミュレーター向けにビルド
-              run: xcodebuild -sdk iphonesimulator -configuration Debug build
+              run: cd iosApp; xcodebuild -sdk iphonesimulator -configuration Debug build
