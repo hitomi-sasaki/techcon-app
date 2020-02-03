@@ -136,3 +136,7 @@ task("copyFramework") {
         }
     }
 }
+
+tasks.withType<JavaCompile>().configureEach {
+    options.compilerArgs = listOf("-Xmx512m", "-XX:MaxMetaspaceSize=256m")
+}
