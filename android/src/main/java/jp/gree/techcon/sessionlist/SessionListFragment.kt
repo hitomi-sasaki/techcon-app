@@ -4,8 +4,8 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.FrameLayout
 import androidx.compose.Composable
-import androidx.compose.unaryPlus
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import androidx.ui.core.setContent
@@ -22,8 +22,9 @@ class SessionListFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        container?.setContent { Root(vm, this::onClick, this::onBookmark) }
-        return super.onCreateView(inflater, container, savedInstanceState)
+        val root = FrameLayout(requireContext())
+        root.setContent { Root(vm, this::onClick, this::onBookmark) }
+        return root
     }
 
     private fun onClick(session: SessionListItem) {
@@ -42,7 +43,7 @@ fun Root(
     onClick: (session: SessionListItem) -> Unit,
     onBookmark: (session: SessionListItem) -> Unit
 ) {
-    val sessions = +observe(viewState.sessions) ?: listOf()
+    val sessions = observe(viewState.sessions) ?: listOf()
     MaterialTheme {
         SessionList(sessions = sessions, onClick = onClick, onBookmark = onBookmark)
     }

@@ -34,7 +34,7 @@ class ArticleDetailFragment : Fragment() {
 
 @Composable
 fun Root(vm: ArticleDetailViewModel) {
-    val article = +observe(vm.article) ?: return
+    val article = observe(vm.article) ?: return
     MaterialTheme {
         ArticleDetail(article = article)
     }

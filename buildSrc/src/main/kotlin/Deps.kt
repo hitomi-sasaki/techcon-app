@@ -18,9 +18,9 @@ object AndroidDeps {
     const val compileSdkVersion = 29
     const val targetSdkVersion = 29
 
-    const val ktxVersion = "2.2.0-rc02"
-    const val navigationVersion = "2.1.0"
-    const val composeVersion = "0.1.0-dev03"
+    const val ktxVersion = "2.2.0"
+    const val navigationVersion = "2.2.0"
+    const val composeVersion = "0.1.0-dev04"
     const val insetterVersion = "0.2.0"
 }
 
