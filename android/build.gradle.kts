@@ -30,6 +30,9 @@ android {
         sourceCompatibility = JavaVersion.VERSION_1_8
         targetCompatibility = JavaVersion.VERSION_1_8
     }
+    composeOptions {
+        kotlinCompilerExtensionVersion = AndroidDeps.composeVersion
+    }
     tasks.withType<org.jetbrains.kotlin.gradle.tasks.KotlinCompile> { kotlinOptions.jvmTarget = "1.8" }
     packagingOptions {
         exclude("META-INF/*.kotlin_module")
@@ -50,7 +53,7 @@ dependencies {
     implementation("androidx.navigation:navigation-fragment-ktx:${AndroidDeps.navigationVersion}")
     implementation("androidx.navigation:navigation-ui-ktx:${AndroidDeps.navigationVersion}")
     implementation("androidx.appcompat:appcompat:1.1.0")
-    implementation("androidx.constraintlayout:constraintlayout:1.1.3")
+    implementation("androidx.constraintlayout:constraintlayout:2.0.0-beta4")
     implementation("androidx.ui:ui-tooling:${AndroidDeps.composeVersion}")
     implementation("androidx.ui:ui-layout:${AndroidDeps.composeVersion}")
     implementation("androidx.ui:ui-foundation:${AndroidDeps.composeVersion}")

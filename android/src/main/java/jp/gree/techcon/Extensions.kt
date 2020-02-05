@@ -1,33 +1,32 @@
 package jp.gree.techcon
 
-import androidx.compose.effectOf
-import androidx.compose.memo
-import androidx.compose.onCommit
-import androidx.compose.state
+import androidx.compose.*
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.Observer
 import jp.gree.techcon.common.util.CFlow
 
-fun <T> observe(data: LiveData<T>) = effectOf<T?> {
-    val result = +state<T?> { data.value }
-    val observer = +memo { Observer<T> { result.value = it } }
+@Composable
+fun <T> observe(data: LiveData<T>): T? {
+    val result = state<T?> { data.value }
+    val observer = remember { Observer<T> { result.value = it } }
 
-    +onCommit(data) {
+    onCommit(data) {
         data.observeForever(observer)
         onDispose { data.removeObserver(observer) }
     }
 
-    result.value
+    return result.value
 }
 
-fun <T> observe(data: CFlow<T>) = effectOf<T?> {
-    val result = +state<T?> { null }
-    val observer = +memo { { it: T -> result.value = it } }
+@Composable
+fun <T> observe(data: CFlow<T>): T? {
+    val result = state<T?> { null }
+    val observer = remember { { it: T -> result.value = it } }
 
-    +onCommit(data) {
+    onCommit(data) {
         val c = data.watch(observer)
         onDispose { c.close() }
     }
 
-    result.value
+    return result.value
 }

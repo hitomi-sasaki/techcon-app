@@ -27,7 +27,7 @@ class ArticleListFragment : Fragment() {
 
 @Composable
 fun Root(viewState: ArticleListViewModel) {
-    val articles = +observe(viewState.articles) ?: listOf()
+    val articles = observe(viewState.articles) ?: listOf()
     MaterialTheme {
         ArticleList(articles = articles)
     }

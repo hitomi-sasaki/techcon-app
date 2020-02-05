@@ -2,7 +2,6 @@ package jp.gree.techcon.composables
 
 import androidx.annotation.DrawableRes
 import androidx.compose.Composable
-import androidx.compose.unaryPlus
 import androidx.ui.core.WithDensity
 import androidx.ui.foundation.Clickable
 import androidx.ui.graphics.Color
@@ -22,11 +21,11 @@ fun VectorImageButton(@DrawableRes id: Int, onClick: () -> Unit) {
 
 @Composable
 fun VectorImage(@DrawableRes id: Int, tint: Color = Color.Transparent) {
-    val vector = +vectorResource(id)
+    val vector = vectorResource(id)
     WithDensity {
         Container(
-            width = vector.defaultWidth.toDp(),
-            height = vector.defaultHeight.toDp()
+            width = vector.defaultWidth,
+            height = vector.defaultHeight
         ) {
             DrawVector(vector, tint)
         }

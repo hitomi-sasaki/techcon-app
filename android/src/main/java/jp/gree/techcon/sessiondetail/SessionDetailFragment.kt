@@ -30,7 +30,7 @@ class SessionDetailFragment : Fragment() {
 
 @Composable
 fun Root(viewState: SessionDetailState) {
-    val session = +observe(viewState.session) ?: return
+    val session = observe(viewState.session) ?: return
     MaterialTheme {
         SessionDetail(session = session)
     }

@@ -3,11 +3,10 @@ package jp.gree.techcon.sessiondetail
 import androidx.compose.Composable
 import androidx.compose.unaryPlus
 import androidx.ui.core.Text
-import androidx.ui.core.dp
+import androidx.ui.unit.dp
 import androidx.ui.foundation.VerticalScroller
 import androidx.ui.layout.*
 import androidx.ui.material.MaterialTheme
-import androidx.ui.material.withOpacity
 import androidx.ui.text.font.FontWeight
 import jp.gree.techcon.R
 import jp.gree.techcon.common.model.Session
@@ -19,29 +18,29 @@ fun SessionDetail(session: Session) {
     VerticalScroller {
         Padding(left = 16.dp, right = 16.dp) {
             Column {
-                HeightSpacer(height = 32.dp)
+                Spacer(modifier = LayoutHeight(32.dp))
                 Text(
                     text = session.title,
-                    style = (+MaterialTheme.typography()).h4.withOpacity(0.87f).copy(fontWeight = FontWeight.Bold)
+                    style = (MaterialTheme.typography()).h4.copy(fontWeight = FontWeight.Bold)
                 )
-                HeightSpacer(height = 16.dp)
+                Spacer(modifier = LayoutHeight(16.dp))
                 Text(
                     text = "12月10日（木） 10:20 - 11:00",
-                    style = (+MaterialTheme.typography()).subtitle1.withOpacity(0.6f)
+                    style = (MaterialTheme.typography()).subtitle1
                 )
-                HeightSpacer(height = 32.dp)
+                Spacer(modifier = LayoutHeight(32.dp))
                 Text(
                     text = session.description,
-                    style = (+MaterialTheme.typography()).body1.withOpacity(0.87f)
+                    style = (MaterialTheme.typography()).body1
                 )
-                HeightSpacer(height = 32.dp)
+                Spacer(modifier = LayoutHeight(32.dp))
                 Text(
                     text = "発表者",
-                    style = (+MaterialTheme.typography()).subtitle1.withOpacity(0.87f)
+                    style = (MaterialTheme.typography()).subtitle1
                 )
-                HeightSpacer(height = 16.dp)
+                Spacer(modifier = LayoutHeight(16.dp))
                 session.name.forEach { SpeakerItem(speaker = it) }
-                HeightSpacer(height = 32.dp)
+                Spacer(modifier = LayoutHeight(32.dp))
             }
         }
     }
@@ -53,28 +52,28 @@ fun SpeakerItem(speaker: Speaker) {
         Row {
             Text(
                 text = speaker.name,
-                style = (+MaterialTheme.typography()).body2.withOpacity(0.87f)
+                style = (MaterialTheme.typography()).body2
             )
-            WidthSpacer(width = 8.dp)
+            Spacer(modifier = LayoutWidth(8.dp))
             Text(
                 text = speaker.title,
-                style = (+MaterialTheme.typography()).body2.withOpacity(0.6f)
+                style = (MaterialTheme.typography()).body2
             )
         }
         if (speaker.description.isNotBlank()) {
-            HeightSpacer(height = 4.dp)
+            Spacer(modifier = LayoutWidth(4.dp))
             Text(
                 text = speaker.description,
-                style = (+MaterialTheme.typography()).body2.withOpacity(0.6f)
+                style = (MaterialTheme.typography()).body2
             )
         }
         FlexRow {
             flexible(1f) {
-                Column(modifier = Expanded) {}
+                Column {}
             }
             inflexible {
                 VectorImageButton(id = R.drawable.ic_twitter) {  }
-                WidthSpacer(width = 16.dp)
+                Spacer(modifier = LayoutWidth(16.dp))
                 VectorImageButton(id = R.drawable.ic_github) {}
             }
         }
