@@ -10,10 +10,10 @@ import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import androidx.ui.core.setContent
 import androidx.ui.layout.Column
-import androidx.ui.material.MaterialTheme
 import jp.gree.techcon.R
 import jp.gree.techcon.common.usecase.SessionListService
 import jp.gree.techcon.common.viewstate.SessionListItem
+import jp.gree.techcon.composables.AppTheme
 import jp.gree.techcon.composables.common.AppBar
 import jp.gree.techcon.observe
 
@@ -52,7 +52,7 @@ fun SessionListScreen(
     onBookmark: (session: SessionListItem) -> Unit
 ) {
     val sessions = observe(viewState.sessions) ?: listOf()
-    MaterialTheme {
+    AppTheme {
         Column {
             AppBar(title = title)
             SessionList(sessions = sessions, onClick = onClick, onBookmark = onBookmark)
