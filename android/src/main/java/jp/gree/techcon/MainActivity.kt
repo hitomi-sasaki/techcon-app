@@ -24,11 +24,10 @@ class MainActivity : AppCompatActivity() {
         binding.bottomNav.setupWithNavController(findNavController(R.id.nav_host_fragment))
 
         // Edge to Edge
-        binding.root.systemUiVisibility = View.SYSTEM_UI_FLAG_LAYOUT_STABLE or
-                    View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN or
-                    View.SYSTEM_UI_FLAG_LAYOUT_HIDE_NAVIGATION
-        binding.bottomNav.doOnApplyWindowInsets { view, insets, initialState ->
-            view.updatePadding(bottom = initialState.paddings.bottom + insets.systemWindowInsetBottom)
+        binding.root.systemUiVisibility =
+            View.SYSTEM_UI_FLAG_LAYOUT_STABLE or View.SYSTEM_UI_FLAG_LAYOUT_HIDE_NAVIGATION
+        binding.root.doOnApplyWindowInsets { view, insets, initialState ->
+            view.updatePadding(top = initialState.paddings.top + insets.systemWindowInsetTop)
         }
 
         // TODO: This is Sample code. remove this later
