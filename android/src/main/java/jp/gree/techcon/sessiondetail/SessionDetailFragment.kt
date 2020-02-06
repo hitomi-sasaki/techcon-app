@@ -5,7 +5,6 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.compose.Composable
-import androidx.compose.unaryPlus
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.navArgs
 import androidx.ui.core.setContent
@@ -22,14 +21,14 @@ class SessionDetailFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        container?.setContent { Root(viewState) }
+        container?.setContent { SessionDetailScreen(viewState) }
         return super.onCreateView(inflater, container, savedInstanceState)
     }
 
 }
 
 @Composable
-fun Root(viewState: SessionDetailState) {
+fun SessionDetailScreen(viewState: SessionDetailState) {
     val session = observe(viewState.session) ?: return
     MaterialTheme {
         SessionDetail(session = session)
