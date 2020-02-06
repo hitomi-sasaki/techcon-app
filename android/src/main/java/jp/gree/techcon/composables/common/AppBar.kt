@@ -5,7 +5,7 @@ import androidx.ui.core.Text
 import androidx.ui.material.TopAppBar
 import jp.gree.techcon.R
 import jp.gree.techcon.composables.VectorImageButton
-import jp.gree.techcon.composables.lightColors
+import jp.gree.techcon.composables.appColors
 
 @Composable
 fun AppBar(title: String, onBackClick: (() -> Unit)? = null, onShareClick: (() -> Unit)? = null) {
@@ -14,7 +14,7 @@ fun AppBar(title: String, onBackClick: (() -> Unit)? = null, onShareClick: (() -
     if (onShareClick != null) {
         TopAppBar(
             title = { Text(title) },
-            color = lightColors.background,
+            color = appColors.background,
             navigationIcon = backIcon,
             action = { VectorImageButton(R.drawable.ic_share, onShareClick) },
             actionData = listOf("hoge") // TODO: ?
@@ -22,7 +22,7 @@ fun AppBar(title: String, onBackClick: (() -> Unit)? = null, onShareClick: (() -
     } else {
         TopAppBar(
             title = { Text(title) },
-            color = lightColors.background,
+            color = appColors.background,
             navigationIcon = backIcon
         )
     }

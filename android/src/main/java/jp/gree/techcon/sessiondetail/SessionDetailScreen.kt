@@ -18,7 +18,9 @@ fun SessionDetail(session: Session) {
     VerticalScroller {
         Padding(left = 16.dp, right = 16.dp) {
             Column {
-                Spacer(modifier = LayoutHeight(32.dp))
+                Spacer(modifier = LayoutHeight(24.dp))
+                Header()
+                Spacer(modifier = LayoutHeight(24.dp))
                 Text(
                     text = session.title,
                     style = (MaterialTheme.typography()).h4.copy(fontWeight = FontWeight.Bold)
@@ -43,6 +45,15 @@ fun SessionDetail(session: Session) {
                 Spacer(modifier = LayoutHeight(32.dp))
             }
         }
+    }
+}
+
+@Composable
+fun Header() {
+    Row {
+        Text("A-1")
+        Text("／")
+        Text("13:45 - 14:15")
     }
 }
 
