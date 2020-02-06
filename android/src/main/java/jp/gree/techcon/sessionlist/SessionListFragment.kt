@@ -9,9 +9,12 @@ import androidx.compose.Composable
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import androidx.ui.core.setContent
-import androidx.ui.material.MaterialTheme
+import androidx.ui.layout.Column
+import jp.gree.techcon.R
 import jp.gree.techcon.common.usecase.SessionListService
 import jp.gree.techcon.common.viewstate.SessionListItem
+import jp.gree.techcon.composables.AppTheme
+import jp.gree.techcon.composables.common.AppBar
 import jp.gree.techcon.observe
 
 class SessionListFragment : Fragment() {
@@ -22,8 +25,12 @@ class SessionListFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
+        val title = getString(R.string.menu_session)
+
         val root = FrameLayout(requireContext())
-        root.setContent { Root(vm, this::onClick, this::onBookmark) }
+        root.setContent {
+            SessionListScreen(title, vm, this::onClick, this::onBookmark)
+        }
         return root
     }
 
@@ -38,13 +45,17 @@ class SessionListFragment : Fragment() {
 }
 
 @Composable
-fun Root(
+fun SessionListScreen(
+    title: String,
     viewState: SessionListService,
     onClick: (session: SessionListItem) -> Unit,
     onBookmark: (session: SessionListItem) -> Unit
 ) {
     val sessions = observe(viewState.sessions) ?: listOf()
-    MaterialTheme {
-        SessionList(sessions = sessions, onClick = onClick, onBookmark = onBookmark)
+    AppTheme {
+        Column {
+            AppBar(title = title)
+            SessionList(sessions = sessions, onClick = onClick, onBookmark = onBookmark)
+        }
     }
 }

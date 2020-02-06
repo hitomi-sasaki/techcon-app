@@ -1,8 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimary">#6200EE</color>
+    <color name="colorPrimary">#e03e63</color>
     <color name="colorPrimaryDark">#3700B3</color>
     <color name="colorAccent">#03DAC5</color>
+    <color name="colorSurface">#ffffff</color>
+    <color name="colorOnBackground">#212529</color>
+    <color name="colorOnSurface">#212529</color>
 
     <color name="immersiveSystemUi">#33000000</color>
     <color name="navigationBar">@color/immersiveSystemUi</color>

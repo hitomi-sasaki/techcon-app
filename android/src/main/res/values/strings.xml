@@ -1,7 +1,7 @@
 <resources>
     <string name="app_name">GREE Tech Conference</string>
 
-    <!-- BottomNav  -->
+    <!-- AppBar & BottomNav  -->
     <string name="menu_article">ニュース</string>
     <string name="menu_session">セッション</string>
     <string name="menu_bookmark">お気に入り</string>
