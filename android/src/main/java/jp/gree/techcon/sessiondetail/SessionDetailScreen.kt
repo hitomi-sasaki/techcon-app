@@ -1,48 +1,35 @@
 package jp.gree.techcon.sessiondetail
 
 import androidx.compose.Composable
-import androidx.compose.unaryPlus
-import androidx.ui.core.Text
-import androidx.ui.unit.dp
 import androidx.ui.foundation.VerticalScroller
+import androidx.ui.foundation.background
+import androidx.ui.graphics.Color
 import androidx.ui.layout.*
-import androidx.ui.material.MaterialTheme
-import androidx.ui.text.font.FontWeight
-import jp.gree.techcon.R
+import androidx.ui.material.Button
+import androidx.ui.material.OutlinedButtonStyle
+import androidx.ui.unit.dp
 import jp.gree.techcon.common.model.Session
 import jp.gree.techcon.common.model.Speaker
-import jp.gree.techcon.composables.VectorImageButton
+import jp.gree.techcon.composables.*
 
 @Composable
 fun SessionDetail(session: Session) {
     VerticalScroller {
-        Padding(left = 16.dp, right = 16.dp) {
+        Padding(left = 16.dp, right = 16.dp, top = 24.dp, bottom = 24.dp) {
             Column {
-                Spacer(modifier = LayoutHeight(24.dp))
                 Header()
-                Spacer(modifier = LayoutHeight(24.dp))
-                Text(
-                    text = session.title,
-                    style = (MaterialTheme.typography()).h4.copy(fontWeight = FontWeight.Bold)
-                )
-                Spacer(modifier = LayoutHeight(16.dp))
-                Text(
-                    text = "12月10日（木） 10:20 - 11:00",
-                    style = (MaterialTheme.typography()).subtitle1
-                )
-                Spacer(modifier = LayoutHeight(32.dp))
-                Text(
-                    text = session.description,
-                    style = (MaterialTheme.typography()).body1
-                )
-                Spacer(modifier = LayoutHeight(32.dp))
-                Text(
-                    text = "発表者",
-                    style = (MaterialTheme.typography()).subtitle1
-                )
-                Spacer(modifier = LayoutHeight(16.dp))
+                VerticalSpace(16.dp)
+                PrimaryText(session.title, appTypography.h4)
+                VerticalSpace(16.dp)
+                SecondaryText(session.tagList.reduce { acc, s -> "#$acc, $s" }, appTypography.body1)
+                VerticalSpace(24.dp)
+                PrimaryText(session.description, appTypography.body1)
+                VerticalSpace(24.dp)
                 session.name.forEach { SpeakerItem(speaker = it) }
-                Spacer(modifier = LayoutHeight(32.dp))
+                VerticalSpace(24.dp)
+                Row(modifier = LayoutWidth.Fill, arrangement = Arrangement.Center) {
+                    Button("スケジュールに追加", style = OutlinedButtonStyle()) // TODO: ImageButton
+                }
             }
         }
     }
@@ -51,42 +38,40 @@ fun SessionDetail(session: Session) {
 @Composable
 fun Header() {
     Row {
-        Text("A-1")
-        Text("／")
-        Text("13:45 - 14:15")
+        PrimaryText("A-1", appTypography.h6)
+        SecondaryText(" / ", appTypography.h6)
+        PrimaryText("13:45 - 14:15", appTypography.h6)
     }
 }
 
 @Composable
 fun SpeakerItem(speaker: Speaker) {
-    Column {
-        Row {
-            Text(
-                text = speaker.name,
-                style = (MaterialTheme.typography()).body2
-            )
-            Spacer(modifier = LayoutWidth(8.dp))
-            Text(
-                text = speaker.title,
-                style = (MaterialTheme.typography()).body2
-            )
-        }
-        if (speaker.description.isNotBlank()) {
-            Spacer(modifier = LayoutWidth(4.dp))
-            Text(
-                text = speaker.description,
-                style = (MaterialTheme.typography()).body2
-            )
-        }
-        FlexRow {
-            flexible(1f) {
-                Column {}
+    Column(
+        modifier = background(Color(247, 247, 247)) + LayoutWidth.Fill
+    ) {
+        Padding(padding = 24.dp) {
+            Column {
+                SpeakerAvatarAndNames(speaker)
+                VerticalSpace(16.dp)
+                PrimaryText(speaker.description, appTypography.caption)
             }
-            inflexible {
-                VectorImageButton(id = R.drawable.ic_twitter) {  }
-                Spacer(modifier = LayoutWidth(16.dp))
-                VectorImageButton(id = R.drawable.ic_github) {}
-            }
+        }
+    }
+}
+
+@Composable
+fun SpeakerAvatarAndNames(speaker: Speaker) {
+    Row {
+        Container(
+            modifier = background(Color(207, 207, 207)),
+            height = 64.dp,
+            width = 64.dp
+        ) {} // TODO: load image
+        HorizontalSpace(16.dp)
+        Column(modifier = LayoutHeight.Min(64.dp), arrangement = Arrangement.Center) {
+            PrimaryText(speaker.name, appTypography.subtitle1)
+            VerticalSpace(8.dp)
+            SecondaryText(speaker.title, appTypography.caption)
         }
     }
 }

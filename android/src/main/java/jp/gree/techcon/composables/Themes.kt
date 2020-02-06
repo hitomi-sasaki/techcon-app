@@ -7,6 +7,7 @@ import androidx.ui.material.Typography
 import androidx.ui.material.darkColorPalette
 import androidx.ui.material.lightColorPalette
 import androidx.ui.text.TextStyle
+import androidx.ui.text.font.FontWeight
 import androidx.ui.unit.sp
 
 val appColors = lightColorPalette(
@@ -16,34 +17,45 @@ val appColors = lightColorPalette(
 
 val appTypography = Typography(
     h4 = TextStyle(
-        fontSize = 30.sp
+        color = appColors.onBackground,
+        fontWeight = FontWeight.Bold,
+        fontSize = 20.sp
     ),
     h5 = TextStyle(
-        fontSize = 24.sp
+        color = Color.Red,
+        fontSize = 20.sp
     ),
     h6 = TextStyle(
+        color = appColors.onBackground,
         fontSize = 20.sp
     ),
     subtitle1 = TextStyle(
-        fontSize = 16.sp
+        color = appColors.onBackground,
+        fontSize = 18.sp
     ),
     subtitle2 = TextStyle(
+        color = appColors.onBackground,
         fontSize = 14.sp
     ),
     body1 = TextStyle(
-        fontSize = 16.sp
-    ),
-    body2 = TextStyle(
+        color = appColors.onBackground,
         fontSize = 14.sp
     ),
+    body2 = TextStyle(
+        color = Color.Red,
+        fontSize = 20.sp
+    ),
     button = TextStyle(
+        color = appColors.onBackground,
         fontSize = 14.sp
     ),
     caption = TextStyle(
+        color = appColors.onBackground,
         fontSize = 12.sp
     ),
     overline = TextStyle(
-        fontSize = 12.sp
+        color = Color.Red,
+        fontSize = 20.sp
     )
 )
 
