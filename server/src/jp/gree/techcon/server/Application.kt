@@ -7,6 +7,7 @@ import io.ktor.features.CallLogging
 import io.ktor.features.ContentNegotiation
 import io.ktor.features.DefaultHeaders
 import io.ktor.http.HttpHeaders
+import io.ktor.http.HttpStatusCode
 import io.ktor.locations.KtorExperimentalLocationsAPI
 import io.ktor.locations.Location
 import io.ktor.locations.Locations
@@ -18,13 +19,15 @@ import io.ktor.routing.post
 import io.ktor.serialization.serialization
 import io.ktor.server.engine.embeddedServer
 import io.ktor.server.netty.Netty
-import jp.gree.techcon.common.model.Article
-import jp.gree.techcon.common.model.ArticleList
+import jp.gree.techcon.common.model.*
 import jp.gree.techcon.common.model.Session
-import jp.gree.techcon.common.model.SessionList
+import jp.gree.techcon.server.service.DatabaseFactory
+import jp.gree.techcon.server.service.SessionService
+import org.jetbrains.exposed.sql.*
 
 @KtorExperimentalLocationsAPI
 fun Application.module() {
+    DatabaseFactory.init(environment.config)
     install(DefaultHeaders) {
         header(HttpHeaders.AccessControlAllowOrigin, "*")
     }
@@ -44,10 +47,16 @@ fun Application.module() {
             call.respond(Session.getSample())
         }
         get("/sessions") {
-            call.respond(SessionList(Session.getDummyList()))
+            call.respond(
+                HttpStatusCode.OK,
+                SessionService().getAllSessions()
+            )
         }
         get("/bookmarks") {
-            call.respond(SessionList(Session.getDummyList().take(4)))
+            call.respond(
+                HttpStatusCode.OK,
+                SessionList(Session.getDummyList().take(4))
+            )
         }
         @Location("article/{id}")
         data class ArticleLocation(val id: Long)

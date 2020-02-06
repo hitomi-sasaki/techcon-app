@@ -1,10 +1,7 @@
-all: build run
+all: build
 
 build:
-	docker build -t server .
-
-run:
-	docker run -p 8080:8080 --rm server
+	docker build -t server . --no-cache
 
 push:
 	docker tag server:latest gcr.io/gree-tech-conference-dev/server:latest

@@ -29,4 +29,7 @@ object AndroidDeps {
 
 object ServerDeps {
     const val shadowVersion = "5.2.0"
+    const val exposedVersion = "0.17.7"
+    const val mysqlConnectorVersion = "8.0.18"
+    const val hikariVersion = "3.4.2"
 }

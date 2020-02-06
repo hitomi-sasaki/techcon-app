@@ -1,0 +1,60 @@
+version: "3"
+
+services:
+  techcon-server:
+#    image: "gcr.io/gree-tech-conference-dev/server"
+    image: "server"
+    container_name: "techcon-server"
+    environment:
+      - "TECHCON_ENV=local"
+      - "TECHCON_JDBC_URL=jdbc:mysql://techcon-mysql:3306/techcon?useSSL=false"
+      - "TECHCON_DATABASE_USER=root"
+      - "TECHCON_DATABASE_PASS=root"
+      - "TECHCON_MEMCACH=techcon-memcache"
+    ports:
+      - "8080:8080"
+    ulimits:
+      nproc: 65535
+      nofile:
+        soft: 20000
+        hard: 40000
+
+  techcon-mysql:
+    image: "mysql:5.7"
+    container_name: "techcon-mysql"
+    environment:
+      - "MYSQL_ROOT_PASSWORD=root"
+      - "LC_ALL=en_US.UTF-8"
+      - "LANG=en_US.UTF-8"
+    ports:
+      - "13306:3306"
+    volumes:
+      - "./mysql/files:/docker-entrypoint-initdb.d:ro"
+      - "./mysql/data:/var/lib/mysql:delegated"
+    command:
+      - "mysqld"
+      - "--character-set-server=utf8mb4"
+      - "--collation-server=utf8mb4_general_ci"
+      - "--sql-mode=NO_ENGINE_SUBSTITUTION"
+    ulimits:
+      nproc: 65535
+      nofile:
+        soft: 20000
+        hard: 40000
+
+  techcon-memcache:
+    image: "memcached:alpine"
+    container_name: "techcon-memcache"
+    ulimits:
+      nproc: 65535
+      nofile:
+        soft: 20000
+        hard: 40000
+
+networks:
+  default:
+    driver: "bridge"
+    ipam:
+      driver: "default"
+      config:
+        - subnet: "192.168.200.0/24"
