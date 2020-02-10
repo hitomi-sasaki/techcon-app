@@ -3,12 +3,60 @@ package jp.gree.techcon.composables
 import androidx.compose.Composable
 import androidx.ui.graphics.Color
 import androidx.ui.material.MaterialTheme
+import androidx.ui.material.Typography
 import androidx.ui.material.darkColorPalette
 import androidx.ui.material.lightColorPalette
+import androidx.ui.text.TextStyle
+import androidx.ui.text.font.FontWeight
+import androidx.ui.unit.sp
 
-val lightColors = lightColorPalette(
+val appColors = lightColorPalette(
     background = Color(red = 255, green = 255, blue = 255),
     onBackground = Color(red = 33, green = 37, blue = 41)
+)
+
+val appTypography = Typography(
+    h4 = TextStyle(
+        color = appColors.onBackground,
+        fontWeight = FontWeight.Bold,
+        fontSize = 20.sp
+    ),
+    h5 = TextStyle(
+        color = Color.Red,
+        fontSize = 20.sp
+    ),
+    h6 = TextStyle(
+        color = appColors.onBackground,
+        fontSize = 20.sp
+    ),
+    subtitle1 = TextStyle(
+        color = appColors.onBackground,
+        fontSize = 18.sp
+    ),
+    subtitle2 = TextStyle(
+        color = appColors.onBackground,
+        fontSize = 14.sp
+    ),
+    body1 = TextStyle(
+        color = appColors.onBackground,
+        fontSize = 14.sp
+    ),
+    body2 = TextStyle(
+        color = Color.Red,
+        fontSize = 20.sp
+    ),
+    button = TextStyle(
+        color = appColors.onBackground,
+        fontSize = 14.sp
+    ),
+    caption = TextStyle(
+        color = appColors.onBackground,
+        fontSize = 12.sp
+    ),
+    overline = TextStyle(
+        color = Color.Red,
+        fontSize = 20.sp
+    )
 )
 
 /**
@@ -19,5 +67,5 @@ val darkColors = darkColorPalette()
 
 @Composable
 fun AppTheme(children: @Composable() () -> Unit) {
-    MaterialTheme(colors = lightColors, children = children)
+    MaterialTheme(colors = appColors, typography = appTypography, children = children)
 }

@@ -18,7 +18,7 @@ import jp.gree.techcon.composables.common.AppBar
 import jp.gree.techcon.observe
 
 class SessionListFragment : Fragment() {
-    private val vm = SessionListService()
+    private val service = SessionListService()
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -29,7 +29,7 @@ class SessionListFragment : Fragment() {
 
         val root = FrameLayout(requireContext())
         root.setContent {
-            SessionListScreen(title, vm, this::onClick, this::onBookmark)
+            SessionListScreen(title, service, this::onClick, this::onBookmark)
         }
         return root
     }
@@ -40,7 +40,7 @@ class SessionListFragment : Fragment() {
     }
 
     private fun onBookmark(session: SessionListItem) {
-        vm.updateBookmark(session.id, !session.isBookmarked) // TODO
+        service.updateBookmark(session.id, !session.isBookmarked) // TODO
     }
 }
 

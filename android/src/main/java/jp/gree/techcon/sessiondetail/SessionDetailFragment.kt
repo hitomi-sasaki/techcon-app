@@ -4,13 +4,16 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.FrameLayout
 import androidx.compose.Composable
-import androidx.compose.unaryPlus
 import androidx.fragment.app.Fragment
+import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import androidx.ui.core.setContent
-import androidx.ui.material.MaterialTheme
+import androidx.ui.layout.Column
 import jp.gree.techcon.common.SessionDetailState
+import jp.gree.techcon.composables.AppTheme
+import jp.gree.techcon.composables.common.AppBar
 import jp.gree.techcon.observe
 
 class SessionDetailFragment : Fragment() {
@@ -22,16 +25,22 @@ class SessionDetailFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        container?.setContent { Root(viewState) }
-        return super.onCreateView(inflater, container, savedInstanceState)
-    }
+        val title = ""
+        val onBackClick = { findNavController().popBackStack(); Unit }
 
+        val root = FrameLayout(requireContext())
+        root.setContent { SessionDetailScreen(title, viewState, onBackClick) }
+        return root
+    }
 }
 
 @Composable
-fun Root(viewState: SessionDetailState) {
+fun SessionDetailScreen(title: String, viewState: SessionDetailState, onBackClick: () -> Unit) {
     val session = observe(viewState.session) ?: return
-    MaterialTheme {
-        SessionDetail(session = session)
+    AppTheme {
+        Column {
+            AppBar(title = title, onBackClick = onBackClick, onShareClick = { /* TODO */ })
+            SessionDetail(session = session)
+        }
     }
 }
