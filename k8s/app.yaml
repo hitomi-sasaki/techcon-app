@@ -23,4 +23,6 @@ spec:
         - containerPort: 8080
         envFrom:
         - secretRef:
-            name: techcon-app-mysql-secret
+            name: techcon-app-database-secret
+        - secretRef:
+            name: techcon-app-environment-secret
