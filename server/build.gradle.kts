@@ -30,6 +30,8 @@ dependencies {
     implementation("io.ktor:ktor-server-netty:${Deps.ktorVersion}")
     implementation("io.ktor:ktor-gson:${Deps.ktorVersion}")
     implementation("io.ktor:ktor-locations:${Deps.ktorVersion}")
+    implementation("io.ktor:ktor-auth:${Deps.ktorVersion}")
+    implementation("io.ktor:ktor-auth-jwt:${Deps.ktorVersion}")
     implementation("ch.qos.logback:logback-classic:1.2.3")
     implementation("org.jetbrains.exposed:exposed:${ServerDeps.exposedVersion}")
     implementation("mysql:mysql-connector-java:${ServerDeps.mysqlConnectorVersion}")
