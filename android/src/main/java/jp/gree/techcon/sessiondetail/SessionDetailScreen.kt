@@ -21,7 +21,7 @@ fun SessionDetail(session: Session) {
                 VerticalSpace(16.dp)
                 PrimaryText(session.title, appTypography.h4)
                 VerticalSpace(16.dp)
-                SecondaryText(session.tagList.reduce { acc, s -> "#$acc, $s" }, appTypography.body1)
+                SecondaryText(session.tagList.map { "#${it.name}" }.joinToString(" "), appTypography.body1)
                 VerticalSpace(24.dp)
                 PrimaryText(session.description, appTypography.body1)
                 VerticalSpace(24.dp)
