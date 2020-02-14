@@ -5,6 +5,8 @@ import com.zaxxer.hikari.HikariConfig
 import com.zaxxer.hikari.HikariDataSource
 import io.ktor.config.ApplicationConfig
 import io.ktor.util.KtorExperimentalAPI
+import org.jetbrains.exposed.dao.Entity
+import org.jetbrains.exposed.dao.EntityClass
 import org.jetbrains.exposed.sql.transactions.experimental.newSuspendedTransaction
 
 object DatabaseFactory {
@@ -29,4 +31,15 @@ object DatabaseFactory {
 
     suspend fun <T> dbQuery(
         block: suspend () -> T): T =
-        newSuspendedTransaction { block() }}
+        newSuspendedTransaction { block() }
+
+    fun <K: Comparable<K>, E: Entity<K>, T: EntityClass<K, E>>upsert(entityClass: T, id: K, block: E.() -> Unit): E {
+        entityClass.findById(id)?.let {
+            block(it)
+            return it
+        }
+        return entityClass.new(id) {
+            block(this)
+        }
+    }
+}

@@ -44,3 +44,10 @@ tasks.withType<ShadowJar> {
     version = null
     manifest {}
 }
+
+tasks.register("initializeDB", JavaExec::class) {
+    group = "development"
+    description = "setup DB schema and initial records."
+    main = "jp.gree.techcon.server.task.InitializeDBKt"
+    classpath = sourceSets.getByName("main").runtimeClasspath
+}
