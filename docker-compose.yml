@@ -23,6 +23,7 @@ services:
     image: "mysql:5.7"
     container_name: "techcon-mysql"
     environment:
+      - "MYSQL_DATABASE=techcon"
       - "MYSQL_ROOT_PASSWORD=root"
       - "LC_ALL=en_US.UTF-8"
       - "LANG=en_US.UTF-8"
