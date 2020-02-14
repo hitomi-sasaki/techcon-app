@@ -65,7 +65,7 @@ fun Application.module() {
                 // val firebaseUid: String? = call.authentication.firebaseUid()
                 call.respond(
                     HttpStatusCode.OK,
-                    SessionService().getAllSessions()
+                    SessionList(SessionService().getAllSessions())
                 )
             }
             get("/bookmarks") {
