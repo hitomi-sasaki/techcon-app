@@ -3,10 +3,10 @@ kind: Service
 metadata:
   name: techcon-app-service
 spec:
-  type: LoadBalancer
+  type: NodePort
+  selector:
+    app: techcon-app
   ports:
   - port: 80
     protocol: TCP
     targetPort: 8080
-  selector:
-    app: techcon-app
