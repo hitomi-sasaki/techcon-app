@@ -68,7 +68,6 @@ fun Application.module() {
     }
     install(StatusPages) {
         exception<Throwable> { cause ->
-            call.application.log.error(cause.toString())
             call.respond(HttpStatusCode.InternalServerError)
         }
         exception<NotFoundException> { cause ->
