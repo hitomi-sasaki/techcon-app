@@ -6,10 +6,10 @@ import jp.gree.techcon.server.dao.*
 import jp.gree.techcon.server.entity.Session
 import jp.gree.techcon.server.entity.Speaker
 import jp.gree.techcon.server.entity.Tag
+import jp.gree.techcon.server.entity.Track
 import jp.gree.techcon.server.service.DatabaseFactory
 import org.jetbrains.exposed.sql.SchemaUtils
 import org.jetbrains.exposed.sql.SizedCollection
-import org.jetbrains.exposed.sql.transactions.TransactionManager
 import org.jetbrains.exposed.sql.transactions.transaction
 
 @KtorExperimentalAPI
@@ -23,7 +23,7 @@ fun main(args: Array<String>) {
 
 object InitializeDB {
     const val DATABASE = "techcon"
-    val TABLES = arrayOf(Sessions, SpeakerRelations, Speakers, TagRelations, Tags)
+    val TABLES = arrayOf(Sessions, SpeakerRelations, Speakers, TagRelations, Tags, Tracks, Schedules)
 
     fun setupSchema() {
         transaction {
@@ -31,7 +31,20 @@ object InitializeDB {
         }
     }
 
+
     fun setupInitialRecords() {
+        val TRACK_A = transaction {
+            DatabaseFactory.upsert(Track.Companion, 1) {
+                name = "Aトラック"
+                order = 1
+            }
+        }
+        val TRACK_B = transaction {
+            DatabaseFactory.upsert(Track.Companion, 2) {
+                name = "Bトラック"
+                order = 2
+            }
+        }
         transaction {
             val TAG_IOS = DatabaseFactory.upsert(Tag.Companion, 1) {
                 name = "iOS"
@@ -89,6 +102,7 @@ object InitializeDB {
                         "これらの知見を共有することで、goに移行した方が良いケースと悪いケースを明らかにしたいと思います。"
                 slideUrl = "https://www.slideshare.net/greetech/phpgo-200234954"
                 movieUrl = "https://www.youtube.com/watch?v=PD4lWpEXE2Q"
+                track = TRACK_A
                 speakers = SizedCollection(SPEAKER_01)
                 tags = SizedCollection(TAG_WEB, TAG_PHP, TAG_GO)
             }
@@ -103,6 +117,7 @@ object InitializeDB {
                         "そして当初の目論見と異なった点について説明します"
                 slideUrl = "https://www.slideshare.net/greetech/sql-203319046"
                 movieUrl = "https://www.youtube.com/watch?v=qad2CqdgjzU"
+                track = TRACK_A
                 speakers = SizedCollection(SPEAKER_02)
                 tags = SizedCollection(TAG_WEB)
             }
@@ -115,6 +130,7 @@ object InitializeDB {
                         "このセッションでは、モバイル向け広告SDKを開発/運用しているエンジニアの考えていることや、開発する上で大事にしていること、課題に感じていること、開発の方法などを発表します。"
                 slideUrl = "https://www.slideshare.net/greetech/realityvtuber1"
                 movieUrl = "https://www.youtube.com/watch?v=A0Ro_f5kzc8"
+                track = TRACK_B
                 speakers = SizedCollection(SPEAKER_03)
                 tags = SizedCollection(TAG_IOS, TAG_SWIFT)
             }

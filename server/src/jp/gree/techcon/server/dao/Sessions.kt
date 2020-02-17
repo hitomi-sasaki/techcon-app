@@ -9,4 +9,5 @@ object Sessions : IntIdTable() {
     val description = varchar("description", 4096)
     val slideUrl = varchar("slide_url", 1024)
     val movieUrl = varchar("movie_url", 1024)
+    val track = reference("track_id", Tracks)
 }

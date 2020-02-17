@@ -18,4 +18,5 @@ class Session(id: EntityID<Int>) : IntEntity(id) {
     var movieUrl by Sessions.movieUrl
     var speakers by Speaker via SpeakerRelations
     var tags by Tag via TagRelations
+    var track by Track referencedOn Sessions.track
 }

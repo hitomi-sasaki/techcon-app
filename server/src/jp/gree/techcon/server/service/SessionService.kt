@@ -2,6 +2,7 @@ package jp.gree.techcon.server.service
 
 import jp.gree.techcon.server.entity.*
 import jp.gree.techcon.server.service.DatabaseFactory.dbQuery
+import org.jetbrains.exposed.dao.with
 import jp.gree.techcon.common.model.Session as SessionModel
 import jp.gree.techcon.common.model.Speaker as SpeakerModel
 import jp.gree.techcon.common.model.Tag as TagModel
@@ -13,7 +14,7 @@ class SessionService {
 
         // get data from database
         dbQuery {
-            sessions = Session.all().toList()
+            sessions = Session.all().with(Session::tags, Session::speakers, Session::track).toList()
             // format data
             result = sessions.map { session ->
                 val names: List<SpeakerModel> = session.speakers.map { speaker ->
