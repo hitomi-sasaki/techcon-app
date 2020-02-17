@@ -1,4 +1,5 @@
 import com.github.jengelman.gradle.plugins.shadow.tasks.ShadowJar
+import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 
 plugins {
     application
@@ -36,6 +37,14 @@ dependencies {
     implementation("org.jetbrains.exposed:exposed:${ServerDeps.exposedVersion}")
     implementation("mysql:mysql-connector-java:${ServerDeps.mysqlConnectorVersion}")
     implementation("com.zaxxer:HikariCP:${ServerDeps.hikariVersion}")
+    implementation("org.kodein.di:kodein-di-generic-jvm:${Deps.kodein}")
+    implementation("org.kodein.di:kodein-di-framework-ktor-server-jvm:${Deps.kodein}")
+}
+
+tasks.withType<org.jetbrains.kotlin.gradle.tasks.KotlinCompile> {
+    kotlinOptions {
+        jvmTarget = "1.8"
+    }
 }
 
 tasks.withType<ShadowJar> {

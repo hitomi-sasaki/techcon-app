@@ -13,4 +13,12 @@ class Speaker(id: EntityID<Int>) : IntEntity(id) {
     var githubId by Speakers.githubId
     var twitterId by Speakers.twitterId
     var description by Speakers.description
+
+    fun toCommonObject() = jp.gree.techcon.common.model.Speaker(
+        name = name,
+        title = title,
+        githubId = githubId,
+        twitterId = twitterId,
+        description = description
+    )
 }

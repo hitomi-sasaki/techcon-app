@@ -6,9 +6,12 @@ import jp.gree.techcon.server.dao.TagRelations
 import org.jetbrains.exposed.dao.EntityID
 import org.jetbrains.exposed.dao.IntEntity
 import org.jetbrains.exposed.dao.IntEntityClass
+import org.jetbrains.exposed.dao.load
 
 class Session(id: EntityID<Int>) : IntEntity(id) {
-    companion object: IntEntityClass<Session>(Sessions)
+    companion object: IntEntityClass<Session>(Sessions) {
+        val relations = arrayOf(Session::speakers, Session::tags)
+    }
 
     var startTime by Sessions.startTime
     var endTime by Sessions.endTime
@@ -18,4 +21,18 @@ class Session(id: EntityID<Int>) : IntEntity(id) {
     var movieUrl by Sessions.movieUrl
     var speakers by Speaker via SpeakerRelations
     var tags by Tag via TagRelations
+
+    fun toCommonObject() = jp.gree.techcon.common.model.Session(
+        id = id.value.toLong(),
+        name = speakers.map { it.toCommonObject() },
+        startTime = startTime.toLong(),
+        endTime = endTime.toLong(),
+        title = title,
+        description = description,
+        tagList = tags.map { it.toCommonObject() },
+        slideUrl = slideUrl,
+        movieUrl = movieUrl
+    )
+
+    fun loadRelations() = load(*relations)
 }

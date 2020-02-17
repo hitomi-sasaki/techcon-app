@@ -9,4 +9,6 @@ class Tag(id: EntityID<Int>) : IntEntity(id) {
     companion object: IntEntityClass<Tag>(Tags)
 
     var name by Tags.name
+
+    fun toCommonObject() = jp.gree.techcon.common.model.Tag(name = name)
 }

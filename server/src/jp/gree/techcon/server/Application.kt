@@ -3,12 +3,10 @@ package jp.gree.techcon.server
 import io.ktor.application.Application
 import io.ktor.application.call
 import io.ktor.application.install
+import io.ktor.application.log
 import io.ktor.auth.Authentication
 import io.ktor.auth.authenticate
-import io.ktor.auth.authentication
-import io.ktor.features.CallLogging
-import io.ktor.features.ContentNegotiation
-import io.ktor.features.DefaultHeaders
+import io.ktor.features.*
 import io.ktor.http.HttpHeaders
 import io.ktor.http.HttpStatusCode
 import io.ktor.locations.KtorExperimentalLocationsAPI
@@ -27,16 +25,34 @@ import jp.gree.techcon.common.model.Article
 import jp.gree.techcon.common.model.ArticleList
 import jp.gree.techcon.common.model.Session
 import jp.gree.techcon.common.model.SessionList
+import jp.gree.techcon.server.controller.SessionController
+import jp.gree.techcon.server.repository.SessionRepository
 import jp.gree.techcon.server.service.DatabaseFactory
 import jp.gree.techcon.server.service.SessionService
-import jp.gree.techcon.server.service.firebaseUid
 import jp.gree.techcon.server.service.techcon
+import org.jetbrains.exposed.exceptions.EntityNotFoundException
+import org.kodein.di.Kodein
+import org.kodein.di.generic.bind
+import org.kodein.di.generic.instance
+import org.kodein.di.generic.singleton
 
+
+object KodeinModules {
+    private val session = Kodein.Module("SESSION") {
+        bind() from singleton { SessionController(instance()) }
+        bind() from singleton { SessionService(instance()) }
+        bind() from singleton { SessionRepository() }
+    }
+    val kodein = Kodein {
+        import(session)
+    }
+}
 
 @KtorExperimentalAPI
 @KtorExperimentalLocationsAPI
 fun Application.module() {
     DatabaseFactory.init(environment.config)
+    val sessionController by KodeinModules.kodein.instance<SessionController>()
     install(DefaultHeaders) {
         header(HttpHeaders.AccessControlAllowOrigin, "*")
     }
@@ -50,24 +66,24 @@ fun Application.module() {
             gcpProject = environment.config.property("ktor.techcon.gcpProject").getString()
         }
     }
+    install(StatusPages) {
+        exception<Throwable> { cause ->
+            call.application.log.error(cause.toString())
+            call.respond(HttpStatusCode.InternalServerError)
+        }
+        exception<NotFoundException> { cause ->
+            call.respond(HttpStatusCode.NotFound)
+        }
+    }
     routing {
         authenticate(optional = true) {
             get("/") {
                 call.respond("hello")
             }
             @Location("/session/{id}")
-            data class SessionLocation(val id: Long)
-            get<SessionLocation> { param ->
-                val id = param.id
-                call.respond(Session.getSample())
-            }
-            get("/sessions") {
-                // val firebaseUid: String? = call.authentication.firebaseUid()
-                call.respond(
-                    HttpStatusCode.OK,
-                    SessionList(SessionService().getAllSessions())
-                )
-            }
+            data class SessionLocation(val id: Int)
+            get<SessionLocation> { sessionController.get(it.id, call) }
+            get("/sessions") { sessionController.list(call) }
             get("/bookmarks") {
                 call.respond(
                     HttpStatusCode.OK,
