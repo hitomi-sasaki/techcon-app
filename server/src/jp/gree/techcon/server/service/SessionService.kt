@@ -41,4 +41,36 @@ class SessionService {
         }
         return result
     }
+
+    suspend fun get(id: Int): SessionModel? {
+        var result: SessionModel? = null
+        // get data from database
+        dbQuery {
+            val session: Session = Session.get(id)
+            val names: List<SpeakerModel> = session.speakers.map { speaker ->
+                SpeakerModel(
+                    speaker.name,
+                    speaker.title,
+                    speaker.githubId,
+                    speaker.twitterId,
+                    speaker.description
+                )
+            }
+            val tagNames: List<String> = session.tags.map { tag ->
+                tag.name
+            }
+            result = SessionModel(
+                session.id.value.toLong(),
+                names,
+                session.startTime.toLong(),
+                session.endTime.toLong(),
+                session.title,
+                session.description,
+                tagNames,
+                session.slideUrl,
+                session.movieUrl
+            )
+        }
+        return result
+    }
 }

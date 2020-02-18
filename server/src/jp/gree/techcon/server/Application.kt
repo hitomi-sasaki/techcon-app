@@ -56,10 +56,17 @@ fun Application.module() {
                 call.respond("hello")
             }
             @Location("/session/{id}")
-            data class SessionLocation(val id: Long)
+            data class SessionLocation(val id: Int)
             get<SessionLocation> { param ->
-                val id = param.id
-                call.respond(Session.getSample())
+                val session = SessionService().get(param.id)
+                if (session == null) {
+                    call.respond(HttpStatusCode.NotFound)
+                } else {
+                    call.respond(
+                        HttpStatusCode.OK,
+                        session
+                    )
+                }
             }
             get("/sessions") {
                 // val firebaseUid: String? = call.authentication.firebaseUid()
