@@ -10,7 +10,7 @@ data class Session(
     val endTime: Long,
     val title: String,
     val description: String,
-    val tagList: List<Tag>,
+    val tagList: List<String>,
     val slideUrl: String? = null,
     val movieUrl: String? = null
 ) {
@@ -21,9 +21,27 @@ data class Session(
             val description = getSampleDescription()
             val slideUrl = getSampleSlideUrl()
             val movieUrl = getSampleMovieUrl()
-            val tagList = listOf(Tag.getSample(), Tag.getSample())
+            val tagList = listOf(getSampleTag(), getSampleTag())
             return Session(1, speakers, 1574157622, 1574157622 + 6000, title, description, tagList, slideUrl, movieUrl)
         }
+
+        fun getSampleTag() = listOf(
+            "iOS",
+            "Android",
+            "Web",
+            "インフラ",
+            "Kotlin",
+            "PHP",
+            "go",
+            "Swift",
+            "Kubernetes",
+            "GCP",
+            "AWS",
+            "Laravel",
+            "Ktor",
+            "Unity",
+            "teraform"
+        ).random()
 
         fun getDummyList(): List<Session> {
             val session = Session(-1, listOf(Speaker.getSample()), 1574157622, 1574157622 + 6000, "", "", listOf(), "", "")
