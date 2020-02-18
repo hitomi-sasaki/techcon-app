@@ -1,4 +1,4 @@
-package jp.gree.techcon.sessionlist
+package jp.gree.techcon.screens.sessionlist
 
 import androidx.compose.Composable
 import androidx.ui.core.Text

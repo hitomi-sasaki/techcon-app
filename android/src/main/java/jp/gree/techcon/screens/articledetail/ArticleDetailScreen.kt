@@ -1,4 +1,4 @@
-package jp.gree.techcon.articledetail
+package jp.gree.techcon.screens.articledetail
 
 import androidx.compose.Composable
 import androidx.ui.core.Text

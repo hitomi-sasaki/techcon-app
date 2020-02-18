@@ -5,10 +5,10 @@
         app:startDestination="@+id/sessionListFragment">
     <fragment
             android:id="@+id/articleListFragment"
-            android:name="jp.gree.techcon.articlelist.ArticleListFragment" />
+            android:name="jp.gree.techcon.screens.articlelist.ArticleListFragment" />
     <fragment
             android:id="@+id/sessionListFragment"
-            android:name="jp.gree.techcon.sessionlist.SessionListFragment">
+            android:name="jp.gree.techcon.screens.sessionlist.SessionListFragment">
         <action
                 android:id="@+id/to_detail"
                 app:destination="@+id/sessionDetailFragment" />
@@ -18,14 +18,14 @@
     </fragment>
     <fragment
             android:id="@+id/sessionDetailFragment"
-            android:name="jp.gree.techcon.sessiondetail.SessionDetailFragment">
+            android:name="jp.gree.techcon.screens.sessiondetail.SessionDetailFragment">
         <argument
                 android:name="sessionId"
                 app:argType="long" />
     </fragment>
     <fragment
             android:id="@+id/articleDetailFragment"
-            android:name="jp.gree.techcon.articledetail.ArticleDetailFragment">
+            android:name="jp.gree.techcon.screens.articledetail.ArticleDetailFragment">
         <argument
                 android:name="articleId"
                 app:argType="long" />

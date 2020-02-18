@@ -1,4 +1,4 @@
-package jp.gree.techcon.sessiondetail
+package jp.gree.techcon.screens.sessiondetail
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -13,7 +13,7 @@ import androidx.ui.core.setContent
 import androidx.ui.layout.Column
 import jp.gree.techcon.common.SessionDetailState
 import jp.gree.techcon.composables.AppTheme
-import jp.gree.techcon.composables.common.AppBar
+import jp.gree.techcon.composables.component.AppBar
 import jp.gree.techcon.observe
 
 class SessionDetailFragment : Fragment() {

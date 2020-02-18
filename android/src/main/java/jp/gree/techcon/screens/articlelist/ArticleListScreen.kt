@@ -1,4 +1,4 @@
-package jp.gree.techcon.articlelist
+package jp.gree.techcon.screens.articlelist
 
 import androidx.compose.Composable
 import androidx.ui.core.Text
@@ -6,8 +6,6 @@ import androidx.ui.unit.dp
 import androidx.ui.foundation.Clickable
 import androidx.ui.foundation.VerticalScroller
 import androidx.ui.layout.Column
-import androidx.ui.layout.LayoutSize
-import androidx.ui.layout.LayoutWidth
 import androidx.ui.layout.Padding
 import androidx.ui.material.MaterialTheme
 import androidx.ui.material.ripple.Ripple
