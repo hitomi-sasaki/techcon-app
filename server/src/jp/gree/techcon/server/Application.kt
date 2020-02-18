@@ -27,10 +27,7 @@ import jp.gree.techcon.common.model.Article
 import jp.gree.techcon.common.model.ArticleList
 import jp.gree.techcon.common.model.Session
 import jp.gree.techcon.common.model.SessionList
-import jp.gree.techcon.server.service.DatabaseFactory
-import jp.gree.techcon.server.service.SessionService
-import jp.gree.techcon.server.service.firebaseUid
-import jp.gree.techcon.server.service.techcon
+import jp.gree.techcon.server.service.*
 
 
 @KtorExperimentalAPI
@@ -75,13 +72,23 @@ fun Application.module() {
                 )
             }
             @Location("article/{id}")
-            data class ArticleLocation(val id: Long)
+            data class ArticleLocation(val id: Int)
             get<ArticleLocation> { param ->
-                val id = param.id
-                call.respond(Article.getSample(id))
+                val article = ArticleService().get(param.id)
+                if (article == null) {
+                    call.respond(HttpStatusCode.NotFound)
+                } else {
+                    call.respond(
+                        HttpStatusCode.OK,
+                        article
+                    )
+                }
             }
             get("/articles") {
-                call.respond(ArticleList(Article.getSamples()))
+                call.respond(
+                    HttpStatusCode.OK,
+                    ArticleList(ArticleService().getAll())
+                )
             }
             post("/bookmark") {
                 call.respond(Session.getSample())

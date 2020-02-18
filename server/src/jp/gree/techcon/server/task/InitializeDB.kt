@@ -3,6 +3,7 @@ package jp.gree.techcon.server.task
 import io.ktor.server.engine.commandLineEnvironment
 import io.ktor.util.KtorExperimentalAPI
 import jp.gree.techcon.server.dao.*
+import jp.gree.techcon.server.entity.Article
 import jp.gree.techcon.server.entity.Session
 import jp.gree.techcon.server.entity.Speaker
 import jp.gree.techcon.server.entity.Tag
@@ -23,7 +24,7 @@ fun main(args: Array<String>) {
 
 object InitializeDB {
     const val DATABASE = "techcon"
-    val TABLES = arrayOf(Sessions, SpeakerRelations, Speakers, TagRelations, Tags)
+    val TABLES = arrayOf(Sessions, SpeakerRelations, Speakers, TagRelations, Tags, Articles)
 
     fun setupSchema() {
         transaction {
@@ -117,6 +118,30 @@ object InitializeDB {
                 movieUrl = "https://www.youtube.com/watch?v=A0Ro_f5kzc8"
                 speakers = SizedCollection(SPEAKER_03)
                 tags = SizedCollection(TAG_IOS, TAG_SWIFT)
+            }
+
+            val ARTICLE_01 = DatabaseFactory.upsert(Article.Companion, 1) {
+                title = "GREE Tech Conference 2020 公式アプリをダウンロードいただきありがとうございます。"
+                description = "GREE Tech Conference 2020 公式アプリへようこそ。" +
+                        "セッションをブックマークすることでマイスケジュールが作成できます。" +
+                        "アプリを活用して GREE Tech Conference 2020 をお楽しみください。" +
+                        "プライバシーポリシー" +
+                        "https://techcon.gree.jp/xxxx" +
+                        "利用規約" +
+                        "https://techcon.gree.jp/xxxx"
+                publishedAt = 1574157622
+            }
+
+            val ARTICLE_02 = DatabaseFactory.upsert(Article.Companion, 2) {
+                title = "ブース情報追加しました"
+                description = ""
+                publishedAt = 1574157622
+            }
+
+            val ARTICLE_03 = DatabaseFactory.upsert(Article.Companion, 3) {
+                title = "いよいよ今週末です"
+                description = "いよいよ今週末です"
+                publishedAt = 1574157622
             }
         }
     }
