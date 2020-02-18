@@ -12,7 +12,7 @@ import jp.gree.techcon.composables.*
 @Composable
 fun Lounge() {
     VerticalScroller {
-        Padding(left = 16.dp, right = 16.dp, top = 24.dp, bottom = 24.dp) {
+        ScreenPadding {
             Column {
                 PrimaryText("ブースやフリーコーヒー、電源などを準備しています。休憩や、交流の場所としてご利用ください。", appTypography.body1)
                 VerticalSpace(24.dp)

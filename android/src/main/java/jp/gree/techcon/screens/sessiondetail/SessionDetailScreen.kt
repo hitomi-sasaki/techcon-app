@@ -15,7 +15,7 @@ import jp.gree.techcon.composables.*
 @Composable
 fun SessionDetail(session: Session) {
     VerticalScroller {
-        Padding(left = 16.dp, right = 16.dp, top = 24.dp, bottom = 24.dp) {
+        ScreenPadding {
             Column {
                 Header()
                 VerticalSpace(16.dp)
