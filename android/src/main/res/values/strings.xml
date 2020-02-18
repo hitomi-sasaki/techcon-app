@@ -5,5 +5,5 @@
     <string name="menu_article">ニュース</string>
     <string name="menu_session">セッション</string>
     <string name="menu_bookmark">お気に入り</string>
-    <string name="menu_booth">ラウンジ</string>
+    <string name="menu_lounge">ラウンジ</string>
 </resources>

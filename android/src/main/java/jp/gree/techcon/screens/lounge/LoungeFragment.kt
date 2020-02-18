@@ -1,4 +1,4 @@
-package jp.gree.techcon.screens.articlelist
+package jp.gree.techcon.screens.lounge
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -9,35 +9,29 @@ import androidx.compose.Composable
 import androidx.fragment.app.Fragment
 import androidx.ui.core.setContent
 import androidx.ui.layout.Column
-import androidx.ui.material.MaterialTheme
 import jp.gree.techcon.R
-import jp.gree.techcon.common.viewstate.ArticleListViewModel
 import jp.gree.techcon.composables.AppTheme
 import jp.gree.techcon.composables.component.AppBar
-import jp.gree.techcon.observe
-import jp.gree.techcon.screens.lounge.LoungeScreen
 
-class ArticleListFragment : Fragment() {
-    private val vm = ArticleListViewModel()
-
+class LoungeFragment: Fragment() {
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        val title = getString(R.string.menu_article)
+        val title = getString(R.string.menu_lounge)
 
         val root = FrameLayout(requireContext())
         root.setContent {
-            ArticleListScreen(title)
+            LoungeScreen(title)
         }
         return root
     }
+
 }
 
-
 @Composable
-fun ArticleListScreen(title: String) {
+fun LoungeScreen(title: String) {
     AppTheme {
         Column {
             AppBar(title = title)

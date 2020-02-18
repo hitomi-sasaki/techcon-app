@@ -15,7 +15,7 @@
             android:title="@string/menu_bookmark" />
 
     <item
-            android:id="@+id/articleDetail"
+            android:id="@+id/lounge"
             android:icon="@drawable/ic_lounge"
-            android:title="@string/menu_booth" />
+            android:title="@string/menu_lounge" />
 </menu>
