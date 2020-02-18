@@ -7,6 +7,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.updatePadding
 import androidx.navigation.findNavController
 import androidx.navigation.ui.setupWithNavController
+import com.google.firebase.auth.FirebaseAuth
 import dev.chrisbanes.insetter.doOnApplyWindowInsets
 import jp.gree.techcon.common.util.GlobalEvent
 import jp.gree.techcon.databinding.ActivityMainBinding
@@ -33,6 +34,31 @@ class MainActivity : AppCompatActivity() {
         // TODO: This is Sample code. remove this later
         closable = GlobalEvent.onError.watch {
             Toast.makeText(this, it, Toast.LENGTH_SHORT).show()
+        }
+    }
+
+    override fun onStart() {
+        super.onStart()
+
+        // TODO: zatsu
+        val user = FirebaseAuth.getInstance().currentUser
+        if (user == null) {
+            FirebaseAuth.getInstance().signInAnonymously().addOnCompleteListener {
+                if (it.isSuccessful) {
+                    Toast.makeText(this, "Success", Toast.LENGTH_SHORT).show()
+                } else {
+                    Toast.makeText(this, "Failed to sign in", Toast.LENGTH_SHORT).show()
+                }
+            }
+        } else {
+            user.getIdToken(true).addOnCompleteListener {
+                if (it.isSuccessful) {
+                    val idToken = it.result!!.token
+                    Toast.makeText(this, idToken, Toast.LENGTH_SHORT).show()
+                } else {
+                    Toast.makeText(this, "Auth failed", Toast.LENGTH_SHORT).show()
+                }
+            }
         }
     }
 

@@ -3,6 +3,7 @@ plugins {
     id("kotlin-android")
     id("kotlin-android-extensions")
     id("androidx.navigation.safeargs.kotlin")
+    id("com.google.gms.google-services")
 }
 
 android {
@@ -21,6 +22,9 @@ android {
         viewBinding = true
     }
     buildTypes {
+        val debug by getting {
+            applicationIdSuffix = ".dev"
+        }
         val release by getting {
             isMinifyEnabled = false
             proguardFiles(getDefaultProguardFile("proguard-android-optimize.txt"), "proguard-rules.pro")
@@ -63,6 +67,7 @@ dependencies {
     implementation("dev.chrisbanes:insetter-ktx:${AndroidDeps.insetterVersion}")
     implementation("androidx.core:core-ktx:${AndroidDeps.coreVersion}")
     implementation("com.google.android.material:material:${AndroidDeps.materialVersion}")
+    implementation("com.google.firebase:firebase-auth:${AndroidDeps.authVersion}")
     testImplementation("junit:junit:4.12")
     androidTestImplementation("androidx.test.ext:junit:1.1.1")
     androidTestImplementation("androidx.test.espresso:espresso-core:3.2.0")

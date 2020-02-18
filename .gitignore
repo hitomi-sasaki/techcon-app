@@ -109,3 +109,6 @@ iOSInjectionProject/
 # Server
 mysql/
 *~
+
+# Firebase
+google-services.json
