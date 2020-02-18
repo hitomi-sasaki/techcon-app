@@ -30,7 +30,7 @@ class BookmarkFragment : Fragment() {
 
         val root = FrameLayout(requireContext())
         root.setContent {
-            SessionListScreen(title, service, this::onClick, this::onBookmark)
+            BookmarkScreen(title, service, this::onClick, this::onBookmark)
         }
         return root
     }
@@ -46,7 +46,7 @@ class BookmarkFragment : Fragment() {
 }
 
 @Composable
-fun SessionListScreen(
+fun BookmarkScreen(
     title: String,
     viewState: SessionListService,
     onClick: (session: SessionListItem) -> Unit,

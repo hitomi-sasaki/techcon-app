@@ -35,6 +35,7 @@ fun LoungeScreen(title: String) {
     AppTheme {
         Column {
             AppBar(title = title)
+            Lounge()
         }
     }
 }
