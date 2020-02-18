@@ -29,7 +29,7 @@ class SessionListFragment : Fragment() {
 
         val root = FrameLayout(requireContext())
         root.setContent {
-            jp.gree.techcon.screens.bookmark.SessionListScreen(
+            SessionListScreen(
                 title,
                 service,
                 this::onClick,
@@ -41,7 +41,7 @@ class SessionListFragment : Fragment() {
 
     private fun onClick(session: SessionListItem) {
         // findNavController().navigate(SessionListFragmentDirections.toArticle(1234))
-        // findNavController().navigate(SessionListFragmentDirections.toDetail(session.id))
+        findNavController().navigate(SessionListFragmentDirections.toDetail(session.id))
     }
 
     private fun onBookmark(session: SessionListItem) {

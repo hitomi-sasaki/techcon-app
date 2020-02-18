@@ -3,8 +3,10 @@ package jp.gree.techcon.composables
 import androidx.compose.Composable
 import androidx.ui.layout.LayoutHeight
 import androidx.ui.layout.LayoutWidth
+import androidx.ui.layout.Padding
 import androidx.ui.layout.Spacer
 import androidx.ui.unit.Dp
+import androidx.ui.unit.dp
 
 @Composable
 fun VerticalSpace(height: Dp) {
@@ -14,4 +16,9 @@ fun VerticalSpace(height: Dp) {
 @Composable
 fun HorizontalSpace(width: Dp) {
     Spacer(modifier = LayoutWidth(width = width))
+}
+
+@Composable
+fun ScreenPadding(children: @Composable() () -> Unit) {
+    Padding(left = 16.dp, right = 16.dp, top = 24.dp, bottom = 24.dp, children = children)
 }
