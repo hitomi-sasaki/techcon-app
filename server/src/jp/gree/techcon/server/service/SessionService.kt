@@ -4,7 +4,6 @@ import jp.gree.techcon.server.entity.*
 import jp.gree.techcon.server.service.DatabaseFactory.dbQuery
 import jp.gree.techcon.common.model.Session as SessionModel
 import jp.gree.techcon.common.model.Speaker as SpeakerModel
-import jp.gree.techcon.common.model.Tag as TagModel
 
 class SessionService {
     suspend fun getAllSessions(): List<SessionModel> {
@@ -25,9 +24,7 @@ class SessionService {
                         speaker.description
                     )
                 }
-                val tagNames: List<TagModel> = session.tags.map { tag ->
-                    TagModel(tag.name)
-                }
+                val tagNames: List<String> = session.tags.map { tag -> tag.name }
 
                 SessionModel(
                     session.id.value.toLong(),
