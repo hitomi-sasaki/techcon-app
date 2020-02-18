@@ -56,8 +56,8 @@ class SessionService {
                     speaker.description
                 )
             }
-            val tagNames: List<TagModel> = session.tags.map { tag ->
-                TagModel(tag.name)
+            val tagNames: List<String> = session.tags.map { tag ->
+                tag.name
             }
             result = SessionModel(
                 session.id.value.toLong(),
