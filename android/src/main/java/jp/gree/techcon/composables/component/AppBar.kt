@@ -1,4 +1,4 @@
-package jp.gree.techcon.composables.common
+package jp.gree.techcon.composables.component
 
 import androidx.compose.Composable
 import androidx.ui.core.Text

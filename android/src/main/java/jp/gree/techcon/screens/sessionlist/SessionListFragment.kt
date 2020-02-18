@@ -1,4 +1,4 @@
-package jp.gree.techcon.sessionlist
+package jp.gree.techcon.screens.sessionlist
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -14,7 +14,7 @@ import jp.gree.techcon.R
 import jp.gree.techcon.common.usecase.SessionListService
 import jp.gree.techcon.common.viewstate.SessionListItem
 import jp.gree.techcon.composables.AppTheme
-import jp.gree.techcon.composables.common.AppBar
+import jp.gree.techcon.composables.component.AppBar
 import jp.gree.techcon.observe
 
 class SessionListFragment : Fragment() {

@@ -1,4 +1,4 @@
-package jp.gree.techcon.sessiondetail
+package jp.gree.techcon.screens.sessiondetail
 
 import androidx.compose.Composable
 import androidx.ui.foundation.VerticalScroller
