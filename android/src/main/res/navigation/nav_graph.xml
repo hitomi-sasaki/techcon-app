@@ -1,33 +1,39 @@
 <?xml version="1.0" encoding="utf-8"?>
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:app="http://schemas.android.com/apk/res-auto"
-        android:id="@+id/nav_graph"
-        app:startDestination="@+id/sessionListFragment">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/nav_graph"
+    app:startDestination="@+id/sessionList">
     <fragment
-            android:id="@+id/articleListFragment"
-            android:name="jp.gree.techcon.screens.articlelist.ArticleListFragment" />
+        android:id="@+id/articleList"
+        android:name="jp.gree.techcon.screens.articlelist.ArticleListFragment" />
     <fragment
-            android:id="@+id/sessionListFragment"
-            android:name="jp.gree.techcon.screens.sessionlist.SessionListFragment">
+        android:id="@+id/sessionList"
+        android:name="jp.gree.techcon.screens.sessionlist.SessionListFragment">
         <action
-                android:id="@+id/to_detail"
-                app:destination="@+id/sessionDetailFragment" />
+            android:id="@+id/to_detail"
+            app:destination="@+id/sessionDetail" />
         <action
-                android:id="@+id/to_article"
-                app:destination="@+id/articleDetailFragment" />
+            android:id="@+id/to_article"
+            app:destination="@+id/articleDetail" />
     </fragment>
     <fragment
-            android:id="@+id/sessionDetailFragment"
-            android:name="jp.gree.techcon.screens.sessiondetail.SessionDetailFragment">
+        android:id="@+id/bookmark"
+        android:name="jp.gree.techcon.screens.bookmark.BookmarkFragment" />
+    <fragment
+        android:id="@+id/lounge"
+        android:name="jp.gree.techcon.screens.lounge.LoungeFragment" />
+    <fragment
+        android:id="@+id/sessionDetail"
+        android:name="jp.gree.techcon.screens.sessiondetail.SessionDetailFragment">
         <argument
-                android:name="sessionId"
-                app:argType="long" />
+            android:name="sessionId"
+            app:argType="long" />
     </fragment>
     <fragment
-            android:id="@+id/articleDetailFragment"
-            android:name="jp.gree.techcon.screens.articledetail.ArticleDetailFragment">
+        android:id="@+id/articleDetail"
+        android:name="jp.gree.techcon.screens.articledetail.ArticleDetailFragment">
         <argument
-                android:name="articleId"
-                app:argType="long" />
+            android:name="articleId"
+            app:argType="long" />
     </fragment>
 </navigation>

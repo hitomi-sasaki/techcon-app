@@ -1,21 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
     <item
-            android:id="@+id/articleListFragment"
+            android:id="@+id/articleList"
             android:icon="@drawable/ic_news"
             android:title="@string/menu_article" />
     <item
-            android:id="@+id/sessionListFragment"
+            android:id="@+id/sessionList"
             android:icon="@drawable/ic_session"
             android:title="@string/menu_session" />
 
     <item
-            android:id="@+id/sessionDetailFragment"
+            android:id="@+id/bookmark"
             android:icon="@drawable/ic_schedule"
             android:title="@string/menu_bookmark" />
 
     <item
-            android:id="@+id/articleDetailFragment"
+            android:id="@+id/lounge"
             android:icon="@drawable/ic_lounge"
-            android:title="@string/menu_booth" />
+            android:title="@string/menu_lounge" />
 </menu>

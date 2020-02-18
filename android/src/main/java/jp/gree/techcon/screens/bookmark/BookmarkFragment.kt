@@ -1,4 +1,4 @@
-package jp.gree.techcon.screens.sessionlist
+package jp.gree.techcon.screens.bookmark
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -16,8 +16,9 @@ import jp.gree.techcon.common.viewstate.SessionListItem
 import jp.gree.techcon.composables.AppTheme
 import jp.gree.techcon.composables.component.AppBar
 import jp.gree.techcon.observe
+import jp.gree.techcon.screens.sessionlist.SessionList
 
-class SessionListFragment : Fragment() {
+class BookmarkFragment : Fragment() {
     private val service = SessionListService()
 
     override fun onCreateView(
@@ -25,16 +26,11 @@ class SessionListFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        val title = getString(R.string.menu_session)
+        val title = getString(R.string.menu_bookmark)
 
         val root = FrameLayout(requireContext())
         root.setContent {
-            jp.gree.techcon.screens.bookmark.SessionListScreen(
-                title,
-                service,
-                this::onClick,
-                this::onBookmark
-            )
+            SessionListScreen(title, service, this::onClick, this::onBookmark)
         }
         return root
     }
