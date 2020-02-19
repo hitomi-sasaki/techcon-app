@@ -4,7 +4,6 @@ object Deps {
 
     const val ktorVersion = "1.2.6"
     const val coroutineVersion = "1.3.3"
-    const val koinVersion = "2.0.1"
     const val serializeVersion = "0.14.0"
     const val sqldelight = "1.2.1"
     const val kodein = "6.5.0"
@@ -25,6 +24,8 @@ object AndroidDeps {
     const val materialVersion = "1.1.0-beta01"
     const val coreVersion = "1.1.0"
     const val appCompatVersion = "1.1.0"
+    const val googleServiceVersion = "4.3.3"
+    const val authVersion = "19.2.0"
 }
 
 object ServerDeps {
