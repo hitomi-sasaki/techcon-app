@@ -24,7 +24,7 @@ class ArticleService {
         // get data from database
         return dbQuery {
             // format data
-            return@dbQuery Article.get(id).let { article ->
+            return@dbQuery Article.findById(id)?.let { article ->
                 ArticleModel(
                     article.id.value.toLong(),
                     article.title,
