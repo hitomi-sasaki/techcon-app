@@ -14,7 +14,7 @@ import jp.gree.techcon.common.usecase.SessionListService
 import jp.gree.techcon.common.viewstate.SessionListItem
 import jp.gree.techcon.composables.AppTheme
 import jp.gree.techcon.composables.component.AppBar
-import jp.gree.techcon.observe
+import jp.gree.techcon.composables.observe
 import jp.gree.techcon.screens.sessionlist.SessionList
 
 class BookmarkFragment : Fragment() {

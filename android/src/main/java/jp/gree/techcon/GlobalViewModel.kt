@@ -13,7 +13,7 @@ class GlobalViewModel : ViewModel() {
                 val isSuccessful = Auth.signIn()
             }
             val token = Auth.token()
-            MutableAppState.setToken(token)
+            MutableAppState.token = token
         }
     }
 }
