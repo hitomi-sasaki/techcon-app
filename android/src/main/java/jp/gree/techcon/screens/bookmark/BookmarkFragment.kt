@@ -7,7 +7,6 @@ import android.view.ViewGroup
 import android.widget.FrameLayout
 import androidx.compose.Composable
 import androidx.fragment.app.Fragment
-import androidx.navigation.fragment.findNavController
 import androidx.ui.core.setContent
 import androidx.ui.layout.Column
 import jp.gree.techcon.R
