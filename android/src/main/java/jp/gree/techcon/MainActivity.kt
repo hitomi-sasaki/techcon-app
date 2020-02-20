@@ -11,12 +11,11 @@ import androidx.navigation.ui.setupWithNavController
 import dev.chrisbanes.insetter.doOnApplyWindowInsets
 import jp.gree.techcon.common.util.GlobalEvent
 import jp.gree.techcon.databinding.ActivityMainBinding
-import jp.gree.techcon.wrapper.Auth
 import kotlinx.io.core.Closeable
 
 class MainActivity : AppCompatActivity() {
     private val binding by lazy { ActivityMainBinding.inflate(layoutInflater) }
-    private val viewModel: GlobalViewModel by viewModels()
+    private val viewModel: SharedViewModel by viewModels()
     private lateinit var closable: Closeable
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -41,7 +40,7 @@ class MainActivity : AppCompatActivity() {
 
     override fun onStart() {
         super.onStart()
-        viewModel.initAccount()
+        viewModel.requireAccount()
     }
 
     override fun onDestroy() {

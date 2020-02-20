@@ -17,7 +17,7 @@ import kotlin.native.concurrent.ThreadLocal
 object CommonModule {
     lateinit var kodein: Kodein
 
-    fun setupDi(appState: AppState) {
+    fun initialize(appState: AppState) {
         kodein = Kodein {
             // misc
             bind<AppDatabase>() with singleton { AppDatabase(driver("app.db")) }
@@ -36,29 +36,5 @@ object CommonModule {
             bind<ArticleListUseCase>() with singleton { ArticleListUseCase(instance()) }
             bind<SessionDetailUseCase>() with singleton { SessionDetailUseCase(instance()) }
         }
-        /*
-        val viewModel = module {
-            single { SessionListViewModel() }
-            single { (sessionId: Long) -> SessionDetailViewModel(sessionId) }
-        }
-
-        val useCase = module {
-            single { SessionListUseCase() }
-            single { SessionDetailUseCase() }
-        }
-
-        val repository = module {
-            single { SessionRepository() }
-        }
-
-        val network = module {
-            single { DummySessionApi() }
-        }
-
-        startKoin {
-            modules(listOf(viewModel, useCase, repository, network))
-        }
-         */
-
     }
 }

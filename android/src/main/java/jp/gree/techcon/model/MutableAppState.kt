@@ -1,4 +1,4 @@
-package jp.gree.techcon
+package jp.gree.techcon.model
 
 import jp.gree.techcon.common.AppState
 
