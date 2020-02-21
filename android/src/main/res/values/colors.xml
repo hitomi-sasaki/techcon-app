@@ -9,4 +9,5 @@
 
     <color name="immersiveSystemUi">#33000000</color>
     <color name="navigationBar">@color/immersiveSystemUi</color>
+    <color name="launcherBackground">#FFFFFF</color>
 </resources>
