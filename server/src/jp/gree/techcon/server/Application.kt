@@ -23,10 +23,7 @@ import io.ktor.serialization.serialization
 import io.ktor.server.engine.embeddedServer
 import io.ktor.server.netty.Netty
 import io.ktor.util.KtorExperimentalAPI
-import jp.gree.techcon.common.model.Article
-import jp.gree.techcon.common.model.ArticleList
-import jp.gree.techcon.common.model.Session
-import jp.gree.techcon.common.model.SessionList
+import jp.gree.techcon.common.model.*
 import jp.gree.techcon.server.service.*
 
 
@@ -73,10 +70,18 @@ fun Application.module() {
                 )
             }
             get("/bookmarks") {
-                call.respond(
-                    HttpStatusCode.OK,
-                    SessionList(Session.getDummyList().take(4))
-                )
+                val firebaseUid: String? = call.authentication.firebaseUid()
+                if (firebaseUid == null) {
+                    call.respond(HttpStatusCode.Forbidden)
+                } else {
+                    val bookmarks: List<Session> = UserService().findByFirebaseUid(firebaseUid).flatMap { user ->
+                        user.bookmarks
+                    }
+                    call.respond(
+                        HttpStatusCode.OK,
+                        SessionList(bookmarks)
+                    )
+                }
             }
             @Location("article/{id}")
             data class ArticleLocation(val id: Int)
