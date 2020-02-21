@@ -5,7 +5,7 @@ import jp.gree.techcon.common.model.Article
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flow
 
-class ArticleRepository {
-    fun getArticles(): Flow<List<Article>> = flow { emit(Api.getArticles()) }
-    fun getArticle(id: Long): Flow<Article> = flow { emit(Api.getArticle(id)) }
+class ArticleRepository(private val api: Api) {
+    fun getArticles(): Flow<List<Article>> = flow { emit(api.getArticles()) }
+    fun getArticle(id: Long): Flow<Article> = flow { emit(api.getArticle(id)) }
 }

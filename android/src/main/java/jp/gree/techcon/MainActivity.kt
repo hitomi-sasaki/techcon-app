@@ -3,11 +3,11 @@ package jp.gree.techcon
 import android.os.Bundle
 import android.view.View
 import android.widget.Toast
+import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.updatePadding
 import androidx.navigation.findNavController
 import androidx.navigation.ui.setupWithNavController
-import com.google.firebase.auth.FirebaseAuth
 import dev.chrisbanes.insetter.doOnApplyWindowInsets
 import jp.gree.techcon.common.util.GlobalEvent
 import jp.gree.techcon.databinding.ActivityMainBinding
@@ -15,6 +15,7 @@ import kotlinx.io.core.Closeable
 
 class MainActivity : AppCompatActivity() {
     private val binding by lazy { ActivityMainBinding.inflate(layoutInflater) }
+    private val viewModel: SharedViewModel by viewModels()
     private lateinit var closable: Closeable
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -39,27 +40,7 @@ class MainActivity : AppCompatActivity() {
 
     override fun onStart() {
         super.onStart()
-
-        // TODO: zatsu
-        val user = FirebaseAuth.getInstance().currentUser
-        if (user == null) {
-            FirebaseAuth.getInstance().signInAnonymously().addOnCompleteListener {
-                if (it.isSuccessful) {
-                    Toast.makeText(this, "Success", Toast.LENGTH_SHORT).show()
-                } else {
-                    Toast.makeText(this, "Failed to sign in", Toast.LENGTH_SHORT).show()
-                }
-            }
-        } else {
-            user.getIdToken(true).addOnCompleteListener {
-                if (it.isSuccessful) {
-                    val idToken = it.result!!.token
-                    Toast.makeText(this, idToken, Toast.LENGTH_SHORT).show()
-                } else {
-                    Toast.makeText(this, "Auth failed", Toast.LENGTH_SHORT).show()
-                }
-            }
-        }
+        viewModel.requireAccount()
     }
 
     override fun onDestroy() {

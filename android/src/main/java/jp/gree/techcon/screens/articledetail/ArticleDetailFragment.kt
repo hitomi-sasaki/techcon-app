@@ -10,7 +10,7 @@ import androidx.navigation.fragment.navArgs
 import androidx.ui.core.setContent
 import androidx.ui.material.MaterialTheme
 import jp.gree.techcon.common.viewstate.ArticleDetailViewModel
-import jp.gree.techcon.observe
+import jp.gree.techcon.composables.observe
 
 class ArticleDetailFragment : Fragment() {
     private val args: ArticleDetailFragmentArgs by navArgs()

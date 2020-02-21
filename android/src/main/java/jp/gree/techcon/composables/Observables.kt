@@ -1,4 +1,4 @@
-package jp.gree.techcon
+package jp.gree.techcon.composables
 
 import androidx.compose.*
 import androidx.lifecycle.LiveData

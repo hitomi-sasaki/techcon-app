@@ -9,12 +9,12 @@ import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.flow.*
 import kotlinx.coroutines.launch
 
-class SessionRepository(private val dao: SessionDao) {
+class SessionRepository(private val dao: SessionDao, private val api: Api) {
     fun getSessions(): Flow<List<Session>> = channelFlow {
         // TODO: Remove this workaround after supporting iOS multithread
         if (Platform.isIos) {
             send(dao.loadSessionsWorkaroundForIos())
-            val sessions = Api.getSessions()
+            val sessions = api.getSessions()
             dao.save(sessions)
             send(sessions)
             return@channelFlow
@@ -23,13 +23,13 @@ class SessionRepository(private val dao: SessionDao) {
         launch {
             dao.loadSessions().collect { send(it) }
         }
-        val sessions = Api.getSessions()
+        val sessions = api.getSessions()
         dao.save(sessions)
     }
 
-    fun getSession(id: Long): Flow<Session> = flow { emit(Api.getSession(id)) }
-    fun getBookmarks(): Flow<List<Session>> = flow { emit(Api.getBookmarks()) }
+    fun getSession(id: Long): Flow<Session> = flow { emit(api.getSession(id)) }
+    fun getBookmarks(): Flow<List<Session>> = flow { emit(api.getBookmarks()) }
 
     suspend fun updateBookmark(sessionId: Long, enable: Boolean): Session =
-            Api.postBookmark(sessionId, enable)
+        api.postBookmark(sessionId, enable)
 }

@@ -14,7 +14,7 @@ import androidx.ui.layout.Column
 import jp.gree.techcon.common.SessionDetailState
 import jp.gree.techcon.composables.AppTheme
 import jp.gree.techcon.composables.component.AppBar
-import jp.gree.techcon.observe
+import jp.gree.techcon.composables.observe
 
 class SessionDetailFragment : Fragment() {
     private val args: SessionDetailFragmentArgs by navArgs()

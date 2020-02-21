@@ -9,13 +9,10 @@ import androidx.compose.Composable
 import androidx.fragment.app.Fragment
 import androidx.ui.core.setContent
 import androidx.ui.layout.Column
-import androidx.ui.material.MaterialTheme
 import jp.gree.techcon.R
 import jp.gree.techcon.common.viewstate.ArticleListViewModel
 import jp.gree.techcon.composables.AppTheme
 import jp.gree.techcon.composables.component.AppBar
-import jp.gree.techcon.observe
-import jp.gree.techcon.screens.lounge.LoungeScreen
 
 class ArticleListFragment : Fragment() {
     private val vm = ArticleListViewModel()

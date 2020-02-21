@@ -1,6 +1,7 @@
 package jp.gree.techcon.common
 
 import jp.gree.techcon.common.datasource.db.SessionDao
+import jp.gree.techcon.common.datasource.network.Api
 import jp.gree.techcon.common.repository.ArticleRepository
 import jp.gree.techcon.common.repository.SessionRepository
 import jp.gree.techcon.common.usecase.ArticleDetailUseCase
@@ -14,49 +15,26 @@ import kotlin.native.concurrent.ThreadLocal
 
 @ThreadLocal
 object CommonModule {
-    val kodein: Kodein by lazy { setupDi() }
+    lateinit var kodein: Kodein
 
-    private fun setupDi(): Kodein {
-        val kodein = Kodein {
+    fun initialize(appState: AppState) {
+        kodein = Kodein {
             // misc
             bind<AppDatabase>() with singleton { AppDatabase(driver("app.db")) }
+            bind<AppState>() with singleton { appState }
 
             // data
             bind<SessionDao>() with singleton { SessionDao(instance()) }
+            bind<Api>() with singleton { Api(instance()) }
 
             // repo
-            bind<SessionRepository>() with singleton { SessionRepository(instance()) }
-            bind<ArticleRepository>() with singleton { ArticleRepository() }
+            bind<SessionRepository>() with singleton { SessionRepository(instance(), instance()) }
+            bind<ArticleRepository>() with singleton { ArticleRepository(instance()) }
 
             // usecase
             bind<ArticleDetailUseCase>() with singleton { ArticleDetailUseCase(instance()) }
             bind<ArticleListUseCase>() with singleton { ArticleListUseCase(instance()) }
             bind<SessionDetailUseCase>() with singleton { SessionDetailUseCase(instance()) }
         }
-        return kodein
-        /*
-        val viewModel = module {
-            single { SessionListViewModel() }
-            single { (sessionId: Long) -> SessionDetailViewModel(sessionId) }
-        }
-
-        val useCase = module {
-            single { SessionListUseCase() }
-            single { SessionDetailUseCase() }
-        }
-
-        val repository = module {
-            single { SessionRepository() }
-        }
-
-        val network = module {
-            single { DummySessionApi() }
-        }
-
-        startKoin {
-            modules(listOf(viewModel, useCase, repository, network))
-        }
-         */
-
     }
 }
