@@ -14,6 +14,9 @@
 		B95C23E123C34BB200B1D53C /* SessionRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B95C23E023C34BB200B1D53C /* SessionRowView.swift */; };
 		D1668DFB240214440002E2A0 /* AppState.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1668DFA240214440002E2A0 /* AppState.swift */; };
 		D1668E00240216AF0002E2A0 /* SessionListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1668DFF240216AF0002E2A0 /* SessionListViewModel.swift */; };
+		D1BABAAF24021ECC0068724B /* BookmarkListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1BABAAE24021ECC0068724B /* BookmarkListView.swift */; };
+		D1BABAB124021ED30068724B /* LoungeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1BABAB024021ED30068724B /* LoungeView.swift */; };
+		D1BABAB324021FC40068724B /* NoticeListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1BABAB224021FC40068724B /* NoticeListView.swift */; };
 		F861D7E1207FA40F0085E80D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F861D7E0207FA40F0085E80D /* AppDelegate.swift */; };
 		F861D7EB207FA4100085E80D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F861D7E9207FA4100085E80D /* LaunchScreen.storyboard */; };
 		F861D7F6207FA4100085E80D /* iosAppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F861D7F5207FA4100085E80D /* iosAppTests.swift */; };
@@ -61,6 +64,9 @@
 		B95C23E023C34BB200B1D53C /* SessionRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionRowView.swift; sourceTree = "<group>"; };
 		D1668DFA240214440002E2A0 /* AppState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppState.swift; sourceTree = "<group>"; };
 		D1668DFF240216AF0002E2A0 /* SessionListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionListViewModel.swift; sourceTree = "<group>"; };
+		D1BABAAE24021ECC0068724B /* BookmarkListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookmarkListView.swift; sourceTree = "<group>"; };
+		D1BABAB024021ED30068724B /* LoungeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoungeView.swift; sourceTree = "<group>"; };
+		D1BABAB224021FC40068724B /* NoticeListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoticeListView.swift; sourceTree = "<group>"; };
 		F861D7DD207FA40F0085E80D /* iosApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iosApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F861D7E0207FA40F0085E80D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F861D7EA207FA4100085E80D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -93,7 +99,10 @@
 		D1668DFC240215760002E2A0 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				D1BABAAE24021ECC0068724B /* BookmarkListView.swift */,
+				D1BABAB024021ED30068724B /* LoungeView.swift */,
 				B95C23DC23C3459500B1D53C /* MainTabView.swift */,
+				D1BABAB224021FC40068724B /* NoticeListView.swift */,
 				B95C23DE23C3467900B1D53C /* SessionListView.swift */,
 				B95C23E023C34BB200B1D53C /* SessionRowView.swift */,
 			);
@@ -303,9 +312,12 @@
 				B95C23DD23C3459500B1D53C /* MainTabView.swift in Sources */,
 				B95C23E123C34BB200B1D53C /* SessionRowView.swift in Sources */,
 				D1668E00240216AF0002E2A0 /* SessionListViewModel.swift in Sources */,
+				D1BABAB124021ED30068724B /* LoungeView.swift in Sources */,
 				B95C23DF23C3467900B1D53C /* SessionListView.swift in Sources */,
 				D1668DFB240214440002E2A0 /* AppState.swift in Sources */,
+				D1BABAB324021FC40068724B /* NoticeListView.swift in Sources */,
 				F861D7E1207FA40F0085E80D /* AppDelegate.swift in Sources */,
+				D1BABAAF24021ECC0068724B /* BookmarkListView.swift in Sources */,
 				19896FA3238253E400FCFE3B /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

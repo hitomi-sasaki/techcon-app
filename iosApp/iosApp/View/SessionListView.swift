@@ -16,7 +16,7 @@ struct SessionListView: View {
             List(vm.sessionListItems, id: \.id) { session in
                 SessionRowView(session: session)
             }
-            .navigationBarTitle("セッション", displayMode: .large)
+            .navigationBarTitle("セッション", displayMode: .inline)
         }
     }
 }
