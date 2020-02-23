@@ -21,9 +21,14 @@ https://techcon.gree.jp/
 
 ## iOS
 
-* **Kotlin 1.3.6x ← ダメだったらおしえて ** 
-* Swift UI
-* AppCode or Xcode
+* Kotlin 1.3.6x
+* Xcode 11.3.1
+* CocoaPods
+
+```
+$ cd iosApp
+$ pod install
+```
 
 ## Server
 

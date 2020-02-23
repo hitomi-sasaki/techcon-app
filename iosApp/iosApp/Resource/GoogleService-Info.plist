@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CLIENT_ID</key>
+	<string>726550546644-dsbq4upkkie6k87ttdh6ijo87par7qa8.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.726550546644-dsbq4upkkie6k87ttdh6ijo87par7qa8</string>
+	<key>API_KEY</key>
+	<string>AIzaSyDKdtxkmuEONmJ7Y_dZqHLeaoD8hUfsUDs</string>
+	<key>GCM_SENDER_ID</key>
+	<string>726550546644</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>jp.gree.techcon.dev</string>
+	<key>PROJECT_ID</key>
+	<string>gree-tech-conference-dev</string>
+	<key>STORAGE_BUCKET</key>
+	<string>gree-tech-conference-dev.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<false></false>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true></true>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:726550546644:ios:b1edd9cbc3693ad2d71341</string>
+	<key>DATABASE_URL</key>
+	<string>https://gree-tech-conference-dev.firebaseio.com</string>
+</dict>
+</plist>
