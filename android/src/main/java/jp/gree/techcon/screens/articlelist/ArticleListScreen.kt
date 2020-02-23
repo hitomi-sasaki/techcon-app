@@ -1,21 +1,15 @@
 package jp.gree.techcon.screens.articlelist
 
 import androidx.compose.Composable
-import androidx.ui.core.Text
-import androidx.ui.unit.dp
-import androidx.ui.foundation.Clickable
 import androidx.ui.foundation.VerticalScroller
-import androidx.ui.graphics.Color
 import androidx.ui.layout.Column
-import androidx.ui.layout.Padding
 import androidx.ui.material.Divider
-import androidx.ui.material.MaterialTheme
-import androidx.ui.material.ripple.Ripple
-import jp.gree.techcon.common.model.Article
+import androidx.ui.unit.dp
+import jp.gree.techcon.common.viewstate.ArticleListItem
 import jp.gree.techcon.composables.*
 
 @Composable
-fun ArticleList(articles: List<Article>) {
+fun ArticleList(articles: List<ArticleListItem>) {
     VerticalScroller {
         ScreenPadding {
             Column {
@@ -33,14 +27,14 @@ fun ArticleList(articles: List<Article>) {
 }
 
 @Composable
-fun ArticleListItem(article: Article) {
+fun ArticleListItem(article: ArticleListItem) {
     Column {
-        PrimaryText("4月8日", appTypography.subtitle1)
+        PrimaryText(article.dateText, appTypography.subtitle1)
         VerticalSpace(16.dp)
         PrimaryText(article.title, appTypography.subtitle1)
         VerticalSpace(16.dp)
         SecondaryText(article.description, appTypography.body1)
         VerticalSpace(16.dp)
-        SecondaryText("10:00 AM", appTypography.body1)
+        SecondaryText(article.timeText, appTypography.body1)
     }
 }

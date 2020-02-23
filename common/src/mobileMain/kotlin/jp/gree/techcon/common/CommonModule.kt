@@ -4,8 +4,6 @@ import jp.gree.techcon.common.datasource.db.SessionDao
 import jp.gree.techcon.common.datasource.network.Api
 import jp.gree.techcon.common.repository.ArticleRepository
 import jp.gree.techcon.common.repository.SessionRepository
-import jp.gree.techcon.common.usecase.ArticleDetailService
-import jp.gree.techcon.common.usecase.ArticleListService
 import jp.gree.techcon.common.usecase.SessionDetailService
 import org.kodein.di.Kodein
 import org.kodein.di.erased.bind
@@ -32,7 +30,6 @@ object CommonModule {
             bind<ArticleRepository>() with singleton { ArticleRepository(instance()) }
 
             // usecase
-            bind<ArticleDetailService>() with singleton { ArticleDetailService(instance()) }
             bind<SessionDetailService>() with singleton { SessionDetailService(instance()) }
         }
     }
