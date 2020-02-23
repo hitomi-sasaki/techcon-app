@@ -228,9 +228,11 @@
 				TargetAttributes = {
 					F861D7DC207FA40F0085E80D = {
 						CreatedOnToolsVersion = 9.3;
+						LastSwiftMigration = 1130;
 					};
 					F861D7F0207FA4100085E80D = {
 						CreatedOnToolsVersion = 9.3;
+						LastSwiftMigration = 1130;
 						TestTargetID = F861D7DC207FA40F0085E80D;
 					};
 					F861D804207FA4200085E80D = {
@@ -395,7 +397,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				OTHER_LDFLAGS = "-v";
@@ -451,7 +453,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				OTHER_LDFLAGS = "-v";
 				SDKROOT = iphoneos;
@@ -477,7 +479,7 @@
 				OTHER_LDFLAGS = "-v";
 				PRODUCT_BUNDLE_IDENTIFIER = jp.gree.techcon;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALID_ARCHS = "arm64 armv7";
 			};
@@ -499,7 +501,7 @@
 				OTHER_LDFLAGS = "-v";
 				PRODUCT_BUNDLE_IDENTIFIER = jp.gree.techcon;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALID_ARCHS = "arm64 armv7";
 			};
@@ -520,7 +522,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.example.iosAppTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/iosApp.app/iosApp";
 			};
@@ -541,7 +543,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.example.iosAppTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/iosApp.app/iosApp";
 			};
