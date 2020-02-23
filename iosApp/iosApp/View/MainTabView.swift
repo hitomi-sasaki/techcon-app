@@ -1,5 +1,5 @@
 //
-//  MainTab.swift
+//  MainTabView.swift
 //  iosApp
 //
 //  Created by Yazaki Yuto on 2020/01/06.
@@ -7,13 +7,13 @@
 
 import SwiftUI
 
-struct MainTab: View {
+struct MainTabView: View {
   var body: some View {
     TabView {
-      SessionList()
+      SessionListView()
         .tabItem { Text("セッション") }
         .tag(0)
-      SessionList()
+      SessionListView()
         .tabItem { Text("セッション") }
         .tag(0)
     }
