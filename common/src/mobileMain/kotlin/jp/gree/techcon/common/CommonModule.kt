@@ -33,7 +33,6 @@ object CommonModule {
 
             // usecase
             bind<ArticleDetailService>() with singleton { ArticleDetailService(instance()) }
-            bind<ArticleListService>() with singleton { ArticleListService(instance()) }
             bind<SessionDetailService>() with singleton { SessionDetailService(instance()) }
         }
     }
