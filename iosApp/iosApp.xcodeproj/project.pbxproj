@@ -18,6 +18,7 @@
 		D1BABAAF24021ECC0068724B /* BookmarkListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1BABAAE24021ECC0068724B /* BookmarkListView.swift */; };
 		D1BABAB124021ED30068724B /* LoungeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1BABAB024021ED30068724B /* LoungeView.swift */; };
 		D1BABAB324021FC40068724B /* NoticeListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1BABAB224021FC40068724B /* NoticeListView.swift */; };
+		D1BC324C240232EE0008F0D3 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = D1BC324B240232EE0008F0D3 /* GoogleService-Info.plist */; };
 		D1C7BE2E24022BB100D60C3B /* AppIcon.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D1C7BE2D24022BB100D60C3B /* AppIcon.xcassets */; };
 		F861D7E1207FA40F0085E80D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F861D7E0207FA40F0085E80D /* AppDelegate.swift */; };
 		F861D7EB207FA4100085E80D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F861D7E9207FA4100085E80D /* LaunchScreen.storyboard */; };
@@ -72,8 +73,9 @@
 		D1BABAAE24021ECC0068724B /* BookmarkListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookmarkListView.swift; sourceTree = "<group>"; };
 		D1BABAB024021ED30068724B /* LoungeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoungeView.swift; sourceTree = "<group>"; };
 		D1BABAB224021FC40068724B /* NoticeListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoticeListView.swift; sourceTree = "<group>"; };
+		D1BC324B240232EE0008F0D3 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		D1C7BE2D24022BB100D60C3B /* AppIcon.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = AppIcon.xcassets; sourceTree = "<group>"; };
-		F861D7DD207FA40F0085E80D /* iosApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iosApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		F861D7DD207FA40F0085E80D /* (Dev)GREE TechCon.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "(Dev)GREE TechCon.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		F861D7E0207FA40F0085E80D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F861D7EA207FA4100085E80D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		F861D7EC207FA4100085E80D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -154,6 +156,7 @@
 		D1C7BE0B24022B6A00D60C3B /* Resource */ = {
 			isa = PBXGroup;
 			children = (
+				D1BC324B240232EE0008F0D3 /* GoogleService-Info.plist */,
 				D1C7BE2D24022BB100D60C3B /* AppIcon.xcassets */,
 			);
 			path = Resource;
@@ -186,7 +189,7 @@
 		F861D7DE207FA40F0085E80D /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				F861D7DD207FA40F0085E80D /* iosApp.app */,
+				F861D7DD207FA40F0085E80D /* (Dev)GREE TechCon.app */,
 				F861D7F1207FA4100085E80D /* iosAppTests.xctest */,
 				F861D805207FA4200085E80D /* common.framework */,
 			);
@@ -216,9 +219,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		F861D7DC207FA40F0085E80D /* iosApp */ = {
+		F861D7DC207FA40F0085E80D /* GREE TechCon */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = F861D7FA207FA4100085E80D /* Build configuration list for PBXNativeTarget "iosApp" */;
+			buildConfigurationList = F861D7FA207FA4100085E80D /* Build configuration list for PBXNativeTarget "GREE TechCon" */;
 			buildPhases = (
 				E35008B1FA087EFF9A55AB37 /* [CP] Check Pods Manifest.lock */,
 				F861D7D9207FA40F0085E80D /* Sources */,
@@ -232,9 +235,9 @@
 			dependencies = (
 				F861D80B207FA4200085E80D /* PBXTargetDependency */,
 			);
-			name = iosApp;
+			name = "GREE TechCon";
 			productName = iosApp;
-			productReference = F861D7DD207FA40F0085E80D /* iosApp.app */;
+			productReference = F861D7DD207FA40F0085E80D /* (Dev)GREE TechCon.app */;
 			productType = "com.apple.product-type.application";
 		};
 		F861D7F0207FA4100085E80D /* iosAppTests */ = {
@@ -307,7 +310,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				F861D7DC207FA40F0085E80D /* iosApp */,
+				F861D7DC207FA40F0085E80D /* GREE TechCon */,
 				F861D7F0207FA4100085E80D /* iosAppTests */,
 				F861D804207FA4200085E80D /* common */,
 			);
@@ -322,6 +325,7 @@
 				F861D7EB207FA4100085E80D /* LaunchScreen.storyboard in Resources */,
 				19917B4B2384EF75004EE430 /* common in Resources */,
 				D1C7BE2E24022BB100D60C3B /* AppIcon.xcassets in Resources */,
+				D1BC324C240232EE0008F0D3 /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -420,7 +424,7 @@
 /* Begin PBXTargetDependency section */
 		F861D7F3207FA4100085E80D /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = F861D7DC207FA40F0085E80D /* iosApp */;
+			target = F861D7DC207FA40F0085E80D /* GREE TechCon */;
 			targetProxy = F861D7F2207FA4100085E80D /* PBXContainerItemProxy */;
 		};
 		F861D80B207FA4200085E80D /* PBXTargetDependency */ = {
@@ -580,8 +584,8 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = jp.gree.techcon;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_BUNDLE_IDENTIFIER = jp.gree.techcon.dev;
+				PRODUCT_NAME = "(Dev)$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
 				VALID_ARCHS = "arm64 armv7";
@@ -732,7 +736,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		F861D7FA207FA4100085E80D /* Build configuration list for PBXNativeTarget "iosApp" */ = {
+		F861D7FA207FA4100085E80D /* Build configuration list for PBXNativeTarget "GREE TechCon" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				F861D7FB207FA4100085E80D /* Debug */,
