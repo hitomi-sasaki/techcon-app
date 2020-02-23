@@ -10,12 +10,13 @@ import androidx.fragment.app.Fragment
 import androidx.ui.core.setContent
 import androidx.ui.layout.Column
 import jp.gree.techcon.R
+import jp.gree.techcon.common.usecase.SessionListService
 import jp.gree.techcon.common.viewstate.ArticleListViewModel
 import jp.gree.techcon.composables.AppTheme
 import jp.gree.techcon.composables.component.AppBar
 
 class ArticleListFragment : Fragment() {
-    private val vm = ArticleListViewModel()
+    private val service = ArticleListViewModel()
 
     override fun onCreateView(
         inflater: LayoutInflater,

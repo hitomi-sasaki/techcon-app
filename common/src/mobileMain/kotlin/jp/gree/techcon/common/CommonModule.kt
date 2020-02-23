@@ -5,7 +5,7 @@ import jp.gree.techcon.common.datasource.network.Api
 import jp.gree.techcon.common.repository.ArticleRepository
 import jp.gree.techcon.common.repository.SessionRepository
 import jp.gree.techcon.common.usecase.ArticleDetailUseCase
-import jp.gree.techcon.common.usecase.ArticleListUseCase
+import jp.gree.techcon.common.usecase.ArticleListService
 import jp.gree.techcon.common.usecase.SessionDetailUseCase
 import org.kodein.di.Kodein
 import org.kodein.di.erased.bind
@@ -33,7 +33,7 @@ object CommonModule {
 
             // usecase
             bind<ArticleDetailUseCase>() with singleton { ArticleDetailUseCase(instance()) }
-            bind<ArticleListUseCase>() with singleton { ArticleListUseCase(instance()) }
+            bind<ArticleListService>() with singleton { ArticleListService(instance()) }
             bind<SessionDetailUseCase>() with singleton { SessionDetailUseCase(instance()) }
         }
     }
