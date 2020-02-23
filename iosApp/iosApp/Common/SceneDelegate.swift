@@ -16,7 +16,6 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     private var testObserver2: Kotlinx_ioCloseable? = nil
     private var testObserver3: Kotlinx_ioCloseable? = nil
 
-
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
         let contentView = MainTab()
         if let windowScene = scene as? UIWindowScene {
