@@ -4,6 +4,6 @@ import jp.gree.techcon.common.model.Article
 import jp.gree.techcon.common.repository.ArticleRepository
 import kotlinx.coroutines.flow.Flow
 
-class ArticleListUseCase(private val repository: ArticleRepository) {
+class ArticleListService(private val repository: ArticleRepository) {
     fun get(): Flow<List<Article>> = repository.getArticles()
 }
