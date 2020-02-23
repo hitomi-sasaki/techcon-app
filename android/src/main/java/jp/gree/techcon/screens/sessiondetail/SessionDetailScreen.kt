@@ -23,7 +23,7 @@ fun SessionDetail(session: Session) {
                 VerticalSpace(16.dp)
                 SecondaryText(session.tagList.map { "#${it}" }.joinToString(" "), appTypography.body1)
                 VerticalSpace(24.dp)
-                PrimaryText(session.description, appTypography.body1)
+                SecondaryText(session.description, appTypography.body1)
                 VerticalSpace(24.dp)
                 session.name.forEach { SpeakerItem(speaker = it) }
                 VerticalSpace(24.dp)
