@@ -1,5 +1,5 @@
 //
-//  SessionRow.swift
+//  SessionRowView.swift
 //  iosApp
 //
 //  Created by Yazaki Yuto on 2020/01/06.
@@ -8,7 +8,7 @@
 import SwiftUI
 import common
 
-struct SessionRow: View {
+struct SessionRowView: View {
   let session: SessionListItem
 
   var body: some View {

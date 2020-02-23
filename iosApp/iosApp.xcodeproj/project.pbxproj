@@ -9,9 +9,14 @@
 /* Begin PBXBuildFile section */
 		19896FA3238253E400FCFE3B /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19896FA2238253E400FCFE3B /* SceneDelegate.swift */; };
 		19917B4B2384EF75004EE430 /* common in Resources */ = {isa = PBXBuildFile; fileRef = 19917B4A2384EF75004EE430 /* common */; };
-		B95C23DD23C3459500B1D53C /* MainTab.swift in Sources */ = {isa = PBXBuildFile; fileRef = B95C23DC23C3459500B1D53C /* MainTab.swift */; };
-		B95C23DF23C3467900B1D53C /* SessionList.swift in Sources */ = {isa = PBXBuildFile; fileRef = B95C23DE23C3467900B1D53C /* SessionList.swift */; };
-		B95C23E123C34BB200B1D53C /* SessionRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = B95C23E023C34BB200B1D53C /* SessionRow.swift */; };
+		B95C23DD23C3459500B1D53C /* MainTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B95C23DC23C3459500B1D53C /* MainTabView.swift */; };
+		B95C23DF23C3467900B1D53C /* SessionListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B95C23DE23C3467900B1D53C /* SessionListView.swift */; };
+		B95C23E123C34BB200B1D53C /* SessionRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B95C23E023C34BB200B1D53C /* SessionRowView.swift */; };
+		D1668DFB240214440002E2A0 /* AppState.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1668DFA240214440002E2A0 /* AppState.swift */; };
+		D1668E00240216AF0002E2A0 /* SessionListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1668DFF240216AF0002E2A0 /* SessionListViewModel.swift */; };
+		D1BABAAF24021ECC0068724B /* BookmarkListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1BABAAE24021ECC0068724B /* BookmarkListView.swift */; };
+		D1BABAB124021ED30068724B /* LoungeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1BABAB024021ED30068724B /* LoungeView.swift */; };
+		D1BABAB324021FC40068724B /* NoticeListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1BABAB224021FC40068724B /* NoticeListView.swift */; };
 		F861D7E1207FA40F0085E80D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F861D7E0207FA40F0085E80D /* AppDelegate.swift */; };
 		F861D7EB207FA4100085E80D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F861D7E9207FA4100085E80D /* LaunchScreen.storyboard */; };
 		F861D7F6207FA4100085E80D /* iosAppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F861D7F5207FA4100085E80D /* iosAppTests.swift */; };
@@ -54,9 +59,14 @@
 		19896FA2238253E400FCFE3B /* SceneDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		19917B4A2384EF75004EE430 /* common */ = {isa = PBXFileReference; lastKnownFileType = folder; name = common; path = ../common; sourceTree = "<group>"; };
 		99852682F7BDCF119F6D73EA /* settings.gradle.kts */ = {isa = PBXFileReference; lastKnownFileType = file.kts; name = settings.gradle.kts; path = ../settings.gradle.kts; sourceTree = "<group>"; };
-		B95C23DC23C3459500B1D53C /* MainTab.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTab.swift; sourceTree = "<group>"; };
-		B95C23DE23C3467900B1D53C /* SessionList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionList.swift; sourceTree = "<group>"; };
-		B95C23E023C34BB200B1D53C /* SessionRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionRow.swift; sourceTree = "<group>"; };
+		B95C23DC23C3459500B1D53C /* MainTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabView.swift; sourceTree = "<group>"; };
+		B95C23DE23C3467900B1D53C /* SessionListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionListView.swift; sourceTree = "<group>"; };
+		B95C23E023C34BB200B1D53C /* SessionRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionRowView.swift; sourceTree = "<group>"; };
+		D1668DFA240214440002E2A0 /* AppState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppState.swift; sourceTree = "<group>"; };
+		D1668DFF240216AF0002E2A0 /* SessionListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionListViewModel.swift; sourceTree = "<group>"; };
+		D1BABAAE24021ECC0068724B /* BookmarkListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookmarkListView.swift; sourceTree = "<group>"; };
+		D1BABAB024021ED30068724B /* LoungeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoungeView.swift; sourceTree = "<group>"; };
+		D1BABAB224021FC40068724B /* NoticeListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoticeListView.swift; sourceTree = "<group>"; };
 		F861D7DD207FA40F0085E80D /* iosApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iosApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F861D7E0207FA40F0085E80D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F861D7EA207FA4100085E80D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -86,6 +96,39 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		D1668DFC240215760002E2A0 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				D1BABAAE24021ECC0068724B /* BookmarkListView.swift */,
+				D1BABAB024021ED30068724B /* LoungeView.swift */,
+				B95C23DC23C3459500B1D53C /* MainTabView.swift */,
+				D1BABAB224021FC40068724B /* NoticeListView.swift */,
+				B95C23DE23C3467900B1D53C /* SessionListView.swift */,
+				B95C23E023C34BB200B1D53C /* SessionRowView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		D1668DFD2402157C0002E2A0 /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				F861D7E0207FA40F0085E80D /* AppDelegate.swift */,
+				D1668DFA240214440002E2A0 /* AppState.swift */,
+				F861D7EC207FA4100085E80D /* Info.plist */,
+				F861D7E9207FA4100085E80D /* LaunchScreen.storyboard */,
+				19896FA2238253E400FCFE3B /* SceneDelegate.swift */,
+			);
+			path = Common;
+			sourceTree = "<group>";
+		};
+		D1668DFE240216880002E2A0 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				D1668DFF240216AF0002E2A0 /* SessionListViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
 		F861D7D4207FA40F0085E80D = {
 			isa = PBXGroup;
 			children = (
@@ -95,7 +138,9 @@
 				F861D7DE207FA40F0085E80D /* Products */,
 				99852682F7BDCF119F6D73EA /* settings.gradle.kts */,
 			);
+			indentWidth = 4;
 			sourceTree = "<group>";
+			tabWidth = 4;
 		};
 		F861D7DE207FA40F0085E80D /* Products */ = {
 			isa = PBXGroup;
@@ -110,13 +155,9 @@
 		F861D7DF207FA40F0085E80D /* iosApp */ = {
 			isa = PBXGroup;
 			children = (
-				F861D7E0207FA40F0085E80D /* AppDelegate.swift */,
-				F861D7EC207FA4100085E80D /* Info.plist */,
-				F861D7E9207FA4100085E80D /* LaunchScreen.storyboard */,
-				B95C23DC23C3459500B1D53C /* MainTab.swift */,
-				19896FA2238253E400FCFE3B /* SceneDelegate.swift */,
-				B95C23DE23C3467900B1D53C /* SessionList.swift */,
-				B95C23E023C34BB200B1D53C /* SessionRow.swift */,
+				D1668DFD2402157C0002E2A0 /* Common */,
+				D1668DFC240215760002E2A0 /* View */,
+				D1668DFE240216880002E2A0 /* ViewModel */,
 			);
 			path = iosApp;
 			sourceTree = "<group>";
@@ -196,9 +237,11 @@
 				TargetAttributes = {
 					F861D7DC207FA40F0085E80D = {
 						CreatedOnToolsVersion = 9.3;
+						LastSwiftMigration = 1130;
 					};
 					F861D7F0207FA4100085E80D = {
 						CreatedOnToolsVersion = 9.3;
+						LastSwiftMigration = 1130;
 						TestTargetID = F861D7DC207FA40F0085E80D;
 					};
 					F861D804207FA4200085E80D = {
@@ -266,10 +309,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B95C23DD23C3459500B1D53C /* MainTab.swift in Sources */,
-				B95C23E123C34BB200B1D53C /* SessionRow.swift in Sources */,
-				B95C23DF23C3467900B1D53C /* SessionList.swift in Sources */,
+				B95C23DD23C3459500B1D53C /* MainTabView.swift in Sources */,
+				B95C23E123C34BB200B1D53C /* SessionRowView.swift in Sources */,
+				D1668E00240216AF0002E2A0 /* SessionListViewModel.swift in Sources */,
+				D1BABAB124021ED30068724B /* LoungeView.swift in Sources */,
+				B95C23DF23C3467900B1D53C /* SessionListView.swift in Sources */,
+				D1668DFB240214440002E2A0 /* AppState.swift in Sources */,
+				D1BABAB324021FC40068724B /* NoticeListView.swift in Sources */,
 				F861D7E1207FA40F0085E80D /* AppDelegate.swift in Sources */,
+				D1BABAAF24021ECC0068724B /* BookmarkListView.swift in Sources */,
 				19896FA3238253E400FCFE3B /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -361,7 +409,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				OTHER_LDFLAGS = "-v";
@@ -417,7 +465,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				OTHER_LDFLAGS = "-v";
 				SDKROOT = iphoneos;
@@ -434,7 +482,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = E225A72QFV;
 				ENABLE_BITCODE = NO;
-				INFOPLIST_FILE = iosApp/Info.plist;
+				INFOPLIST_FILE = iosApp/Common/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -443,7 +491,7 @@
 				OTHER_LDFLAGS = "-v";
 				PRODUCT_BUNDLE_IDENTIFIER = jp.gree.techcon;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALID_ARCHS = "arm64 armv7";
 			};
@@ -456,7 +504,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = E225A72QFV;
 				ENABLE_BITCODE = NO;
-				INFOPLIST_FILE = iosApp/Info.plist;
+				INFOPLIST_FILE = iosApp/Common/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -465,7 +513,7 @@
 				OTHER_LDFLAGS = "-v";
 				PRODUCT_BUNDLE_IDENTIFIER = jp.gree.techcon;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALID_ARCHS = "arm64 armv7";
 			};
@@ -486,7 +534,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.example.iosAppTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/iosApp.app/iosApp";
 			};
@@ -507,7 +555,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.example.iosAppTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/iosApp.app/iosApp";
 			};
