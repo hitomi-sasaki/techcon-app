@@ -12,8 +12,10 @@ struct SessionListView: View {
     @ObservedObject(initialValue: SessionListViewModel()) private var vm: SessionListViewModel
 
     var body: some View {
-        List(vm.sessionListItems, id: \.id) { session in
-            SessionRowView(session: session)
+        List {
+            ForEach(vm.sessionListItems, id: \.id) { session in
+                SessionRowView(session: session)            .listRowInsets(EdgeInsets())
+            }
         }
     }
 }
