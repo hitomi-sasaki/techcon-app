@@ -24,19 +24,11 @@
 		D1C7BE2E24022BB100D60C3B /* AppIcon.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D1C7BE2D24022BB100D60C3B /* AppIcon.xcassets */; };
 		F861D7E1207FA40F0085E80D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F861D7E0207FA40F0085E80D /* AppDelegate.swift */; };
 		F861D7EB207FA4100085E80D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F861D7E9207FA4100085E80D /* LaunchScreen.storyboard */; };
-		F861D7F6207FA4100085E80D /* iosAppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F861D7F5207FA4100085E80D /* iosAppTests.swift */; };
 		F861D80C207FA4200085E80D /* common.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F861D805207FA4200085E80D /* common.framework */; };
 		F861D80D207FA4200085E80D /* common.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = F861D805207FA4200085E80D /* common.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		F861D7F2207FA4100085E80D /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = F861D7D5207FA40F0085E80D /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = F861D7DC207FA40F0085E80D;
-			remoteInfo = iosApp;
-		};
 		F861D80A207FA4200085E80D /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = F861D7D5207FA40F0085E80D /* Project object */;
@@ -83,9 +75,6 @@
 		F861D7E0207FA40F0085E80D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F861D7EA207FA4100085E80D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		F861D7EC207FA4100085E80D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		F861D7F1207FA4100085E80D /* iosAppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = iosAppTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		F861D7F5207FA4100085E80D /* iosAppTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = iosAppTests.swift; sourceTree = "<group>"; };
-		F861D7F7207FA4100085E80D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F861D805207FA4200085E80D /* common.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = common.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -103,13 +92,6 @@
 			files = (
 				F861D80C207FA4200085E80D /* common.framework in Frameworks */,
 				C922B825493C0F92826541A2 /* Pods_GREE_TechCon.framework in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		F861D7EE207FA4100085E80D /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -189,7 +171,6 @@
 			children = (
 				19917B4A2384EF75004EE430 /* common */,
 				F861D7DF207FA40F0085E80D /* iosApp */,
-				F861D7F4207FA4100085E80D /* iosAppTests */,
 				F861D7DE207FA40F0085E80D /* Products */,
 				99852682F7BDCF119F6D73EA /* settings.gradle.kts */,
 				EA1A3A77688AD5CA7DBDFF07 /* Pods */,
@@ -203,7 +184,6 @@
 			isa = PBXGroup;
 			children = (
 				F861D7DD207FA40F0085E80D /* (Dev)GREE TechCon.app */,
-				F861D7F1207FA4100085E80D /* iosAppTests.xctest */,
 				F861D805207FA4200085E80D /* common.framework */,
 			);
 			name = Products;
@@ -219,15 +199,6 @@
 				D1668DFE240216880002E2A0 /* ViewModel */,
 			);
 			path = iosApp;
-			sourceTree = "<group>";
-		};
-		F861D7F4207FA4100085E80D /* iosAppTests */ = {
-			isa = PBXGroup;
-			children = (
-				F861D7F5207FA4100085E80D /* iosAppTests.swift */,
-				F861D7F7207FA4100085E80D /* Info.plist */,
-			);
-			path = iosAppTests;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -253,24 +224,6 @@
 			productName = iosApp;
 			productReference = F861D7DD207FA40F0085E80D /* (Dev)GREE TechCon.app */;
 			productType = "com.apple.product-type.application";
-		};
-		F861D7F0207FA4100085E80D /* iosAppTests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = F861D7FD207FA4100085E80D /* Build configuration list for PBXNativeTarget "iosAppTests" */;
-			buildPhases = (
-				F861D7ED207FA4100085E80D /* Sources */,
-				F861D7EE207FA4100085E80D /* Frameworks */,
-				F861D7EF207FA4100085E80D /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				F861D7F3207FA4100085E80D /* PBXTargetDependency */,
-			);
-			name = iosAppTests;
-			productName = iosAppTests;
-			productReference = F861D7F1207FA4100085E80D /* iosAppTests.xctest */;
-			productType = "com.apple.product-type.bundle.unit-test";
 		};
 		F861D804207FA4200085E80D /* common */ = {
 			isa = PBXNativeTarget;
@@ -301,11 +254,6 @@
 						CreatedOnToolsVersion = 9.3;
 						LastSwiftMigration = 1130;
 					};
-					F861D7F0207FA4100085E80D = {
-						CreatedOnToolsVersion = 9.3;
-						LastSwiftMigration = 1130;
-						TestTargetID = F861D7DC207FA40F0085E80D;
-					};
 					F861D804207FA4200085E80D = {
 						CreatedOnToolsVersion = 9.3;
 					};
@@ -325,7 +273,6 @@
 			projectRoot = "";
 			targets = (
 				F861D7DC207FA40F0085E80D /* GREE TechCon */,
-				F861D7F0207FA4100085E80D /* iosAppTests */,
 				F861D804207FA4200085E80D /* common */,
 			);
 		};
@@ -340,13 +287,6 @@
 				19917B4B2384EF75004EE430 /* common in Resources */,
 				D1C7BE2E24022BB100D60C3B /* AppIcon.xcassets in Resources */,
 				D1BC324C240232EE0008F0D3 /* GoogleService-Info.plist in Resources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		F861D7EF207FA4100085E80D /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -427,22 +367,9 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		F861D7ED207FA4100085E80D /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				F861D7F6207FA4100085E80D /* iosAppTests.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		F861D7F3207FA4100085E80D /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = F861D7DC207FA40F0085E80D /* GREE TechCon */;
-			targetProxy = F861D7F2207FA4100085E80D /* PBXContainerItemProxy */;
-		};
 		F861D80B207FA4200085E80D /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = F861D804207FA4200085E80D /* common */;
@@ -601,6 +528,7 @@
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = jp.gree.techcon.dev;
+				PRODUCT_MODULE_NAME = GREE_TechCon;
 				PRODUCT_NAME = "(Dev)$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
@@ -623,52 +551,11 @@
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = jp.gree.techcon;
+				PRODUCT_MODULE_NAME = GREE_TechCon;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
 				VALID_ARCHS = "arm64 armv7";
-			};
-			name = Release;
-		};
-		F861D7FE207FA4100085E80D /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = E225A72QFV;
-				INFOPLIST_FILE = iosAppTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.example.iosAppTests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/iosApp.app/iosApp";
-			};
-			name = Debug;
-		};
-		F861D7FF207FA4100085E80D /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = E225A72QFV;
-				INFOPLIST_FILE = iosAppTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.example.iosAppTests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/iosApp.app/iosApp";
 			};
 			name = Release;
 		};
@@ -757,15 +644,6 @@
 			buildConfigurations = (
 				F861D7FB207FA4100085E80D /* Debug */,
 				F861D7FC207FA4100085E80D /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		F861D7FD207FA4100085E80D /* Build configuration list for PBXNativeTarget "iosAppTests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				F861D7FE207FA4100085E80D /* Debug */,
-				F861D7FF207FA4100085E80D /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
