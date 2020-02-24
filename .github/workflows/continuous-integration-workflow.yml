@@ -32,6 +32,8 @@ jobs:
               run: sudo xcode-select -s '/Applications/Xcode_11.2.1.app/Contents/Developer'
             - name: Show Xcode version
               run: xcodebuild -version
+            - name: CocoaPods
+              run: pod install
             - name: Build
               working-directory: ./iosApp
               run: xcodebuild -workspace iosApp.xcworkspace -scheme GREE\ TechCon -sdk iphonesimulator -configuration Debug build
