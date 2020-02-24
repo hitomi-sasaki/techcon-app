@@ -17,6 +17,7 @@ struct MainTabView: View {
 
         UINavigationBar.appearance().standardAppearance = coloredAppearance
         UINavigationBar.appearance().scrollEdgeAppearance = coloredAppearance
+        UITableView.appearance().separatorStyle = .none
     }
 
     var body: some View {
