@@ -14,7 +14,7 @@ struct SessionRowView: View {
   var body: some View {
     VStack(alignment: .leading, spacing: 8.0) {
         Text(session.dateText)
-            .font(.system(size: 20.0, weight: .regular))
+            .font(.system(size: 20.0))
             .foregroundColor(.primary)
         VStack(alignment: .leading, spacing: 0.0) {
             HStack {
@@ -28,6 +28,11 @@ struct SessionRowView: View {
                 .foregroundColor(.primary)
                 .padding(.bottom, 16.0)
                 .padding(.top, 12.0)
+            Text("#Game #Unity #Assetbundle #DebugTool #TCP #gRPC #adb  #Libimobiledevice #CSharp #CPP #Go #Gomobile")
+                .font(.system(size: 14.0))
+                .lineSpacing(6.0)
+                .foregroundColor(.secondary)
+                .padding(.bottom, 16.0)
             HStack {
                 Image("")
                     .frame(width: 48.0, height: 48.0, alignment: .center)
