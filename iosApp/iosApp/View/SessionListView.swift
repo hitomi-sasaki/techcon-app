@@ -12,11 +12,8 @@ struct SessionListView: View {
     @ObservedObject(initialValue: SessionListViewModel()) private var vm: SessionListViewModel
 
     var body: some View {
-        NavigationView {
-            List(vm.sessionListItems, id: \.id) { session in
-                SessionRowView(session: session)
-            }
-            .navigationBarTitle("セッション", displayMode: .inline)
+        List(vm.sessionListItems, id: \.id) { session in
+            SessionRowView(session: session)
         }
     }
 }

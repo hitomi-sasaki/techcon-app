@@ -80,11 +80,13 @@ PODS:
     - nanopb/encode (= 0.3.9011)
   - nanopb/decode (0.3.9011)
   - nanopb/encode (0.3.9011)
+  - Parchment (2.0.1)
   - PromisesObjC (1.2.8)
 
 DEPENDENCIES:
   - Firebase/Analytics
   - Firebase/Auth
+  - Parchment
 
 SPEC REPOS:
   trunk:
@@ -103,6 +105,7 @@ SPEC REPOS:
     - GoogleUtilities
     - GTMSessionFetcher
     - nanopb
+    - Parchment
     - PromisesObjC
 
 SPEC CHECKSUMS:
@@ -121,8 +124,9 @@ SPEC CHECKSUMS:
   GoogleUtilities: 06eb53bb579efe7099152735900dd04bf09e7275
   GTMSessionFetcher: cea130bbfe5a7edc8d06d3f0d17288c32ffe9925
   nanopb: 18003b5e52dab79db540fe93fe9579f399bd1ccd
+  Parchment: 00cb7d0d0a38f5a4a7e089ec59637b970a58c0f0
   PromisesObjC: c119f3cd559f50b7ae681fa59dc1acd19173b7e6
 
-PODFILE CHECKSUM: 11f07794d16635abf4e16538e384916e0249d5c0
+PODFILE CHECKSUM: 522e7f7558a5ccefd14b3c2189b1960fbb538278
 
 COCOAPODS: 1.8.4

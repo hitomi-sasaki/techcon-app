@@ -1,8 +1,9 @@
 platform :ios, '13.0'
 
-target 'iosApp' do
+target 'GREE TechCon' do
   use_frameworks!
 
   pod 'Firebase/Analytics'
   pod 'Firebase/Auth'
+  pod 'Parchment'
 end

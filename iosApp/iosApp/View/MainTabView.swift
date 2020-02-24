@@ -8,12 +8,23 @@
 import SwiftUI
 
 struct MainTabView: View {
+    init() {
+        let coloredAppearance = UINavigationBarAppearance()
+        coloredAppearance.configureWithOpaqueBackground()
+        coloredAppearance.backgroundColor = .white
+        coloredAppearance.titleTextAttributes = [.foregroundColor: UIColor.darkGray]
+        coloredAppearance.largeTitleTextAttributes = [.foregroundColor: UIColor.darkGray]
+
+        UINavigationBar.appearance().standardAppearance = coloredAppearance
+        UINavigationBar.appearance().scrollEdgeAppearance = coloredAppearance
+    }
+
     var body: some View {
         TabView {
             NoticeListView()
                 .tabItem { Text("お知らせ") }
                 .tag(0)
-            SessionListView()
+            NavigationView { SessionViewController().navigationBarTitle("セッション", displayMode: .inline) }
                 .tabItem { Text("セッション") }
                 .tag(1)
             BookmarkListView()
