@@ -23,17 +23,25 @@ struct MainTabView: View {
     var body: some View {
         TabView {
             NoticeListView()
-                .tabItem { Text("お知らせ") }
-                .tag(0)
+                .tabItem {
+                    Text("お知らせ")
+                    Image("naviIcon01")
+                }
             NavigationView { SessionViewController().navigationBarTitle("セッション", displayMode: .inline) }
-                .tabItem { Text("セッション") }
-                .tag(1)
+                .tabItem {
+                    Text("セッション")
+                    Image("naviIcon02")
+                }
             BookmarkListView()
-                .tabItem { Text("スケジュール") }
-                .tag(2)
+                .tabItem {
+                    Text("スケジュール")
+                    Image("naviIcon03")
+                }
             LoungeView()
-                .tabItem { Text("ラウンジ") }
-                .tag(3)
+                .tabItem {
+                    Text("ラウンジ")
+                    Image("naviIcon04")
+                }
         }
     }
 }
