@@ -21,7 +21,7 @@
 		D1BC324C240232EE0008F0D3 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = D1BC324B240232EE0008F0D3 /* GoogleService-Info.plist */; };
 		D1BC32512402AE410008F0D3 /* SessionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1BC32502402AE410008F0D3 /* SessionViewController.swift */; };
 		D1BC3257240394EB0008F0D3 /* SessionPagingCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1BC3256240394EB0008F0D3 /* SessionPagingCell.swift */; };
-		D1C7BE2E24022BB100D60C3B /* AppIcon.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D1C7BE2D24022BB100D60C3B /* AppIcon.xcassets */; };
+		D1C7BE2E24022BB100D60C3B /* Image.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D1C7BE2D24022BB100D60C3B /* Image.xcassets */; };
 		F861D7E1207FA40F0085E80D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F861D7E0207FA40F0085E80D /* AppDelegate.swift */; };
 		F861D7EB207FA4100085E80D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F861D7E9207FA4100085E80D /* LaunchScreen.storyboard */; };
 		F861D80C207FA4200085E80D /* common.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F861D805207FA4200085E80D /* common.framework */; };
@@ -68,7 +68,7 @@
 		D1BC324B240232EE0008F0D3 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		D1BC32502402AE410008F0D3 /* SessionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionViewController.swift; sourceTree = "<group>"; };
 		D1BC3256240394EB0008F0D3 /* SessionPagingCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionPagingCell.swift; sourceTree = "<group>"; };
-		D1C7BE2D24022BB100D60C3B /* AppIcon.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = AppIcon.xcassets; sourceTree = "<group>"; };
+		D1C7BE2D24022BB100D60C3B /* Image.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Image.xcassets; sourceTree = "<group>"; };
 		D20D3E9F5E9960D3061185AE /* Pods-GREE TechCon.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GREE TechCon.release.xcconfig"; path = "Target Support Files/Pods-GREE TechCon/Pods-GREE TechCon.release.xcconfig"; sourceTree = "<group>"; };
 		E0BA1D3210A3A38ABF8CA51E /* Pods_GREE_TechCon.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GREE_TechCon.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F861D7DD207FA40F0085E80D /* (Dev)GREE TechCon.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "(Dev)GREE TechCon.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -152,7 +152,7 @@
 			isa = PBXGroup;
 			children = (
 				D1BC324B240232EE0008F0D3 /* GoogleService-Info.plist */,
-				D1C7BE2D24022BB100D60C3B /* AppIcon.xcassets */,
+				D1C7BE2D24022BB100D60C3B /* Image.xcassets */,
 			);
 			path = Resource;
 			sourceTree = "<group>";
@@ -285,7 +285,7 @@
 			files = (
 				F861D7EB207FA4100085E80D /* LaunchScreen.storyboard in Resources */,
 				19917B4B2384EF75004EE430 /* common in Resources */,
-				D1C7BE2E24022BB100D60C3B /* AppIcon.xcassets in Resources */,
+				D1C7BE2E24022BB100D60C3B /* Image.xcassets in Resources */,
 				D1BC324C240232EE0008F0D3 /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

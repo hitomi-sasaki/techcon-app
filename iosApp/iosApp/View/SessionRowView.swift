@@ -22,7 +22,7 @@ struct SessionRowView: View {
                     .font(.system(size: 14.0, weight: .bold))
                     .foregroundColor(.secondary)
                 Spacer()
-                Text("{is_bookmarked}")
+                Image(session.isBookmarked ? "bookmarkOn" : "bookmarkOff")
             }
             Text(session.title)
                 .foregroundColor(.primary)
@@ -57,7 +57,7 @@ struct SessionRowView: View {
 
 struct SessionRowView_Previews: PreviewProvider {
     static var previews: some View {
-        let item = SessionListItem(id: 0, names: "藤本 真樹", dateText: "13:00 - 13:30", title: "Keynote", isBookmarked: false)
+        let item = SessionListItem(id: 0, names: "藤本 真樹", dateText: "13:00 - 13:30", title: "Keynote", isBookmarked: true)
         return SessionRowView(session: item)
     }
 }
