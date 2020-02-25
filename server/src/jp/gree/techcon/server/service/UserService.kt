@@ -46,24 +46,6 @@ class UserService {
 
     suspend fun setBookmark(firebaseUid: String, sessionId: Int): Boolean {
         return DatabaseFactory.dbQuery {
-            //            Bookmark.find { Bookmarks.firebaseUid.eq(firebaseUid) }.map { bookmark ->
-//                var alreadyExists: Boolean = false
-//                user.bookmarks.forEach { session ->
-//                    alreadyExists = alreadyExists || session.id.value.equals(sessionId)
-//                }
-//                if (alreadyExists) {
-//                    return@dbQuery false
-//                }
-//                Bookmarks.insert {
-//                        it[Bookmarks.firebaseUid] = firebaseUid
-//                        it[Bookmarks.session] = EntityID(sessionId, Sessions)
-//                    }
-////                DatabaseFactory.upsert(User.Companion, 1) {
-////                    firebaseUid = "1111-1111-1111-1111"
-////                    bookmarks = SizedCollection(sessionId)
-////                }
-//            }
-//            return@dbQuery true
             Bookmarks.select { Bookmarks.firebaseUid.eq(firebaseUid) and Bookmarks.session.eq(sessionId) }.forEach {
                 return@dbQuery false
             }
