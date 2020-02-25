@@ -23,8 +23,9 @@ val appTypography = Typography(
         fontSize = 20.sp
     ),
     h5 = TextStyle(
-        color = Color.Red,
-        fontSize = 20.sp
+        color = appColors.onBackground,
+        fontWeight = FontWeight.Bold,
+        fontSize = 18.sp
     ),
     h6 = TextStyle(
         color = appColors.onBackground,
@@ -36,6 +37,7 @@ val appTypography = Typography(
     ),
     subtitle2 = TextStyle(
         color = appColors.onBackground,
+        fontWeight = FontWeight.Bold,
         fontSize = 14.sp
     ),
     body1 = TextStyle(
