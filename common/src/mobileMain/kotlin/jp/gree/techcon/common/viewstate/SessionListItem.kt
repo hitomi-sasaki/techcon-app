@@ -2,6 +2,7 @@ package jp.gree.techcon.common.viewstate
 
 import jp.gree.techcon.common.model.Session
 import jp.gree.techcon.common.model.Speaker
+import jp.gree.techcon.common.util.AppDateTime
 
 data class SessionListItem(
     val id: Long,
@@ -19,7 +20,7 @@ data class SessionListItem(
                 id = session.id,
                 name = session.name.map { it.name }.reduce { acc, name -> "$acc, $name" },
                 tags = "#AWS #Unity",
-                dateText = "19:00 - 20:00", // TODO: date-to-string converter
+                dateText = AppDateTime.parseToTimeDuration(session.startTime, session.endTime),
                 title = session.title,
                 trackName = "A-1",
                 speaker = Speaker("test name", "test engineer", "", "", ""),
