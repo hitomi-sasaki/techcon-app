@@ -10,13 +10,13 @@ import androidx.fragment.app.Fragment
 import androidx.ui.core.setContent
 import androidx.ui.layout.Column
 import jp.gree.techcon.R
-import jp.gree.techcon.common.usecase.SessionListService
-import jp.gree.techcon.common.viewstate.ArticleListViewModel
+import jp.gree.techcon.common.usecase.ArticleListService
 import jp.gree.techcon.composables.AppTheme
 import jp.gree.techcon.composables.component.AppBar
+import jp.gree.techcon.composables.observe
 
 class ArticleListFragment : Fragment() {
-    private val service = ArticleListViewModel()
+    private val service = ArticleListService()
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -27,7 +27,7 @@ class ArticleListFragment : Fragment() {
 
         val root = FrameLayout(requireContext())
         root.setContent {
-            ArticleListScreen(title)
+            ArticleListScreen(title, service)
         }
         return root
     }
@@ -35,10 +35,12 @@ class ArticleListFragment : Fragment() {
 
 
 @Composable
-fun ArticleListScreen(title: String) {
+fun ArticleListScreen(title: String, service: ArticleListService) {
+    val articles = observe(service.articles) ?: listOf()
     AppTheme {
         Column {
-            AppBar(title = title)
+            AppBar(title)
+            ArticleList(articles)
         }
     }
 }

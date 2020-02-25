@@ -12,6 +12,7 @@ import androidx.ui.unit.sp
 
 val appColors = lightColorPalette(
     background = Color(red = 255, green = 255, blue = 255),
+    surface = Color(red = 230, green = 230, blue = 230),
     onBackground = Color(red = 33, green = 37, blue = 41)
 )
 
