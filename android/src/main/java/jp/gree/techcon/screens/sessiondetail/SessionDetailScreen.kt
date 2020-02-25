@@ -1,34 +1,41 @@
 package jp.gree.techcon.screens.sessiondetail
 
 import androidx.compose.Composable
+import androidx.ui.core.Text
 import androidx.ui.foundation.VerticalScroller
-import androidx.ui.foundation.background
 import androidx.ui.graphics.Color
 import androidx.ui.layout.*
-import androidx.ui.material.Button
-import androidx.ui.material.OutlinedButtonStyle
+import androidx.ui.material.OutlinedButton
+import androidx.ui.material.surface.Surface
 import androidx.ui.unit.dp
 import jp.gree.techcon.common.model.Session
 import jp.gree.techcon.common.model.Speaker
 import jp.gree.techcon.composables.*
 
 @Composable
-fun SessionDetail(session: Session) {
+fun SessionDetail(session: Session?) {
+    if (session == null) {
+        Column {}
+        return
+    }
     VerticalScroller {
-        ScreenPadding {
+        ScreenColumn {
             Column {
                 Header()
                 VerticalSpace(16.dp)
                 PrimaryText(session.title, appTypography.h4)
                 VerticalSpace(16.dp)
-                SecondaryText(session.tagList.map { "#${it}" }.joinToString(" "), appTypography.body1)
+                SecondaryText(
+                    session.tagList.map { "#${it}" }.joinToString(" "),
+                    appTypography.body1
+                )
                 VerticalSpace(24.dp)
                 SecondaryText(session.description, appTypography.body1)
                 VerticalSpace(24.dp)
-                session.name.forEach { SpeakerItem(speaker = it) }
+                // session.name.forEach { SpeakerItem(speaker = it) }
                 VerticalSpace(24.dp)
                 Row(modifier = LayoutWidth.Fill, arrangement = Arrangement.Center) {
-                    Button("スケジュールに追加", style = OutlinedButtonStyle()) // TODO: ImageButton
+                    // OutlinedButton { Text("スケジュールに追加") } // TODO: ImageButton
                 }
             }
         }
@@ -46,14 +53,13 @@ fun Header() {
 
 @Composable
 fun SpeakerItem(speaker: Speaker) {
-    Column(
-        modifier = background(Color(247, 247, 247)) + LayoutWidth.Fill
-    ) {
-        Padding(padding = 24.dp) {
-            Column {
+    Surface(color = Color(247, 247, 247)) {
+        Column(modifier = LayoutWidth.Fill) {
+            Column(modifier = LayoutPadding(24.dp)) {
                 SpeakerAvatarAndNames(speaker)
                 VerticalSpace(16.dp)
                 PrimaryText(speaker.description, appTypography.caption)
+
             }
         }
     }
@@ -62,11 +68,9 @@ fun SpeakerItem(speaker: Speaker) {
 @Composable
 fun SpeakerAvatarAndNames(speaker: Speaker) {
     Row {
-        Container(
-            modifier = background(Color(207, 207, 207)),
-            height = 64.dp,
-            width = 64.dp
-        ) {} // TODO: load image
+        Surface(color = Color(207, 207, 207)) {
+            Container(height = 64.dp, width = 64.dp) {} // TODO: load image
+        }
         HorizontalSpace(16.dp)
         Column(modifier = LayoutHeight.Min(64.dp), arrangement = Arrangement.Center) {
             PrimaryText(speaker.name, appTypography.subtitle1)
