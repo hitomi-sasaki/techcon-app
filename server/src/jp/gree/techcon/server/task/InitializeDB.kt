@@ -3,10 +3,7 @@ package jp.gree.techcon.server.task
 import io.ktor.server.engine.commandLineEnvironment
 import io.ktor.util.KtorExperimentalAPI
 import jp.gree.techcon.server.dao.*
-import jp.gree.techcon.server.entity.Article
-import jp.gree.techcon.server.entity.Session
-import jp.gree.techcon.server.entity.Speaker
-import jp.gree.techcon.server.entity.Tag
+import jp.gree.techcon.server.entity.*
 import jp.gree.techcon.server.service.DatabaseFactory
 import org.jetbrains.exposed.sql.SchemaUtils
 import org.jetbrains.exposed.sql.SizedCollection
@@ -24,7 +21,7 @@ fun main(args: Array<String>) {
 
 object InitializeDB {
     const val DATABASE = "techcon"
-    val TABLES = arrayOf(Sessions, SpeakerRelations, Speakers, TagRelations, Tags, Articles)
+    val TABLES = arrayOf(Sessions, SpeakerRelations, Speakers, TagRelations, Tags, Articles, Boothes)
 
     fun setupSchema() {
         transaction {
@@ -142,6 +139,21 @@ object InitializeDB {
                 title = "いよいよ今週末です"
                 description = "いよいよ今週末です"
                 publishedAt = 1574157622
+            }
+
+            val BOOTH_01 = DatabaseFactory.upsert(Booth.Companion, 1) {
+                title = "コーヒースタンド"
+                description = "無料のコーヒーが置いてあります"
+            }
+
+            val BOOTH_02 = DatabaseFactory.upsert(Booth.Companion, 2) {
+                title = "Make部"
+                description = "グリーグループの有志で作ったガジェットを展示します。"
+            }
+
+            val BOOTH_03 = DatabaseFactory.upsert(Booth.Companion, 3) {
+                title = "技術書典部"
+                description = "グリーグループの有志で作った技術書を頒布します。"
             }
         }
     }
