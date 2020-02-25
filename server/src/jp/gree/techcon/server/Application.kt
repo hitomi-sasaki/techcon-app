@@ -75,7 +75,7 @@ fun Application.module() {
             get("/bookmarks") {
                 val firebaseUid: String? = call.authentication.firebaseUid()
                 if (firebaseUid == null) {
-                    call.respond(HttpStatusCode.Forbidden)
+                    call.respond(HttpStatusCode.Unauthorized)
                 } else {
                     val bookmarks: List<Session> = UserService().findByFirebaseUid(firebaseUid).bookmarks
                     call.respond(
@@ -107,13 +107,13 @@ fun Application.module() {
                 val firebaseUid: String? = call.authentication.firebaseUid()
                 val sessionId: Int = call.receive<Int>()
                 if (firebaseUid == null) {
-                    call.respond(HttpStatusCode.Forbidden)
+                    call.respond(HttpStatusCode.Unauthorized)
                 } else {
                     val created = UserService().setBookmark(firebaseUid, sessionId)
                     if (created) {
                         call.respond(HttpStatusCode.Created)
                     } else {
-                        call.respond(HttpStatusCode.Conflict)
+                        call.respond(HttpStatusCode.OK)
                     }
                 }
             }
