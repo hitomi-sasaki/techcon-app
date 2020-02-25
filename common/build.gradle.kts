@@ -62,6 +62,7 @@ kotlin {
                 implementation("io.ktor:ktor-client-serialization:${Deps.ktorVersion}")
                 implementation("com.squareup.sqldelight:coroutines-extensions:${Deps.sqldelightVersion}")
                 implementation("org.kodein.di:kodein-di-erased:${Deps.kodeinVersion}")
+                implementation("com.soywiz.korlibs.klock:klock:${Deps.klockVersion}")
             }
         }
         val mobileMain by creating {

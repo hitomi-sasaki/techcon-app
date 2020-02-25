@@ -1,6 +1,7 @@
 package jp.gree.techcon.common.viewstate
 
 import jp.gree.techcon.common.model.Article
+import jp.gree.techcon.common.util.AppDateTime
 
 data class ArticleListItem(
     val title: String,
@@ -13,8 +14,8 @@ data class ArticleListItem(
             return ArticleListItem(
                 title = article.title,
                 description = article.description,
-                timeText = "10:00 AM", // TODO: date-to-string converter
-                dateText = "10月12日（火）" // TODO: date-to-string converter
+                timeText = AppDateTime.parseToArticleTime(article.publishedAt),
+                dateText = AppDateTime.parseToArticleDate(article.publishedAt)//article.publishedAt)
             )
         }
 
