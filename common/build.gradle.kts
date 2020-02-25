@@ -60,8 +60,8 @@ kotlin {
                 implementation("org.jetbrains.kotlinx:kotlinx-serialization-runtime-common:${Deps.serializeVersion}")
                 implementation("io.ktor:ktor-client-core:${Deps.ktorVersion}")
                 implementation("io.ktor:ktor-client-serialization:${Deps.ktorVersion}")
-                implementation("com.squareup.sqldelight:coroutines-extensions:${Deps.sqldelight}")
-                implementation("org.kodein.di:kodein-di-erased:${Deps.kodein}")
+                implementation("com.squareup.sqldelight:coroutines-extensions:${Deps.sqldelightVersion}")
+                implementation("org.kodein.di:kodein-di-erased:${Deps.kodeinVersion}")
             }
         }
         val mobileMain by creating {
@@ -76,7 +76,7 @@ kotlin {
                 implementation("org.jetbrains.kotlinx:kotlinx-serialization-runtime-native:${Deps.serializeVersion}")
                 implementation("io.ktor:ktor-client-ios:${Deps.ktorVersion}")
                 implementation("io.ktor:ktor-client-serialization-native:${Deps.ktorVersion}")
-                implementation("com.squareup.sqldelight:ios-driver:${Deps.sqldelight}")
+                implementation("com.squareup.sqldelight:ios-driver:${Deps.sqldelightVersion}")
             }
         }
         val androidMain by getting {
@@ -90,7 +90,7 @@ kotlin {
                 implementation("androidx.lifecycle:lifecycle-livedata-ktx:${AndroidDeps.ktxVersion}")
                 implementation("io.ktor:ktor-client-android:${Deps.ktorVersion}")
                 implementation("io.ktor:ktor-client-serialization-jvm:${Deps.ktorVersion}")
-                implementation("com.squareup.sqldelight:android-driver:${Deps.sqldelight}")
+                implementation("com.squareup.sqldelight:android-driver:${Deps.sqldelightVersion}")
             }
         }
         val jvmMain by getting {
@@ -100,7 +100,7 @@ kotlin {
                 implementation("org.jetbrains.kotlinx:kotlinx-serialization-runtime:${Deps.serializeVersion}")
                 implementation("io.ktor:ktor-client-core-jvm:${Deps.ktorVersion}")
                 implementation("io.ktor:ktor-client-serialization-jvm:${Deps.ktorVersion}")
-                implementation("com.squareup.sqldelight:sqlite-driver:${Deps.sqldelight}")
+                implementation("com.squareup.sqldelight:sqlite-driver:${Deps.sqldelightVersion}")
             }
         }
     }
