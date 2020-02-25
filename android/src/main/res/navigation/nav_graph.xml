@@ -14,7 +14,7 @@
             app:destination="@+id/sessionDetail" />
         <action
             android:id="@+id/to_article"
-            app:destination="@+id/articleDetail" />
+            app:destination="@+id/articleList" />
     </fragment>
     <fragment
         android:id="@+id/bookmark"
@@ -27,13 +27,6 @@
         android:name="jp.gree.techcon.screens.sessiondetail.SessionDetailFragment">
         <argument
             android:name="sessionId"
-            app:argType="long" />
-    </fragment>
-    <fragment
-        android:id="@+id/articleDetail"
-        android:name="jp.gree.techcon.screens.articledetail.ArticleDetailFragment">
-        <argument
-            android:name="articleId"
             app:argType="long" />
     </fragment>
 </navigation>

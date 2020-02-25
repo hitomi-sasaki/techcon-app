@@ -28,9 +28,6 @@ object CommonModule {
             // repo
             bind<SessionRepository>() with singleton { SessionRepository(instance(), instance()) }
             bind<ArticleRepository>() with singleton { ArticleRepository(instance()) }
-
-            // usecase
-            bind<SessionDetailService>() with singleton { SessionDetailService(instance()) }
         }
     }
 }

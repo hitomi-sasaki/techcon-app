@@ -5,13 +5,36 @@ import androidx.ui.core.Text
 import androidx.ui.foundation.Clickable
 import androidx.ui.foundation.VerticalScroller
 import androidx.ui.layout.Column
-import androidx.ui.layout.Padding
+import androidx.ui.layout.Container
 import androidx.ui.material.MaterialTheme
+import androidx.ui.material.Tab
+import androidx.ui.material.TabRow
 import androidx.ui.material.ripple.Ripple
-import androidx.ui.unit.dp
 import jp.gree.techcon.R
 import jp.gree.techcon.common.viewstate.SessionListItem
 import jp.gree.techcon.composables.VectorImageButton
+
+@Composable
+fun SessionTabList(
+    sessions: List<SessionListItem>,
+    onClick: (session: SessionListItem) -> Unit,
+    onBookmark: (session: SessionListItem) -> Unit
+) {
+    TabRow(
+        items = listOf("aaa", "aaa", "bbb"),
+        selectedIndex = 0
+    ) { index, text ->
+        Tab(
+            text = text,
+            selected = 0 == index,
+            onSelected = { }
+        )
+    }
+    Container {
+        SessionList(sessions = sessions, onClick = onClick, onBookmark = onBookmark)
+    }
+}
+
 
 @Composable
 fun SessionList(
@@ -34,18 +57,16 @@ fun SessionListItem(session: SessionListItem, onClick: () -> Unit, onBookmark: (
         if (session.isBookmarked) R.drawable.ic_bookmark else R.drawable.ic_bookmark_border
     Ripple(bounded = true) {
         Clickable(onClick = onClick) {
-            Padding(16.dp) {
-                Column {
-                    Text(
-                        text = session.title,
-                        style = (MaterialTheme.typography()).subtitle1
-                    )
-                    Text(
-                        text = session.names,
-                        style = (MaterialTheme.typography()).body2
-                    )
-                    VectorImageButton(id = bookmarkImage, onClick = onBookmark)
-                }
+            Column {
+                Text(
+                    text = session.title,
+                    style = (MaterialTheme.typography()).subtitle1
+                )
+                Text(
+                    text = session.names,
+                    style = (MaterialTheme.typography()).body2
+                )
+                VectorImageButton(id = bookmarkImage, onClick = onBookmark)
             }
         }
     }
