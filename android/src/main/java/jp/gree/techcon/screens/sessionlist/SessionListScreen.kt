@@ -1,6 +1,7 @@
 package jp.gree.techcon.screens.sessionlist
 
 import androidx.compose.Composable
+import androidx.compose.state
 import androidx.ui.core.Text
 import androidx.ui.foundation.Clickable
 import androidx.ui.foundation.VerticalScroller
@@ -13,6 +14,7 @@ import androidx.ui.material.ripple.Ripple
 import jp.gree.techcon.R
 import jp.gree.techcon.common.viewstate.SessionListItem
 import jp.gree.techcon.composables.VectorImageButton
+import jp.gree.techcon.composables.appColors
 
 @Composable
 fun SessionTabList(
@@ -20,19 +22,28 @@ fun SessionTabList(
     onClick: (session: SessionListItem) -> Unit,
     onBookmark: (session: SessionListItem) -> Unit
 ) {
+    val sectionTitles = Sections.values().map { it.title }
+    var section by state { Sections.Left }
     TabRow(
-        items = listOf("aaa", "aaa", "bbb"),
-        selectedIndex = 0
+        items = sectionTitles,
+        selectedIndex = section.ordinal,
+        color = appColors.background
     ) { index, text ->
         Tab(
             text = text,
-            selected = 0 == index,
-            onSelected = { }
+            selected = section.ordinal == index,
+            onSelected = { section = Sections.values()[index] }
         )
     }
     Container {
         SessionList(sessions = sessions, onClick = onClick, onBookmark = onBookmark)
     }
+}
+
+private enum class Sections(val title: String) {
+    Left("Aトラック"),
+    Center("Bトラック"),
+    Right("ショートトラック")
 }
 
 
