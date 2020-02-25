@@ -77,9 +77,7 @@ fun Application.module() {
                 if (firebaseUid == null) {
                     call.respond(HttpStatusCode.Forbidden)
                 } else {
-                    val bookmarks: List<Session> = UserService().findByFirebaseUid(firebaseUid).flatMap { user ->
-                        user.bookmarks
-                    }
+                    val bookmarks: List<Session> = UserService().findByFirebaseUid(firebaseUid).bookmarks
                     call.respond(
                         HttpStatusCode.OK,
                         SessionList(bookmarks)
@@ -106,10 +104,8 @@ fun Application.module() {
                 )
             }
             post("/bookmark") {
-//                val firebaseUid: String? = call.authentication.firebaseUid()
-//                val sessionId: Int = call.receive<Int>()
-                val firebaseUid: String? = "3333-3333-3333-3333"
-                val sessionId: Int = 1
+                val firebaseUid: String? = call.authentication.firebaseUid()
+                val sessionId: Int = call.receive<Int>()
                 if (firebaseUid == null) {
                     call.respond(HttpStatusCode.Forbidden)
                 } else {
