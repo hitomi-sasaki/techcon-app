@@ -6,7 +6,7 @@ import jp.gree.techcon.server.dao.*
 import jp.gree.techcon.server.entity.Article
 import jp.gree.techcon.server.entity.Session
 import jp.gree.techcon.server.entity.Speaker
-import jp.gree.techcon.server.entity.User
+import jp.gree.techcon.server.entity.Bookmark
 import jp.gree.techcon.server.entity.Tag
 import jp.gree.techcon.server.service.DatabaseFactory
 import org.jetbrains.exposed.sql.SchemaUtils
@@ -24,7 +24,7 @@ fun main(args: Array<String>) {
 
 object InitializeDB {
     const val DATABASE = "techcon"
-    val TABLES = arrayOf(Sessions, SpeakerRelations, Speakers, TagRelations, Tags, Articles, Users, Bookmarks)
+    val TABLES = arrayOf(Sessions, SpeakerRelations, Speakers, TagRelations, Tags, Articles, Bookmarks)
 
     fun setupSchema() {
         transaction {
@@ -144,19 +144,19 @@ object InitializeDB {
                 publishedAt = 1574157622
             }
 
-            val USER_01 = DatabaseFactory.upsert(User.Companion, 1) {
+            val BOOKMARK_01 = DatabaseFactory.upsert(Bookmark.Companion, 1) {
                 firebaseUid = "1111-1111-1111-1111"
-                bookmarks = SizedCollection(SESSION_01)
+                session = SESSION_01
             }
 
-            val USER_02 = DatabaseFactory.upsert(User.Companion, 2) {
+            val BOOKMARK_02 = DatabaseFactory.upsert(Bookmark.Companion, 2) {
                 firebaseUid = "2222-2222-2222-2222"
-                bookmarks = SizedCollection(SESSION_02, SESSION_03)
+                session = SESSION_02
             }
 
-            val USER_03 = DatabaseFactory.upsert(User.Companion, 3) {
-                firebaseUid = "3333-3333-3333-3333"
-                bookmarks = SizedCollection()
+            val BOOKMARK_03 = DatabaseFactory.upsert(Bookmark.Companion, 2) {
+                firebaseUid = "2222-2222-2222-2222"
+                session = SESSION_03
             }
         }
     }

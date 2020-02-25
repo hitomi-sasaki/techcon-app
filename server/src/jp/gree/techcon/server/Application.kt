@@ -15,6 +15,7 @@ import io.ktor.locations.KtorExperimentalLocationsAPI
 import io.ktor.locations.Location
 import io.ktor.locations.Locations
 import io.ktor.locations.get
+import io.ktor.request.receive
 import io.ktor.response.respond
 import io.ktor.routing.get
 import io.ktor.routing.post
@@ -23,7 +24,9 @@ import io.ktor.serialization.serialization
 import io.ktor.server.engine.embeddedServer
 import io.ktor.server.netty.Netty
 import io.ktor.util.KtorExperimentalAPI
-import jp.gree.techcon.common.model.*
+import jp.gree.techcon.common.model.ArticleList
+import jp.gree.techcon.common.model.Session
+import jp.gree.techcon.common.model.SessionList
 import jp.gree.techcon.server.service.*
 
 
@@ -74,9 +77,7 @@ fun Application.module() {
                 if (firebaseUid == null) {
                     call.respond(HttpStatusCode.Forbidden)
                 } else {
-                    val bookmarks: List<Session> = UserService().findByFirebaseUid(firebaseUid).flatMap { user ->
-                        user.bookmarks
-                    }
+                    val bookmarks: List<Session> = UserService().findByFirebaseUid(firebaseUid).bookmarks
                     call.respond(
                         HttpStatusCode.OK,
                         SessionList(bookmarks)
@@ -103,7 +104,18 @@ fun Application.module() {
                 )
             }
             post("/bookmark") {
-                call.respond(Session.getSample())
+                val firebaseUid: String? = call.authentication.firebaseUid()
+                val sessionId: Int = call.receive<Int>()
+                if (firebaseUid == null) {
+                    call.respond(HttpStatusCode.Forbidden)
+                } else {
+                    val created = UserService().setBookmark(firebaseUid, sessionId)
+                    if (created) {
+                        call.respond(HttpStatusCode.Created)
+                    } else {
+                        call.respond(HttpStatusCode.Conflict)
+                    }
+                }
             }
         }
     }
