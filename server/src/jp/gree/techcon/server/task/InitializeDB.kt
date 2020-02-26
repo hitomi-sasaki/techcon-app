@@ -3,10 +3,7 @@ package jp.gree.techcon.server.task
 import io.ktor.server.engine.commandLineEnvironment
 import io.ktor.util.KtorExperimentalAPI
 import jp.gree.techcon.server.dao.*
-import jp.gree.techcon.server.entity.Article
-import jp.gree.techcon.server.entity.Session
-import jp.gree.techcon.server.entity.Speaker
-import jp.gree.techcon.server.entity.Tag
+import jp.gree.techcon.server.entity.*
 import jp.gree.techcon.server.service.DatabaseFactory
 import org.jetbrains.exposed.sql.SchemaUtils
 import org.jetbrains.exposed.sql.SizedCollection
@@ -24,7 +21,7 @@ fun main(args: Array<String>) {
 
 object InitializeDB {
     const val DATABASE = "techcon"
-    val TABLES = arrayOf(Sessions, SpeakerRelations, Speakers, TagRelations, Tags, Articles)
+    val TABLES = arrayOf(Sessions, SpeakerRelations, Speakers, TagRelations, Tags, Articles, Tracks, TrackSessions)
 
     fun setupSchema() {
         transaction {
@@ -142,6 +139,16 @@ object InitializeDB {
                 title = "いよいよ今週末です"
                 description = "いよいよ今週末です"
                 publishedAt = 1574157622
+            }
+
+            val TRACK_01 = DatabaseFactory.upsert(Track.Companion, 1) {
+                trackName = "メイン"
+                sessions = SizedCollection(SESSION_01, SESSION_02)
+            }
+
+            val TRACK_02 = DatabaseFactory.upsert(Track.Companion, 2) {
+                trackName = "ショートトラック"
+                sessions = SizedCollection(SESSION_03)
             }
         }
     }
