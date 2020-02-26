@@ -15,6 +15,7 @@ import io.ktor.locations.KtorExperimentalLocationsAPI
 import io.ktor.locations.Location
 import io.ktor.locations.Locations
 import io.ktor.locations.get
+import io.ktor.request.receive
 import io.ktor.response.respond
 import io.ktor.routing.get
 import io.ktor.routing.post
@@ -23,7 +24,6 @@ import io.ktor.serialization.serialization
 import io.ktor.server.engine.embeddedServer
 import io.ktor.server.netty.Netty
 import io.ktor.util.KtorExperimentalAPI
-import jp.gree.techcon.common.model.Article
 import jp.gree.techcon.common.model.ArticleList
 import jp.gree.techcon.common.model.Session
 import jp.gree.techcon.common.model.SessionList
@@ -73,10 +73,16 @@ fun Application.module() {
                 )
             }
             get("/bookmarks") {
-                call.respond(
-                    HttpStatusCode.OK,
-                    SessionList(Session.getDummyList().take(4))
-                )
+                val firebaseUid: String? = call.authentication.firebaseUid()
+                if (firebaseUid == null) {
+                    call.respond(HttpStatusCode.Unauthorized)
+                } else {
+                    val bookmarks: List<Session> = UserService().findByFirebaseUid(firebaseUid).bookmarks
+                    call.respond(
+                        HttpStatusCode.OK,
+                        SessionList(bookmarks)
+                    )
+                }
             }
             @Location("article/{id}")
             data class ArticleLocation(val id: Int)
@@ -98,7 +104,18 @@ fun Application.module() {
                 )
             }
             post("/bookmark") {
-                call.respond(Session.getSample())
+                val firebaseUid: String? = call.authentication.firebaseUid()
+                val sessionId: Int = call.receive<Int>()
+                if (firebaseUid == null) {
+                    call.respond(HttpStatusCode.Unauthorized)
+                } else {
+                    val created = UserService().setBookmark(firebaseUid, sessionId)
+                    if (created) {
+                        call.respond(HttpStatusCode.Created)
+                    } else {
+                        call.respond(HttpStatusCode.OK)
+                    }
+                }
             }
         }
     }

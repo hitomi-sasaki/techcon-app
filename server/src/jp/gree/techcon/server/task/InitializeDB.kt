@@ -6,11 +6,11 @@ import jp.gree.techcon.server.dao.*
 import jp.gree.techcon.server.entity.Article
 import jp.gree.techcon.server.entity.Session
 import jp.gree.techcon.server.entity.Speaker
+import jp.gree.techcon.server.entity.Bookmark
 import jp.gree.techcon.server.entity.Tag
 import jp.gree.techcon.server.service.DatabaseFactory
 import org.jetbrains.exposed.sql.SchemaUtils
 import org.jetbrains.exposed.sql.SizedCollection
-import org.jetbrains.exposed.sql.transactions.TransactionManager
 import org.jetbrains.exposed.sql.transactions.transaction
 
 @KtorExperimentalAPI
@@ -24,7 +24,7 @@ fun main(args: Array<String>) {
 
 object InitializeDB {
     const val DATABASE = "techcon"
-    val TABLES = arrayOf(Sessions, SpeakerRelations, Speakers, TagRelations, Tags, Articles)
+    val TABLES = arrayOf(Sessions, SpeakerRelations, Speakers, TagRelations, Tags, Articles, Bookmarks)
 
     fun setupSchema() {
         transaction {
@@ -142,6 +142,21 @@ object InitializeDB {
                 title = "いよいよ今週末です"
                 description = "いよいよ今週末です"
                 publishedAt = 1574157622
+            }
+
+            val BOOKMARK_01 = DatabaseFactory.upsert(Bookmark.Companion, 1) {
+                firebaseUid = "1111-1111-1111-1111"
+                session = SESSION_01
+            }
+
+            val BOOKMARK_02 = DatabaseFactory.upsert(Bookmark.Companion, 2) {
+                firebaseUid = "2222-2222-2222-2222"
+                session = SESSION_02
+            }
+
+            val BOOKMARK_03 = DatabaseFactory.upsert(Bookmark.Companion, 2) {
+                firebaseUid = "2222-2222-2222-2222"
+                session = SESSION_03
             }
         }
     }
