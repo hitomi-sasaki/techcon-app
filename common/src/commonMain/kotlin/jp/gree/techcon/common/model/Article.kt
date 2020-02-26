@@ -1,5 +1,6 @@
 package jp.gree.techcon.common.model
 
+import com.soywiz.klock.DateTime
 import kotlinx.serialization.Serializable
 
 @Serializable
@@ -11,7 +12,7 @@ data class Article(
 ) {
     companion object {
         fun getSample(id: Long): Article {
-            return Article(id, "ニュースサンプル", "本本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文文", id)
+            return Article(id, "ニュースサンプル", "本本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文文", DateTime.nowUnixLong())
         }
 
         fun getSamples(): List<Article> {

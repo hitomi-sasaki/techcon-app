@@ -32,10 +32,10 @@ fun SessionDetail(session: Session?) {
                 VerticalSpace(24.dp)
                 SecondaryText(session.description, appTypography.body1)
                 VerticalSpace(24.dp)
-                // session.name.forEach { SpeakerItem(speaker = it) }
+                session.name.forEach { SpeakerItem(speaker = it) }
                 VerticalSpace(24.dp)
                 Row(modifier = LayoutWidth.Fill, arrangement = Arrangement.Center) {
-                    // OutlinedButton { Text("スケジュールに追加") } // TODO: ImageButton
+                    OutlinedButton { Text("スケジュールに追加") } // TODO: ImageButton
                 }
             }
         }

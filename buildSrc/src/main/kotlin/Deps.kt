@@ -5,8 +5,9 @@ object Deps {
     const val ktorVersion = "1.2.6"
     const val coroutineVersion = "1.3.3"
     const val serializeVersion = "0.14.0"
-    const val sqldelight = "1.2.1"
-    const val kodein = "6.5.0"
+    const val sqldelightVersion = "1.2.1"
+    const val kodeinVersion = "6.5.0"
+    const val klockVersion = "1.8.4"
 }
 
 object AndroidDeps {
