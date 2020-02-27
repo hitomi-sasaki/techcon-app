@@ -18,7 +18,7 @@ struct SessionRowView: View {
             .foregroundColor(.primary)
         VStack(alignment: .leading, spacing: 0.0) {
             HStack {
-                Text("{セッション番号}")
+                Text(session.trackName)
                     .font(.system(size: 14.0, weight: .bold))
                     .foregroundColor(.secondary)
                 Spacer()
@@ -28,7 +28,7 @@ struct SessionRowView: View {
                 .foregroundColor(.primary)
                 .padding(.bottom, 16.0)
                 .padding(.top, 12.0)
-            Text("#Game #Unity #Assetbundle #DebugTool #TCP #gRPC #adb  #Libimobiledevice #CSharp #CPP #Go #Gomobile")
+            Text(session.tags)
                 .font(.system(size: 14.0))
                 .lineSpacing(6.0)
                 .foregroundColor(.secondary)
@@ -40,10 +40,10 @@ struct SessionRowView: View {
                     .background(Color.gray)
                     .cornerRadius(40.0)
                 VStack(alignment: .leading) {
-                    Text(session.names)
+                    Text(session.speaker.name)
                         .font(.system(size: 14.0))
                         .foregroundColor(.primary)
-                    Text("{肩書}")
+                    Text(session.speaker.title)
                         .font(.system(size: 11.0))
                         .foregroundColor(.secondary)
                 }
@@ -62,7 +62,8 @@ struct SessionRowView: View {
 
 struct SessionRowView_Previews: PreviewProvider {
     static var previews: some View {
-        let item = SessionListItem(id: 0, names: "藤本 真樹", dateText: "13:00 - 13:30", title: "Keynote", isBookmarked: true)
+        let speaker = Speaker(name: "{speaker.name}", title: "{speaker.title}", githubId: "{speaker.github_id}", twitterId: "{speaker.twitter_id}", description: "{speaker.description}")
+        let item = SessionListItem(id: 0, name: "{session_name}", tags: "{tags}", dateText: "{date_text}", title: "{title}", trackName: "{track_name}", speaker: speaker, isBookmarked: true)
         return SessionRowView(session: item)
     }
 }
