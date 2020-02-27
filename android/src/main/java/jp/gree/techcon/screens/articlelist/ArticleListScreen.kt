@@ -4,6 +4,7 @@ import androidx.compose.Composable
 import androidx.ui.foundation.VerticalScroller
 import androidx.ui.layout.Column
 import androidx.ui.material.Divider
+import androidx.ui.text.font.FontWeight
 import androidx.ui.unit.dp
 import jp.gree.techcon.common.viewstate.ArticleListItem
 import jp.gree.techcon.composables.*
@@ -11,15 +12,13 @@ import jp.gree.techcon.composables.*
 @Composable
 fun ArticleList(articles: List<ArticleListItem>) {
     VerticalScroller {
-        ScreenPadding {
-            Column {
-                articles.forEachIndexed { i, article ->
-                    ArticleListItem(article)
-                    if (i != articles.size - 1) {
-                        VerticalSpace(32.dp)
-                        Divider()
-                        VerticalSpace(32.dp)
-                    }
+        ScreenColumn {
+            articles.forEachIndexed { i, article ->
+                ArticleListItem(article)
+                if (i != articles.size - 1) {
+                    VerticalSpace(32.dp)
+                    Divider()
+                    VerticalSpace(32.dp)
                 }
             }
         }
@@ -29,7 +28,7 @@ fun ArticleList(articles: List<ArticleListItem>) {
 @Composable
 fun ArticleListItem(article: ArticleListItem) {
     Column {
-        PrimaryText(article.dateText, appTypography.subtitle1)
+        PrimaryText(article.dateText, appTypography.h5)
         VerticalSpace(16.dp)
         PrimaryText(article.title, appTypography.subtitle1)
         VerticalSpace(16.dp)

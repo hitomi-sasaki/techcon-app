@@ -11,14 +11,16 @@ import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import androidx.ui.core.setContent
 import androidx.ui.layout.Column
-import jp.gree.techcon.common.SessionDetailState
+import jp.gree.techcon.common.model.Session
+import jp.gree.techcon.common.usecase.SessionDetailService
+import jp.gree.techcon.common.util.CFlow
 import jp.gree.techcon.composables.AppTheme
 import jp.gree.techcon.composables.component.AppBar
 import jp.gree.techcon.composables.observe
 
 class SessionDetailFragment : Fragment() {
     private val args: SessionDetailFragmentArgs by navArgs()
-    private val viewState by lazy { SessionDetailState(args.sessionId) }
+    private val service = SessionDetailService()
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -29,17 +31,17 @@ class SessionDetailFragment : Fragment() {
         val onBackClick = { findNavController().popBackStack(); Unit }
 
         val root = FrameLayout(requireContext())
-        root.setContent { SessionDetailScreen(title, viewState, onBackClick) }
+        root.setContent { SessionDetailScreen(title, service.get(args.sessionId), onBackClick) }
         return root
     }
 }
 
 @Composable
-fun SessionDetailScreen(title: String, viewState: SessionDetailState, onBackClick: () -> Unit) {
-    val session = observe(viewState.session) ?: return
+fun SessionDetailScreen(title: String, observable: CFlow<Session>, onBackClick: () -> Unit) {
+    val session = observe(observable) ?: null
     AppTheme {
         Column {
-            AppBar(title = title, onBackClick = onBackClick, onShareClick = { /* TODO */ })
+            AppBar(title = title, onBackClick = onBackClick, onShareClick = onBackClick)
             SessionDetail(session = session)
         }
     }

@@ -51,7 +51,7 @@ dependencies {
     implementation("org.jetbrains.kotlinx:kotlinx-serialization-runtime:${Deps.serializeVersion}")
     implementation("io.ktor:ktor-client-android:${Deps.ktorVersion}")
     implementation("io.ktor:ktor-client-serialization-jvm:${Deps.ktorVersion}")
-    implementation("org.kodein.di:kodein-di-erased:${Deps.kodein}")
+    implementation("org.kodein.di:kodein-di-erased:${Deps.kodeinVersion}")
     implementation("androidx.lifecycle:lifecycle-runtime-ktx:${AndroidDeps.ktxVersion}")
     implementation("androidx.lifecycle:lifecycle-livedata-ktx:${AndroidDeps.ktxVersion}")
     implementation("androidx.navigation:navigation-fragment-ktx:${AndroidDeps.navigationVersion}")

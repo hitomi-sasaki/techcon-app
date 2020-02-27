@@ -7,5 +7,5 @@ import jp.gree.techcon.common.viewstate.SessionDetailViewModel
 class SessionDetailState(sessionId: Long) {
     private val vm =
         SessionDetailViewModel(sessionId)
-    val session = vm.session.asLiveData()
+    val session = vm.session
 }

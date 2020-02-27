@@ -3,25 +3,27 @@ package jp.gree.techcon.screens.lounge
 import androidx.compose.Composable
 import androidx.ui.core.Alignment
 import androidx.ui.foundation.VerticalScroller
-import androidx.ui.foundation.background
 import androidx.ui.graphics.Color
 import androidx.ui.layout.*
+import androidx.ui.material.surface.Surface
 import androidx.ui.unit.dp
 import jp.gree.techcon.composables.*
 
 @Composable
 fun Lounge() {
     VerticalScroller {
-        ScreenPadding {
+        ScreenColumn {
             Column {
                 PrimaryText("ブースやフリーコーヒー、電源などを準備しています。休憩や、交流の場所としてご利用ください。", appTypography.body1)
                 VerticalSpace(24.dp)
-                Container(
-                    modifier = LayoutGravity.Center + background(Color(207, 207, 207)),
-                    height = 280.dp,
-                    width = 300.dp,
-                    alignment = Alignment.Center
-                ) {} // TODO: load image
+                Surface(color = Color(207, 207, 207)) {
+                    Container(
+                        modifier = LayoutGravity.Center,
+                        height = 280.dp,
+                        width = 300.dp,
+                        alignment = Alignment.Center
+                    ) {} // TODO: load image
+                }
                 Booth()
                 Booth()
                 Booth()

@@ -40,7 +40,7 @@ class SessionListFragment : Fragment() {
     }
 
     private fun onClick(session: SessionListItem) {
-        // findNavController().navigate(SessionListFragmentDirections.toArticle(1234))
+        // findNavController().navigate(SessionListFragmentDirections.toArticle())
         findNavController().navigate(SessionListFragmentDirections.toDetail(session.id))
     }
 
@@ -60,7 +60,7 @@ fun SessionListScreen(
     AppTheme {
         Column {
             AppBar(title = title)
-            SessionList(sessions = sessions, onClick = onClick, onBookmark = onBookmark)
+            SessionTabList(sessions = sessions, onClick = onClick, onBookmark = onBookmark)
         }
     }
 }
