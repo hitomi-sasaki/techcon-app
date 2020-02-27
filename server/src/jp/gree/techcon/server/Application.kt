@@ -101,7 +101,7 @@ fun Application.module() {
                     ArticleList(ArticleService().getAll())
                 )
             }
-            get("/boothes") {
+            get("/booths") {
                 call.respond(
                     HttpStatusCode.OK,
                     BoothList(BoothService().getAll())
