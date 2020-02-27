@@ -1,6 +1,7 @@
 package jp.gree.techcon.server.service
 
 import jp.gree.techcon.server.entity.Track
+import org.jetbrains.exposed.dao.with
 import jp.gree.techcon.common.model.Session as SessionModel
 import jp.gree.techcon.common.model.Speaker as SpeakerModel
 import jp.gree.techcon.common.model.Track as TrackModel
@@ -8,7 +9,7 @@ import jp.gree.techcon.common.model.Track as TrackModel
 class TrackService {
     suspend fun getAll(): List<TrackModel> {
         return DatabaseFactory.dbQuery {
-            return@dbQuery Track.all().map { track ->
+            return@dbQuery Track.all().with(Track::sessions).map { track ->
                 val sessions: List<SessionModel> = track.sessions.map { session ->
                     val names: List<SpeakerModel> = session.speakers.map { speaker ->
                         SpeakerModel(
