@@ -7,7 +7,6 @@ import jp.gree.techcon.server.entity.*
 import jp.gree.techcon.server.service.DatabaseFactory
 import org.jetbrains.exposed.sql.SchemaUtils
 import org.jetbrains.exposed.sql.SizedCollection
-import org.jetbrains.exposed.sql.transactions.TransactionManager
 import org.jetbrains.exposed.sql.transactions.transaction
 
 @KtorExperimentalAPI
@@ -21,7 +20,8 @@ fun main(args: Array<String>) {
 
 object InitializeDB {
     const val DATABASE = "techcon"
-    val TABLES = arrayOf(Sessions, SpeakerRelations, Speakers, TagRelations, Tags, Articles, Tracks, TrackSessions)
+    val TABLES =
+        arrayOf(Sessions, SpeakerRelations, Speakers, TagRelations, Tags, Articles, Bookmarks, Tracks, TrackSessions)
 
     fun setupSchema() {
         transaction {
@@ -109,8 +109,9 @@ object InitializeDB {
                 startTime = 1574157622
                 endTime = 1574163622
                 title = "あなたたちの中で罪を犯したことのない者が、まず、この広告SDK開発者に石を投げなさい。"
-                description = "iOSエンジニアという職業にはiOSアプリケーション開発をしている人間だけではなく、インターネット広告のサービスを利用するためのSDKを開発している人間も含まれております。 " +
-                        "このセッションでは、モバイル向け広告SDKを開発/運用しているエンジニアの考えていることや、開発する上で大事にしていること、課題に感じていること、開発の方法などを発表します。"
+                description =
+                    "iOSエンジニアという職業にはiOSアプリケーション開発をしている人間だけではなく、インターネット広告のサービスを利用するためのSDKを開発している人間も含まれております。 " +
+                            "このセッションでは、モバイル向け広告SDKを開発/運用しているエンジニアの考えていることや、開発する上で大事にしていること、課題に感じていること、開発の方法などを発表します。"
                 slideUrl = "https://www.slideshare.net/greetech/realityvtuber1"
                 movieUrl = "https://www.youtube.com/watch?v=A0Ro_f5kzc8"
                 speakers = SizedCollection(SPEAKER_03)
@@ -149,6 +150,21 @@ object InitializeDB {
             val TRACK_02 = DatabaseFactory.upsert(Track.Companion, 2) {
                 trackName = "ショートトラック"
                 sessions = SizedCollection(SESSION_03)
+            }
+
+            val BOOKMARK_01 = DatabaseFactory.upsert(Bookmark.Companion, 1) {
+                firebaseUid = "1111-1111-1111-1111"
+                session = SESSION_01
+            }
+
+            val BOOKMARK_02 = DatabaseFactory.upsert(Bookmark.Companion, 2) {
+                firebaseUid = "2222-2222-2222-2222"
+                session = SESSION_02
+            }
+
+            val BOOKMARK_03 = DatabaseFactory.upsert(Bookmark.Companion, 2) {
+                firebaseUid = "2222-2222-2222-2222"
+                session = SESSION_03
             }
         }
     }
