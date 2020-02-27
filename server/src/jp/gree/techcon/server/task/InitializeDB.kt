@@ -319,6 +319,122 @@ object InitializeDB {
                 tags = SizedCollection(TAG_UNITY, TAG_ANDROID, TAG_IOS)
             }
 
+            val SESSION_04 = DatabaseFactory.upsert(Session.Companion, 4) {
+                startTime = 1574157622
+                endTime = 1574163622
+                title = "REALITY低遅延モード配信を支えるリアルタイムサーバとデータパイプライン"
+                description = "バーチャル配信アプリ「REALITY」の低遅延モード配信機能が2020年1月8日に正式リリースされました。\n" +
+                        "本機能の開発にあたり、「ラグなし・ギガ安・高画質」の配信・視聴体験を実現した上で、バックエンドのスケーラビリティと安定性を追求するために新規に構築したライブ配信基盤において、\n" +
+                        "その中核をなすふたつのコンポーネントである「コンテナベースのリアルタイムサーバ」と「Apache Beamによるストリーミングデータパイプライン」についてご紹介します。"
+                slideUrl = ""
+                movieUrl = ""
+                speakers = SizedCollection(SPEAKER_04)
+                tags = SizedCollection(TAG_LIVE, TAG_REALTIMESERVER, TAG_KUBERNETES, TAG_DATAPIPELINE, TAG_APACHEBEAM)
+            }
+
+            val SESSION_05 = DatabaseFactory.upsert(Session.Companion, 5) {
+                startTime = 1574157622
+                endTime = 1574163622
+                title = "RealityStudio Motion Engineについて"
+                description = "「連絡取れないですね」\n" +
+                        "時は年末、某開発スタジオ。\n" +
+                        "モーションキャプチャーを稼働させるために必要不可欠としてきたミドルウェアが突如サービス停止との一報が届く。\n" +
+                        "「リミットはあと3ヶ月か…」\n" +
+                        "サービス停止とは即ちキャプチャーシステムの停止である。\n" +
+                        "「ミドルウェアを独自開発するしかない」\n" +
+                        "ミドルウェアの多機能化、多すぎる設定項目見直し、高度に複雑化していく番組内容、さいげんなく増えていく端末管理、、、これらもまとめて解消したいという思い。\n" +
+                        "限られた時間に反するように項目だけが増えていく、、、\n" +
+                        "REALITY Studioが所持しているキャプチャーシステムの停止だけは絶対に阻止しなければならない。\n" +
+                        "そしてミドルウェア「REALITY Studio Motion Engine」は完成した。\n" +
+                        "そこで本日は「REALITY Studio Motion Engine」について紹介を致します。"
+                slideUrl = ""
+                movieUrl = ""
+                speakers = SizedCollection(SPEAKER_05, SPEAKER_06)
+                tags = SizedCollection(TAG_UNITY, TAG_UNREALENGINE4, TAG_MOTIONCAPTURE, TAG_WFLE)
+            }
+
+            val SESSION_06 = DatabaseFactory.upsert(Session.Companion, 6) {
+                startTime = 1574157622
+                endTime = 1574163622
+                title = "大規模タイトルの長期運営におけるエンジニアリング的工夫 - ソーシャルアプリで世界と人を変える為にエンジニアが出来るコト -"
+                description = "設立から10年を越え、数々のHitタイトルに恵まれ弊社ポケラボには様々なエンジニアリングノウハウが蓄積されております。過去, 運用中のタイトルで行った様々な工夫を今回ご紹介させて頂きます。"
+                slideUrl = ""
+                movieUrl = ""
+                speakers = SizedCollection(SPEAKER_07)
+                tags = SizedCollection(TAG_PHP, TAG_OPERATION)
+            }
+
+            val SESSION_07 = DatabaseFactory.upsert(Session.Companion, 7) {
+                startTime = 1574157622
+                endTime = 1574163622
+                title = "長寿タイトルの運営の歴史"
+                description = "10年もの歴史を刻んできたソーシャルゲーム内製タイトルを運用しつづけている私たち。技術的な観点において、10年の道のりは平坦ではなかった。歴史あるレガシーアプリケーションに対し、私たちが直面した問題とそれをどう乗り越えたかを紹介する。また、今後さらに長期間運用を続ける上で現在抱えている課題や、生き残り続けるための展望も一部紹介する。"
+                slideUrl = ""
+                movieUrl = ""
+                speakers = SizedCollection(SPEAKER_08)
+                tags = SizedCollection(TAG_SOCIALGAME, TAG_LAMP, TAG_LONGHIT, TAG_LONGTERM, TAG_LEGACY)
+            }
+
+            val SESSION_08 = DatabaseFactory.upsert(Session.Companion, 8) {
+                startTime = 1574157622
+                endTime = 1574163622
+                title = "モバイルゲーム。移管と運営のエンジニア"
+                description = "ファンプレックス株式会社ではモバイルゲーム運営事業を行っています。\n" +
+                        "ゲーム運営のプロフェッショナルとして、開発会社からゲームタイトルを移管し運営を行う上で必要な事・ファンプレックスが大事にしていることをエンジニア視点にて紹介させていただきます。"
+                slideUrl = ""
+                movieUrl = ""
+                speakers = SizedCollection(SPEAKER_09)
+                tags = SizedCollection(TAG_SOCIALGAME, TAG_MOBILEGAME, TAG_DEVELOPMENT, TAG_MIGRATION, TAG_RUN, TAG_ENGINEER, TAG_ENGINEERING)
+            }
+
+            val SESSION_09 = DatabaseFactory.upsert(Session.Companion, 9) {
+                startTime = 1574157622
+                endTime = 1574163622
+                title = "NuxtJS + REST APIで運用中サービスをNuxt.js + GraphQLに変更したことによる光と影"
+                description = "アウモ株式会社では記事メディア「aumo」だけではなく、横断比較できるサービスの開発を行なっています。\n" +
+                        "REST APIで実装していたところを一部サービスについては全面的にGraphQLに書き換えを行い、そこで得た知見について紹介します。"
+                slideUrl = ""
+                movieUrl = ""
+                speakers = SizedCollection(SPEAKER_10)
+                tags = SizedCollection(TAG_FRONTEND, TAG_VUEJS, TAG_NUXTJS, TAG_GRAPHQL)
+            }
+
+            val SESSION_10 = DatabaseFactory.upsert(Session.Companion, 10) {
+                startTime = 1574157622
+                endTime = 1574163622
+                title = "LIMIAアプリにおける行動履歴を用いたコンテンツ配信の最適化"
+                description = "「おてがる工夫で家事上手」をコンセプトにした、家事情報のアプリ「LIMIA」では、毎日ユーザーさんに楽しんでもらうために、様々なコンテンツを配信しています。ユーザーさんに喜ばれるコンテンツを配信するためには、ユーザーさんのアプリ内の行動を正しく知る必要があります。\n" +
+                        "このセッションでは、アプリ内でユーザーさんがどのようなコンテンツに興味を持ったのかをトラッキングする仕組みから、実際にそのトラッキングデータを元にユーザーに最適なコンテンツの配信するシステムまでを紹介します。\n" +
+                        "具体的には、アプリ内でのユーザーのトラッキングに関しては、コンテンツのvCTRを計測するライブラリの開発、Firebase Analyticsを利用したイベント送信についてを、\n" +
+                        "コンテンツの配信システムに関しては、配信するコンテンツを決めるレコメンド処理のパイプラインの紹介、実際の業務でどうやってレコメンドの改善を行うかについてお話しします。\n"
+                slideUrl = ""
+                movieUrl = ""
+                speakers = SizedCollection(SPEAKER_11, SPEAKER_12)
+                tags = SizedCollection(TAG_FIREBASE, TAG_BIGQUERY, TAG_NATIVEAPP, TAG_IOS, TAG_ANDROID, TAG_MACHINELEANING, TAG_AWS)
+            }
+
+            val SESSION_11 = DatabaseFactory.upsert(Session.Companion, 11) {
+                startTime = 1574157622
+                endTime = 1574163622
+                title = "ホストベースからコンテナベースへのワークロード移行に求められるインフラエンジニアの役割"
+                description = "オンプレミス時代、クラウド活用時代、クラウドネイティブ時代といった Web技術の変遷に伴い、グリーグループのサービスを提供するインフラは変化を続けています。インフラ部門のアプリケーション開発サイドに向き合うチームとして、ゲームタイトルのリリースと運用に関わってきた経験を元に、急激な変化を続けているインフラエンジニアの役割と課題について発表します。"
+                slideUrl = ""
+                movieUrl = ""
+                speakers = SizedCollection(SPEAKER_13)
+                tags = SizedCollection(TAG_DEVOPS, TAG_ORGANIZATION, TAG_INFRA, TAG_AWS, TAG_GCP, TAG_KUBERNETES)
+            }
+
+            val SESSION_12 = DatabaseFactory.upsert(Session.Companion, 12) {
+                startTime = 1574157622
+                endTime = 1574163622
+                title = "任意話者間声質変換の研究開発"
+                description = "任意の話者から任意の話者への声質変換をニューラルネットを用いて実装する。特に入力話者に関して事前に発話が入手できず、対象話者の音声サンプルが1発話しかない場合でも動作するように学習の設定を工夫する。"
+                slideUrl = ""
+                movieUrl = ""
+                speakers = SizedCollection(SPEAKER_14)
+                tags = SizedCollection(TAG_DEEPLEARNING, TAG_VOICECONVERSION)
+            }
+
             val ARTICLE_01 = DatabaseFactory.upsert(Article.Companion, 1) {
                 title = "GREE Tech Conference 2020 公式アプリをダウンロードいただきありがとうございます。"
                 description = "GREE Tech Conference 2020 公式アプリへようこそ。" +
