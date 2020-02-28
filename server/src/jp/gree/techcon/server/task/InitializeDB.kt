@@ -3,11 +3,7 @@ package jp.gree.techcon.server.task
 import io.ktor.server.engine.commandLineEnvironment
 import io.ktor.util.KtorExperimentalAPI
 import jp.gree.techcon.server.dao.*
-import jp.gree.techcon.server.entity.Article
-import jp.gree.techcon.server.entity.Session
-import jp.gree.techcon.server.entity.Speaker
-import jp.gree.techcon.server.entity.Bookmark
-import jp.gree.techcon.server.entity.Tag
+import jp.gree.techcon.server.entity.*
 import jp.gree.techcon.server.service.DatabaseFactory
 import org.jetbrains.exposed.sql.SchemaUtils
 import org.jetbrains.exposed.sql.SizedCollection
@@ -24,7 +20,7 @@ fun main(args: Array<String>) {
 
 object InitializeDB {
     const val DATABASE = "techcon"
-    val TABLES = arrayOf(Sessions, SpeakerRelations, Speakers, TagRelations, Tags, Articles, Bookmarks)
+    val TABLES = arrayOf(Sessions, SpeakerRelations, Speakers, TagRelations, Tags, Articles, Bookmarks, Booths)
 
     fun setupSchema() {
         transaction {
@@ -112,8 +108,9 @@ object InitializeDB {
                 startTime = 1574157622
                 endTime = 1574163622
                 title = "あなたたちの中で罪を犯したことのない者が、まず、この広告SDK開発者に石を投げなさい。"
-                description = "iOSエンジニアという職業にはiOSアプリケーション開発をしている人間だけではなく、インターネット広告のサービスを利用するためのSDKを開発している人間も含まれております。 " +
-                        "このセッションでは、モバイル向け広告SDKを開発/運用しているエンジニアの考えていることや、開発する上で大事にしていること、課題に感じていること、開発の方法などを発表します。"
+                description =
+                    "iOSエンジニアという職業にはiOSアプリケーション開発をしている人間だけではなく、インターネット広告のサービスを利用するためのSDKを開発している人間も含まれております。 " +
+                            "このセッションでは、モバイル向け広告SDKを開発/運用しているエンジニアの考えていることや、開発する上で大事にしていること、課題に感じていること、開発の方法などを発表します。"
                 slideUrl = "https://www.slideshare.net/greetech/realityvtuber1"
                 movieUrl = "https://www.youtube.com/watch?v=A0Ro_f5kzc8"
                 speakers = SizedCollection(SPEAKER_03)
@@ -142,6 +139,21 @@ object InitializeDB {
                 title = "いよいよ今週末です"
                 description = "いよいよ今週末です"
                 publishedAt = 1574157622
+            }
+
+            val BOOTH_01 = DatabaseFactory.upsert(Booth.Companion, 1) {
+                title = "コーヒースタンド"
+                description = "無料のコーヒーが置いてあります"
+            }
+
+            val BOOTH_02 = DatabaseFactory.upsert(Booth.Companion, 2) {
+                title = "Make部"
+                description = "グリーグループの有志で作ったガジェットを展示します。"
+            }
+
+            val BOOTH_03 = DatabaseFactory.upsert(Booth.Companion, 3) {
+                title = "技術書典部"
+                description = "グリーグループの有志で作った技術書を頒布します。"
             }
 
             val BOOKMARK_01 = DatabaseFactory.upsert(Bookmark.Companion, 1) {
