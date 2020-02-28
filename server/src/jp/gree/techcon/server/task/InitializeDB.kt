@@ -3,14 +3,10 @@ package jp.gree.techcon.server.task
 import io.ktor.server.engine.commandLineEnvironment
 import io.ktor.util.KtorExperimentalAPI
 import jp.gree.techcon.server.dao.*
-import jp.gree.techcon.server.entity.Article
-import jp.gree.techcon.server.entity.Session
-import jp.gree.techcon.server.entity.Speaker
-import jp.gree.techcon.server.entity.Tag
+import jp.gree.techcon.server.entity.*
 import jp.gree.techcon.server.service.DatabaseFactory
 import org.jetbrains.exposed.sql.SchemaUtils
 import org.jetbrains.exposed.sql.SizedCollection
-import org.jetbrains.exposed.sql.transactions.TransactionManager
 import org.jetbrains.exposed.sql.transactions.transaction
 
 @KtorExperimentalAPI
@@ -24,7 +20,19 @@ fun main(args: Array<String>) {
 
 object InitializeDB {
     const val DATABASE = "techcon"
-    val TABLES = arrayOf(Sessions, SpeakerRelations, Speakers, TagRelations, Tags, Articles)
+    val TABLES =
+        arrayOf(
+            Sessions,
+            SpeakerRelations,
+            Speakers,
+            TagRelations,
+            Tags,
+            Articles,
+            Bookmarks,
+            Tracks,
+            TrackSessions,
+            Booths
+        )
 
     fun setupSchema() {
         transaction {
@@ -237,7 +245,8 @@ object InitializeDB {
                 title = "エンジニアチームマネージャ"
                 githubId = ""
                 twitterId = ""
-                description = "2012年にグリー株式会社に入社。2014年より携帯ソーシャルゲーム運用・開発のチームに配属。2018年より同チームのエンジニアチームマネージャに就任。現在まで約6年間、長期運用タイトルにエンジニアとして携わる。趣味はテレビゲーム、動画鑑賞、英語の勉強。剣道四段、英検4級。"
+                description =
+                    "2012年にグリー株式会社に入社。2014年より携帯ソーシャルゲーム運用・開発のチームに配属。2018年より同チームのエンジニアチームマネージャに就任。現在まで約6年間、長期運用タイトルにエンジニアとして携わる。趣味はテレビゲーム、動画鑑賞、英語の勉強。剣道四段、英検4級。"
             }
             val SPEAKER_09 = DatabaseFactory.upsert(Speaker.Companion, 9) {
                 name = "大谷 俊平"
@@ -287,7 +296,8 @@ object InitializeDB {
                 startTime = 1574157622
                 endTime = 1574163622
                 title = "WFSエンジニア組織の振り返りとこれから〜コンテンツ開発に集中するために取り組んだこと〜"
-                description = "WFSはスタジオ立ち上げから6年、「いかにゲームを面白くするか、どのように魅力的なゲームを作るか」のみを考えられるような開発体制を常に模索し続けてきた。内外の環境変化や組織の成熟度とともにその組織構成も徐々に変えてきているが、その中でも「挑戦する、何度でも。」のValueを体現すべく、主に組織横断的に取り組んできた事例について紹介する。また、今後のWFSのエンジニアリングの展望についても一部紹介する。"
+                description =
+                    "WFSはスタジオ立ち上げから6年、「いかにゲームを面白くするか、どのように魅力的なゲームを作るか」のみを考えられるような開発体制を常に模索し続けてきた。内外の環境変化や組織の成熟度とともにその組織構成も徐々に変えてきているが、その中でも「挑戦する、何度でも。」のValueを体現すべく、主に組織横断的に取り組んできた事例について紹介する。また、今後のWFSのエンジニアリングの展望についても一部紹介する。"
                 slideUrl = ""
                 movieUrl = ""
                 speakers = SizedCollection(SPEAKER_01)
@@ -311,8 +321,9 @@ object InitializeDB {
                 startTime = 1574157622
                 endTime = 1574163622
                 title = "バーチャルライブ配信アプリREALITYの3Dアバターシステムの全容について"
-                description = "REALITYは、3Dアバターをパーツ毎にカスタマイズし、フェイストラッキングを適用し、音声・チャット・3Dバーチャルアイテムのギフティングを用いて視聴者とコミュニケーションをとることがスマホ1台でできる、バーチャルライブ配信アプリです。\n" +
-                        "そのREALITYにおける、3Dアバターシステムの全容について、「Unityにおける着せ替えの基本の仕組み」「OS別フェイストラッキングライブラリとアバターへの適用」「アップデートの歴史と対応してきた課題」の3テーマについて発表します。"
+                description =
+                    "REALITYは、3Dアバターをパーツ毎にカスタマイズし、フェイストラッキングを適用し、音声・チャット・3Dバーチャルアイテムのギフティングを用いて視聴者とコミュニケーションをとることがスマホ1台でできる、バーチャルライブ配信アプリです。\n" +
+                            "そのREALITYにおける、3Dアバターシステムの全容について、「Unityにおける着せ替えの基本の仕組み」「OS別フェイストラッキングライブラリとアバターへの適用」「アップデートの歴史と対応してきた課題」の3テーマについて発表します。"
                 slideUrl = ""
                 movieUrl = ""
                 speakers = SizedCollection(SPEAKER_03)
@@ -357,7 +368,8 @@ object InitializeDB {
                 startTime = 1574157622
                 endTime = 1574163622
                 title = "大規模タイトルの長期運営におけるエンジニアリング的工夫 - ソーシャルアプリで世界と人を変える為にエンジニアが出来るコト -"
-                description = "設立から10年を越え、数々のHitタイトルに恵まれ弊社ポケラボには様々なエンジニアリングノウハウが蓄積されております。過去, 運用中のタイトルで行った様々な工夫を今回ご紹介させて頂きます。"
+                description =
+                    "設立から10年を越え、数々のHitタイトルに恵まれ弊社ポケラボには様々なエンジニアリングノウハウが蓄積されております。過去, 運用中のタイトルで行った様々な工夫を今回ご紹介させて頂きます。"
                 slideUrl = ""
                 movieUrl = ""
                 speakers = SizedCollection(SPEAKER_07)
@@ -368,7 +380,8 @@ object InitializeDB {
                 startTime = 1574157622
                 endTime = 1574163622
                 title = "長寿タイトルの運営の歴史"
-                description = "10年もの歴史を刻んできたソーシャルゲーム内製タイトルを運用しつづけている私たち。技術的な観点において、10年の道のりは平坦ではなかった。歴史あるレガシーアプリケーションに対し、私たちが直面した問題とそれをどう乗り越えたかを紹介する。また、今後さらに長期間運用を続ける上で現在抱えている課題や、生き残り続けるための展望も一部紹介する。"
+                description =
+                    "10年もの歴史を刻んできたソーシャルゲーム内製タイトルを運用しつづけている私たち。技術的な観点において、10年の道のりは平坦ではなかった。歴史あるレガシーアプリケーションに対し、私たちが直面した問題とそれをどう乗り越えたかを紹介する。また、今後さらに長期間運用を続ける上で現在抱えている課題や、生き残り続けるための展望も一部紹介する。"
                 slideUrl = ""
                 movieUrl = ""
                 speakers = SizedCollection(SPEAKER_08)
@@ -384,7 +397,15 @@ object InitializeDB {
                 slideUrl = ""
                 movieUrl = ""
                 speakers = SizedCollection(SPEAKER_09)
-                tags = SizedCollection(TAG_SOCIALGAME, TAG_MOBILEGAME, TAG_DEVELOPMENT, TAG_MIGRATION, TAG_RUN, TAG_ENGINEER, TAG_ENGINEERING)
+                tags = SizedCollection(
+                    TAG_SOCIALGAME,
+                    TAG_MOBILEGAME,
+                    TAG_DEVELOPMENT,
+                    TAG_MIGRATION,
+                    TAG_RUN,
+                    TAG_ENGINEER,
+                    TAG_ENGINEERING
+                )
             }
 
             val SESSION_09 = DatabaseFactory.upsert(Session.Companion, 9) {
@@ -403,21 +424,31 @@ object InitializeDB {
                 startTime = 1574157622
                 endTime = 1574163622
                 title = "LIMIAアプリにおける行動履歴を用いたコンテンツ配信の最適化"
-                description = "「おてがる工夫で家事上手」をコンセプトにした、家事情報のアプリ「LIMIA」では、毎日ユーザーさんに楽しんでもらうために、様々なコンテンツを配信しています。ユーザーさんに喜ばれるコンテンツを配信するためには、ユーザーさんのアプリ内の行動を正しく知る必要があります。\n" +
-                        "このセッションでは、アプリ内でユーザーさんがどのようなコンテンツに興味を持ったのかをトラッキングする仕組みから、実際にそのトラッキングデータを元にユーザーに最適なコンテンツの配信するシステムまでを紹介します。\n" +
-                        "具体的には、アプリ内でのユーザーのトラッキングに関しては、コンテンツのvCTRを計測するライブラリの開発、Firebase Analyticsを利用したイベント送信についてを、\n" +
-                        "コンテンツの配信システムに関しては、配信するコンテンツを決めるレコメンド処理のパイプラインの紹介、実際の業務でどうやってレコメンドの改善を行うかについてお話しします。\n"
+                description =
+                    "「おてがる工夫で家事上手」をコンセプトにした、家事情報のアプリ「LIMIA」では、毎日ユーザーさんに楽しんでもらうために、様々なコンテンツを配信しています。ユーザーさんに喜ばれるコンテンツを配信するためには、ユーザーさんのアプリ内の行動を正しく知る必要があります。\n" +
+                            "このセッションでは、アプリ内でユーザーさんがどのようなコンテンツに興味を持ったのかをトラッキングする仕組みから、実際にそのトラッキングデータを元にユーザーに最適なコンテンツの配信するシステムまでを紹介します。\n" +
+                            "具体的には、アプリ内でのユーザーのトラッキングに関しては、コンテンツのvCTRを計測するライブラリの開発、Firebase Analyticsを利用したイベント送信についてを、\n" +
+                            "コンテンツの配信システムに関しては、配信するコンテンツを決めるレコメンド処理のパイプラインの紹介、実際の業務でどうやってレコメンドの改善を行うかについてお話しします。\n"
                 slideUrl = ""
                 movieUrl = ""
                 speakers = SizedCollection(SPEAKER_11, SPEAKER_12)
-                tags = SizedCollection(TAG_FIREBASE, TAG_BIGQUERY, TAG_NATIVEAPP, TAG_IOS, TAG_ANDROID, TAG_MACHINELEANING, TAG_AWS)
+                tags = SizedCollection(
+                    TAG_FIREBASE,
+                    TAG_BIGQUERY,
+                    TAG_NATIVEAPP,
+                    TAG_IOS,
+                    TAG_ANDROID,
+                    TAG_MACHINELEANING,
+                    TAG_AWS
+                )
             }
 
             val SESSION_11 = DatabaseFactory.upsert(Session.Companion, 11) {
                 startTime = 1574157622
                 endTime = 1574163622
                 title = "ホストベースからコンテナベースへのワークロード移行に求められるインフラエンジニアの役割"
-                description = "オンプレミス時代、クラウド活用時代、クラウドネイティブ時代といった Web技術の変遷に伴い、グリーグループのサービスを提供するインフラは変化を続けています。インフラ部門のアプリケーション開発サイドに向き合うチームとして、ゲームタイトルのリリースと運用に関わってきた経験を元に、急激な変化を続けているインフラエンジニアの役割と課題について発表します。"
+                description =
+                    "オンプレミス時代、クラウド活用時代、クラウドネイティブ時代といった Web技術の変遷に伴い、グリーグループのサービスを提供するインフラは変化を続けています。インフラ部門のアプリケーション開発サイドに向き合うチームとして、ゲームタイトルのリリースと運用に関わってきた経験を元に、急激な変化を続けているインフラエンジニアの役割と課題について発表します。"
                 slideUrl = ""
                 movieUrl = ""
                 speakers = SizedCollection(SPEAKER_13)
@@ -428,7 +459,8 @@ object InitializeDB {
                 startTime = 1574157622
                 endTime = 1574163622
                 title = "任意話者間声質変換の研究開発"
-                description = "任意の話者から任意の話者への声質変換をニューラルネットを用いて実装する。特に入力話者に関して事前に発話が入手できず、対象話者の音声サンプルが1発話しかない場合でも動作するように学習の設定を工夫する。"
+                description =
+                    "任意の話者から任意の話者への声質変換をニューラルネットを用いて実装する。特に入力話者に関して事前に発話が入手できず、対象話者の音声サンプルが1発話しかない場合でも動作するように学習の設定を工夫する。"
                 slideUrl = ""
                 movieUrl = ""
                 speakers = SizedCollection(SPEAKER_14)
@@ -457,6 +489,46 @@ object InitializeDB {
                 title = "いよいよ今週末です"
                 description = "いよいよ今週末です"
                 publishedAt = 1574157622
+            }
+
+            val TRACK_01 = DatabaseFactory.upsert(Track.Companion, 1) {
+                trackName = "メイン"
+                sessions = SizedCollection(SESSION_01, SESSION_02)
+            }
+
+            val TRACK_02 = DatabaseFactory.upsert(Track.Companion, 2) {
+                trackName = "ショートトラック"
+                sessions = SizedCollection(SESSION_03)
+            }
+
+            val BOOTH_01 = DatabaseFactory.upsert(Booth.Companion, 1) {
+                title = "コーヒースタンド"
+                description = "無料のコーヒーが置いてあります"
+            }
+
+            val BOOTH_02 = DatabaseFactory.upsert(Booth.Companion, 2) {
+                title = "Make部"
+                description = "グリーグループの有志で作ったガジェットを展示します。"
+            }
+
+            val BOOTH_03 = DatabaseFactory.upsert(Booth.Companion, 3) {
+                title = "技術書典部"
+                description = "グリーグループの有志で作った技術書を頒布します。"
+            }
+
+            val BOOKMARK_01 = DatabaseFactory.upsert(Bookmark.Companion, 1) {
+                firebaseUid = "1111-1111-1111-1111"
+                session = SESSION_01
+            }
+
+            val BOOKMARK_02 = DatabaseFactory.upsert(Bookmark.Companion, 2) {
+                firebaseUid = "2222-2222-2222-2222"
+                session = SESSION_02
+            }
+
+            val BOOKMARK_03 = DatabaseFactory.upsert(Bookmark.Companion, 2) {
+                firebaseUid = "2222-2222-2222-2222"
+                session = SESSION_03
             }
         }
     }

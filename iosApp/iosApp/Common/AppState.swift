@@ -29,7 +29,7 @@ class AppState: common.AppState {
         }
     }
 
-    private func setToken(from user: User) {
+    private func setToken(from user: FirebaseAuth.User) {
         user.getIDToken { [weak self] token, error in
             self?.token = token
         }

@@ -22,7 +22,7 @@ struct MainTabView: View {
 
     var body: some View {
         TabView {
-            NoticeListView()
+            ArticleListView()
                 .tabItem {
                     Text("お知らせ")
                     Image("naviIcon01")
