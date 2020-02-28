@@ -101,6 +101,12 @@ fun Application.module() {
                     ArticleList(ArticleService().getAll())
                 )
             }
+            get("/tracks") {
+                call.respond(
+                    HttpStatusCode.OK,
+                    TrackList(TrackService().getAll())
+                )
+            }
             get("/booths") {
                 call.respond(
                     HttpStatusCode.OK,

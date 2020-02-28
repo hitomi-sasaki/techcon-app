@@ -9,4 +9,7 @@ data class ArticleList(val value: List<Article> = emptyList())
 data class SessionList(val value: List<Session> = emptyList())
 
 @Serializable
+data class TrackList(val value: List<Track> = emptyList())
+
+@Serializable
 data class BoothList(val value: List<Booth> = emptyList())
