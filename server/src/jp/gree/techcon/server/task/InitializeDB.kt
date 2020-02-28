@@ -21,7 +21,18 @@ fun main(args: Array<String>) {
 object InitializeDB {
     const val DATABASE = "techcon"
     val TABLES =
-        arrayOf(Sessions, SpeakerRelations, Speakers, TagRelations, Tags, Articles, Bookmarks, Tracks, TrackSessions)
+        arrayOf(
+            Sessions,
+            SpeakerRelations,
+            Speakers,
+            TagRelations,
+            Tags,
+            Articles,
+            Bookmarks,
+            Tracks,
+            TrackSessions,
+            Booths
+        )
 
     fun setupSchema() {
         transaction {
@@ -150,6 +161,21 @@ object InitializeDB {
             val TRACK_02 = DatabaseFactory.upsert(Track.Companion, 2) {
                 trackName = "ショートトラック"
                 sessions = SizedCollection(SESSION_03)
+            }
+
+            val BOOTH_01 = DatabaseFactory.upsert(Booth.Companion, 1) {
+                title = "コーヒースタンド"
+                description = "無料のコーヒーが置いてあります"
+            }
+
+            val BOOTH_02 = DatabaseFactory.upsert(Booth.Companion, 2) {
+                title = "Make部"
+                description = "グリーグループの有志で作ったガジェットを展示します。"
+            }
+
+            val BOOTH_03 = DatabaseFactory.upsert(Booth.Companion, 3) {
+                title = "技術書典部"
+                description = "グリーグループの有志で作った技術書を頒布します。"
             }
 
             val BOOKMARK_01 = DatabaseFactory.upsert(Bookmark.Companion, 1) {

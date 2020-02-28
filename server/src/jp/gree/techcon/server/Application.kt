@@ -24,10 +24,7 @@ import io.ktor.serialization.serialization
 import io.ktor.server.engine.embeddedServer
 import io.ktor.server.netty.Netty
 import io.ktor.util.KtorExperimentalAPI
-import jp.gree.techcon.common.model.ArticleList
-import jp.gree.techcon.common.model.Session
-import jp.gree.techcon.common.model.SessionList
-import jp.gree.techcon.common.model.TrackList
+import jp.gree.techcon.common.model.*
 import jp.gree.techcon.server.service.*
 
 
@@ -108,6 +105,12 @@ fun Application.module() {
                 call.respond(
                     HttpStatusCode.OK,
                     TrackList(TrackService().getAll())
+                )
+            }
+            get("/booths") {
+                call.respond(
+                    HttpStatusCode.OK,
+                    BoothList(BoothService().getAll())
                 )
             }
             post("/bookmark") {

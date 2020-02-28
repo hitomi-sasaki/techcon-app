@@ -14,7 +14,8 @@ struct SessionListView: View {
     var body: some View {
         List {
             ForEach(vm.sessionListItems, id: \.id) { session in
-                SessionRowView(session: session)            .listRowInsets(EdgeInsets())
+                SessionRowView(session: session)
+                    .listRowInsets(EdgeInsets())
             }
         }
     }
