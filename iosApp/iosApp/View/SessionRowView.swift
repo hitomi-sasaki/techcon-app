@@ -61,12 +61,19 @@ struct SessionRowView: View {
 
 struct SessionRowView_Previews: PreviewProvider {
   static var previews: some View {
-    let speaker = Speaker(name: "{speaker.name}", title: "{speaker.title}",
-                          githubId: "{speaker.github_id}", twitterId: "{speaker.twitter_id}",
+    let speaker = Speaker(name: "{speaker.name}",
+                          title: "{speaker.title}",
+                          githubId: "{speaker.github_id}",
+                          twitterId: "{speaker.twitter_id}",
                           description: "{speaker.description}")
-    let item = SessionListItem(id: 0, name: "{session_name}", tags: "{tags}",
-                               dateText: "{date_text}", title: "{title}", trackName: "{track_name}",
-                               speaker: speaker, isBookmarked: true)
+    let item = SessionListItem(id: 0,
+                               name: "{session_name}",
+                               tags: "{tags}",
+                               dateText: "{date_text}",
+                               title: "{title}",
+                               trackName: "{track_name}",
+                               speaker: speaker,
+                               isBookmarked: true)
     return SessionRowView(session: item)
   }
 }
