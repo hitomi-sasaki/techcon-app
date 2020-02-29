@@ -182,9 +182,11 @@
 				EA1A3A77688AD5CA7DBDFF07 /* Pods */,
 				115A8FFF51C0DCE9948A0585 /* Frameworks */,
 			);
-			indentWidth = 4;
+			indentWidth = 2;
 			sourceTree = "<group>";
-			tabWidth = 4;
+			tabWidth = 2;
+			usesTabs = 0;
+			wrapsLines = 1;
 		};
 		F861D7DE207FA40F0085E80D /* Products */ = {
 			isa = PBXGroup;

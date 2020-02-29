@@ -8,12 +8,12 @@
 import common
 
 class ArticleListViewModel: ObservableObject {
-    @Published var articleListItems: [ArticleListItem] = []
+  @Published var articleListItems: [ArticleListItem] = []
 
-    init(articleListService: ArticleListService = ArticleListService()) {
-        articleListService.articles.watch { [weak self] articleListItems in
-            guard let items = articleListItems as? [ArticleListItem] else { return }
-            self?.articleListItems = items
-        }
+  init(articleListService: ArticleListService = ArticleListService()) {
+    articleListService.articles.watch { [weak self] articleListItems in
+      guard let items = articleListItems as? [ArticleListItem] else { return }
+      self?.articleListItems = items
     }
+  }
 }
