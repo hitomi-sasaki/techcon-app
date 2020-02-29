@@ -14,8 +14,12 @@ struct SessionListView: View {
   var body: some View {
     List {
       ForEach(viewModel.sessionListItems, id: \.id) { session in
-        SessionRowView(session: session)
-          .listRowInsets(EdgeInsets())
+        ZStack {
+          SessionRowView(session: session)
+          NavigationLink(destination: SessionDetailView(sessionId: Int(session.id))) {
+            EmptyView()
+          }.buttonStyle(PlainButtonStyle())
+        }.listRowInsets(EdgeInsets())
       }
     }
   }

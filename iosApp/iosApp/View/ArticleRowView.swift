@@ -20,8 +20,7 @@ struct ArticleRowView: View {
         .font(.system(size: 18.0))
         .lineSpacing(6.0)
         .foregroundColor(.primary)
-      // FIXME: `.description` property name collide with NSObjectProtocol
-      Text(article.description())
+      Text(article.descriptionText)
         .font(.system(size: 14.0))
         .lineSpacing(6.0)
         .foregroundColor(.secondary)
