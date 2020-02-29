@@ -356,7 +356,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "mint run swiftlint autocorrect\nmint run swiftlint\nmint run swiftformat .\n";
+			shellScript = "mint run swiftlint autocorrect\nmint run swiftformat .\nmint run swiftlint\n";
 		};
 		F861D812207FA4320085E80D /* ShellScript */ = {
 			isa = PBXShellScriptBuildPhase;

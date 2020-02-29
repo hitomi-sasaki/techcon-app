@@ -37,7 +37,8 @@ struct ArticleRowView: View {
 
 struct ArticleRowView_Previews: PreviewProvider {
   static var previews: some View {
-    let article = ArticleListItem(title: "{title}", description: "{description}", timeText: "{time_text}", dateText: "{date_text")
+    let article = ArticleListItem(title: "{title}", description: "{description}",
+                                  timeText: "{time_text}", dateText: "{date_text")
     return ArticleRowView(article: article)
   }
 }
