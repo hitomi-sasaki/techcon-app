@@ -21,6 +21,5 @@ struct ArticleListView: View {
             }
             .navigationBarTitle("お知らせ", displayMode: .inline)
         }
-
     }
 }

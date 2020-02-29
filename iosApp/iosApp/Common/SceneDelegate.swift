@@ -6,9 +6,9 @@
 //  Copyright © 2019 Takayuki Sei. All rights reserved.
 //
 
-import UIKit
-import SwiftUI
 import common
+import SwiftUI
+import UIKit
 
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     var window: UIWindow?

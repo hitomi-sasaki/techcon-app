@@ -5,8 +5,8 @@
 //  Created by Yazaki Yuto on 2020/01/06.
 //
 
-import SwiftUI
 import common
+import SwiftUI
 
 struct SessionListView: View {
     @ObservedObject(initialValue: SessionListViewModel()) private var vm: SessionListViewModel
