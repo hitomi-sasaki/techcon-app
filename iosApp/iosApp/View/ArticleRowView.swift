@@ -10,7 +10,7 @@ import SwiftUI
 
 struct ArticleRowView: View {
     let article: ArticleListItem
-    
+
     var body: some View {
         VStack(alignment: .leading, spacing: 16.0) {
             Text(article.dateText)

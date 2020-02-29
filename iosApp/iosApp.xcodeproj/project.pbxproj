@@ -220,6 +220,7 @@
 				F861D7DB207FA40F0085E80D /* Resources */,
 				F861D811207FA4200085E80D /* Embed Frameworks */,
 				8A2D81BB2B45363CFD4E4D49 /* [CP] Embed Pods Frameworks */,
+				D160D40E240A5AF900E18F6E /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -337,6 +338,23 @@
 			shellPath = /bin/sh;
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-GREE TechCon/Pods-GREE TechCon-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
+		};
+		D160D40E240A5AF900E18F6E /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "if which swiftlint >/dev/null; then\n  swiftlint autocorrect\n  swiftlint\nelse\n  echo \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi\n";
 		};
 		F861D812207FA4320085E80D /* ShellScript */ = {
 			isa = PBXShellScriptBuildPhase;
