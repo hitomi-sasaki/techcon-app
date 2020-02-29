@@ -17,6 +17,7 @@
 		D160D40924080F7900E18F6E /* ArticleListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D160D40824080F7900E18F6E /* ArticleListView.swift */; };
 		D160D40B24080FEC00E18F6E /* ArticleRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D160D40A24080FEC00E18F6E /* ArticleRowView.swift */; };
 		D160D40D2408228700E18F6E /* SessionDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D160D40C2408228700E18F6E /* SessionDetailView.swift */; };
+		D160D410240A94C200E18F6E /* SessionDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D160D40F240A94C200E18F6E /* SessionDetailViewModel.swift */; };
 		D1668DFB240214440002E2A0 /* AppState.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1668DFA240214440002E2A0 /* AppState.swift */; };
 		D1668E00240216AF0002E2A0 /* SessionListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1668DFF240216AF0002E2A0 /* SessionListViewModel.swift */; };
 		D1BABAAF24021ECC0068724B /* BookmarkListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1BABAAE24021ECC0068724B /* BookmarkListView.swift */; };
@@ -67,6 +68,7 @@
 		D160D40824080F7900E18F6E /* ArticleListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticleListView.swift; sourceTree = "<group>"; };
 		D160D40A24080FEC00E18F6E /* ArticleRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticleRowView.swift; sourceTree = "<group>"; };
 		D160D40C2408228700E18F6E /* SessionDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionDetailView.swift; sourceTree = "<group>"; };
+		D160D40F240A94C200E18F6E /* SessionDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionDetailViewModel.swift; sourceTree = "<group>"; };
 		D1668DFA240214440002E2A0 /* AppState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppState.swift; sourceTree = "<group>"; };
 		D1668DFF240216AF0002E2A0 /* SessionListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionListViewModel.swift; sourceTree = "<group>"; };
 		D1BABAAE24021ECC0068724B /* BookmarkListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookmarkListView.swift; sourceTree = "<group>"; };
@@ -142,8 +144,9 @@
 		D1668DFE240216880002E2A0 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
-				D1668DFF240216AF0002E2A0 /* SessionListViewModel.swift */,
 				D160D40624080F1F00E18F6E /* ArticleListViewModel.swift */,
+				D160D40F240A94C200E18F6E /* SessionDetailViewModel.swift */,
+				D1668DFF240216AF0002E2A0 /* SessionListViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -391,6 +394,7 @@
 				D1BC3257240394EB0008F0D3 /* SessionPagingCell.swift in Sources */,
 				B95C23DF23C3467900B1D53C /* SessionListView.swift in Sources */,
 				D1668DFB240214440002E2A0 /* AppState.swift in Sources */,
+				D160D410240A94C200E18F6E /* SessionDetailViewModel.swift in Sources */,
 				F861D7E1207FA40F0085E80D /* AppDelegate.swift in Sources */,
 				D160D40B24080FEC00E18F6E /* ArticleRowView.swift in Sources */,
 				D1BC32512402AE410008F0D3 /* SessionViewController.swift in Sources */,

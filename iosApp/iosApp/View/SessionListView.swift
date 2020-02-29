@@ -16,7 +16,7 @@ struct SessionListView: View {
       ForEach(viewModel.sessionListItems, id: \.id) { session in
         ZStack {
           SessionRowView(session: session)
-          NavigationLink(destination: SessionDetailView()) {
+          NavigationLink(destination: SessionDetailView(sessionId: Int(session.id))) {
             EmptyView()
           }.buttonStyle(PlainButtonStyle())
         }.listRowInsets(EdgeInsets())
