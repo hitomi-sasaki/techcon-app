@@ -56,11 +56,15 @@ fun SessionListScreen(
     onClick: (session: SessionListItem) -> Unit,
     onBookmark: (session: SessionListItem) -> Unit
 ) {
-    val sessions = observe(viewState.sessions) ?: listOf()
+    val sessions = observe(viewState.state)
     AppTheme {
         Column {
             AppBar(title = title)
-            SessionTabList(sessions = sessions, onClick = onClick, onBookmark = onBookmark)
+            SessionTabList(
+                tracks = sessions?.tracks ?: listOf(),
+                onClick = onClick,
+                onBookmark = onBookmark
+            )
         }
     }
 }

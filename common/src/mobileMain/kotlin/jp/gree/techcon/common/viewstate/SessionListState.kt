@@ -4,9 +4,12 @@ import jp.gree.techcon.common.model.Session
 import jp.gree.techcon.common.model.Speaker
 import jp.gree.techcon.common.util.AppDateTime
 
+data class SessionListState(val tracks: List<SessionListTrack>)
+
+data class SessionListTrack(val name: String, val sessions: List<SessionListItem>)
+
 data class SessionListItem(
     val id: Long,
-    val name: String,
     val tags: String,
     val dateText: String,
     val title: String,
@@ -18,7 +21,6 @@ data class SessionListItem(
         fun build(session: Session, isBookmarked: Boolean): SessionListItem {
             return SessionListItem(
                 id = session.id,
-                name = session.name.map { it.name }.reduce { acc, name -> "$acc, $name" },
                 tags = "#AWS #Unity",
                 dateText = AppDateTime.parseToTimeDuration(session.startTime, session.endTime),
                 title = session.title,

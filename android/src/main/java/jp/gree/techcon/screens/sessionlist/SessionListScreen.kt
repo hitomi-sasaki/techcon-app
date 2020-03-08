@@ -2,13 +2,11 @@ package jp.gree.techcon.screens.sessionlist
 
 import androidx.compose.Composable
 import androidx.compose.state
-import androidx.ui.core.Text
 import androidx.ui.foundation.Clickable
 import androidx.ui.foundation.VerticalScroller
 import androidx.ui.foundation.shape.corner.RoundedCornerShape
 import androidx.ui.graphics.Color
 import androidx.ui.layout.*
-import androidx.ui.material.MaterialTheme
 import androidx.ui.material.Tab
 import androidx.ui.material.TabRow
 import androidx.ui.material.ripple.Ripple
@@ -18,38 +16,38 @@ import androidx.ui.unit.dp
 import jp.gree.techcon.R
 import jp.gree.techcon.common.model.Speaker
 import jp.gree.techcon.common.viewstate.SessionListItem
+import jp.gree.techcon.common.viewstate.SessionListTrack
 import jp.gree.techcon.composables.*
 
 @Composable
 fun SessionTabList(
-    sessions: List<SessionListItem>,
+    tracks: List<SessionListTrack>,
     onClick: (session: SessionListItem) -> Unit,
     onBookmark: (session: SessionListItem) -> Unit
 ) {
-    val sectionTitles = Sections.values().map { it.title }
-    var section by state { Sections.Left }
+    if (tracks.isEmpty()) {
+        Surface {} // Loading placeholder
+        return
+    }
+
+    val tabTitles = tracks.map { it.name }
+    var tabIndex: Int by state { 0 }
     TabRow(
-        items = sectionTitles,
-        selectedIndex = section.ordinal,
+        items = tabTitles,
+        selectedIndex = tabIndex,
         color = appColors.background
     ) { index, text ->
         Tab(
             text = text,
-            selected = section.ordinal == index,
-            onSelected = { section = Sections.values()[index] }
+            selected = tabIndex == index,
+            onSelected = { tabIndex = index }
         )
     }
     Surface(color = Color(247, 247, 247)) {
+        val sessions = tracks[tabIndex].sessions
         SessionList(sessions = sessions, onClick = onClick, onBookmark = onBookmark)
     }
 }
-
-private enum class Sections(val title: String) {
-    Left("Aトラック"),
-    Center("Bトラック"),
-    Right("ショートトラック")
-}
-
 
 @Composable
 fun SessionList(
@@ -102,7 +100,7 @@ fun SpeakerItem(speaker: Speaker) {
         }
         HorizontalSpace(16.dp)
         Column(modifier = LayoutHeight.Min(48.dp), arrangement = Arrangement.Center) {
-            PrimaryText(speaker.name, appTypography.subtitle1)
+            PrimaryText(speaker.name, appTypography.body1)
             VerticalSpace(8.dp)
             SecondaryText(speaker.title, appTypography.caption)
         }

@@ -4,13 +4,16 @@ import androidx.compose.Composable
 import androidx.ui.core.Alignment
 import androidx.ui.foundation.VerticalScroller
 import androidx.ui.graphics.Color
-import androidx.ui.layout.*
+import androidx.ui.layout.Column
+import androidx.ui.layout.Container
+import androidx.ui.layout.LayoutGravity
 import androidx.ui.material.surface.Surface
 import androidx.ui.unit.dp
+import jp.gree.techcon.common.model.Booth
 import jp.gree.techcon.composables.*
 
 @Composable
-fun Lounge() {
+fun Lounge(booths: List<Booth>) {
     VerticalScroller {
         ScreenColumn {
             Column {
@@ -24,19 +27,16 @@ fun Lounge() {
                         alignment = Alignment.Center
                     ) {} // TODO: load image
                 }
-                Booth()
-                Booth()
-                Booth()
-                Booth()
+                booths.forEach { Booth(it) }
             }
         }
     }
 }
 
 @Composable
-fun Booth() {
+fun Booth(booth: Booth) {
     VerticalSpace(24.dp)
-    PrimaryText("Make部", appTypography.h6)
+    PrimaryText(booth.title, appTypography.h6)
     VerticalSpace(16.dp)
-    SecondaryText("非公式の部活です。3Dプリンタで作った作品を展示しています。", appTypography.body1)
+    SecondaryText(booth.description, appTypography.body1)
 }
