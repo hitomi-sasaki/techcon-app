@@ -29,10 +29,14 @@ fun ArticleList(articles: List<ArticleListItem>) {
 fun ArticleListItem(article: ArticleListItem) {
     Column {
         PrimaryText(article.dateText, appTypography.h5)
-        VerticalSpace(16.dp)
-        PrimaryText(article.title, appTypography.subtitle1)
-        VerticalSpace(16.dp)
-        SecondaryText(article.description, appTypography.body1)
+        if (article.title.isNotEmpty()) {
+            VerticalSpace(16.dp)
+            PrimaryText(article.title, appTypography.subtitle1)
+        }
+        if (article.description.isNotEmpty()) {
+            VerticalSpace(16.dp)
+            SecondaryText(article.description, appTypography.body1)
+        }
         VerticalSpace(16.dp)
         SecondaryText(article.timeText, appTypography.body1)
     }
