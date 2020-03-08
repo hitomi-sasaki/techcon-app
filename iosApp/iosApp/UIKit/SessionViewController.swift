@@ -5,20 +5,22 @@
 //  Created by Yuto Yazaki on 2020/02/23.
 //
 
+import common
 import Parchment
 import SwiftUI
 import UIKit
 
 struct SessionViewController: UIViewControllerRepresentable {
-  func makeUIViewController(context: UIViewControllerRepresentableContext<SessionViewController>) -> PagingViewController {
-    let vc1 = UIHostingController(rootView: SessionListView())
-    vc1.title = "Aトラック"
-    let vc2 = UIViewController()
-    vc2.title = "Bトラック"
-    let vc3 = UIViewController()
-    vc3.title = "ショートトラック"
-    let pagingViewController = PagingViewController(viewControllers: [vc1, vc2, vc3])
+  let tracks: [SessionListTrack]
 
+  func makeUIViewController(context: UIViewControllerRepresentableContext<SessionViewController>) -> PagingViewController {
+    let viewControllers: [UIViewController] = tracks.map {
+      let vc = UIHostingController(rootView: SessionListView(sessions: $0.sessions))
+      vc.title = $0.name
+      return vc
+    }
+
+    let pagingViewController = PagingViewController(viewControllers: viewControllers)
     pagingViewController.register(SessionPagingCell.self, for: PagingIndexItem.self)
     pagingViewController.menuItemSize = .sizeToFit(minWidth: 50.0, height: 48.0)
     pagingViewController.menuInsets = UIEdgeInsets.zero

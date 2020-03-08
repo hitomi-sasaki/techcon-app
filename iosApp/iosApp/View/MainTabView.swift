@@ -27,7 +27,7 @@ struct MainTabView: View {
           Text("お知らせ")
           Image("naviIcon01")
         }
-      NavigationView { SessionViewController().navigationBarTitle("セッション", displayMode: .inline) }
+      SessionView()
         .tabItem {
           Text("セッション")
           Image("naviIcon02")

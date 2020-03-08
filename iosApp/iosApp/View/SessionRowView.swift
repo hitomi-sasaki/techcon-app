@@ -67,7 +67,6 @@ struct SessionRowView_Previews: PreviewProvider {
                           twitterId: "{speaker.twitter_id}",
                           description: "{speaker.description}")
     let item = SessionListItem(id: 0,
-                               name: "{session_name}",
                                tags: "{tags}",
                                dateText: "{date_text}",
                                title: "{title}",

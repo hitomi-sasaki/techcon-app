@@ -9,11 +9,11 @@ import common
 import SwiftUI
 
 struct SessionListView: View {
-  @ObservedObject(initialValue: SessionListViewModel()) private var viewModel: SessionListViewModel
+  let sessions: [SessionListItem]
 
   var body: some View {
     List {
-      ForEach(viewModel.sessionListItems, id: \.id) { session in
+      ForEach(sessions, id: \.id) { session in
         ZStack {
           SessionRowView(session: session)
           NavigationLink(destination: SessionDetailView(sessionId: Int(session.id))) {
