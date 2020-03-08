@@ -26,10 +26,10 @@ fun SessionTabList(
     onBookmark: (session: SessionListItem) -> Unit
 ) {
     if (tracks.isEmpty()) {
-        Surface {
-        }
+        Surface {} // Loading placeholder
         return
     }
+
     val tabTitles = tracks.map { it.name }
     var tabIndex: Int by state { 0 }
     TabRow(
@@ -44,17 +44,10 @@ fun SessionTabList(
         )
     }
     Surface(color = Color(247, 247, 247)) {
-        val sessions = tracks.getOrNull(tabIndex)?.sessions ?: listOf()
+        val sessions = tracks[tabIndex].sessions
         SessionList(sessions = sessions, onClick = onClick, onBookmark = onBookmark)
     }
 }
-
-private enum class Sections(val title: String) {
-    Left("Aトラック"),
-    Center("Bトラック"),
-    Right("ショートトラック")
-}
-
 
 @Composable
 fun SessionList(
