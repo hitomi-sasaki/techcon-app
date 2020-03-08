@@ -59,8 +59,4 @@ class SessionListService : KodeinAware {
         }
         return combinedList
     }
-
-    private fun listToTrack(list: List<SessionListItem>): List<SessionListTrack> {
-        return listOf()
-    }
 }
