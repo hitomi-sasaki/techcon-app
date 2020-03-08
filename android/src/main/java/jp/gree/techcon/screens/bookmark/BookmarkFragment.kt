@@ -51,11 +51,11 @@ fun BookmarkScreen(
     onClick: (session: SessionListItem) -> Unit,
     onBookmark: (session: SessionListItem) -> Unit
 ) {
-    val sessions = observe(viewState.sessions) ?: listOf()
+    // val sessions = observe(viewState.state) ?: listOf()
     AppTheme {
         Column {
             AppBar(title = title)
-            SessionList(sessions = sessions, onClick = onClick, onBookmark = onBookmark)
+            // SessionList(sessions = sessions, onClick = onClick, onBookmark = onBookmark)
         }
     }
 }

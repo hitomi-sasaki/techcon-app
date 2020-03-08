@@ -14,8 +14,11 @@ class SharedViewModel : ViewModel() {
             if (!Auth.isLoggedIn()) {
                 val isSuccessful = Auth.signIn()
             }
+            println("sadfa")
             val token = Auth.token()
+            println("faf")
             MutableAppState.token = token
+            println("asdadfaf")
         }
     }
 }
