@@ -3,6 +3,7 @@ package jp.gree.techcon.common
 import jp.gree.techcon.common.datasource.db.SessionDao
 import jp.gree.techcon.common.datasource.network.Api
 import jp.gree.techcon.common.repository.ArticleRepository
+import jp.gree.techcon.common.repository.LoungeRepository
 import jp.gree.techcon.common.repository.SessionRepository
 import jp.gree.techcon.common.repository.TrackRepository
 import jp.gree.techcon.common.usecase.SessionDetailService
@@ -30,6 +31,7 @@ object CommonModule {
             bind<SessionRepository>() with singleton { SessionRepository(instance(), instance()) }
             bind<ArticleRepository>() with singleton { ArticleRepository(instance()) }
             bind<TrackRepository>() with singleton { TrackRepository(instance()) }
+            bind<LoungeRepository>() with singleton { LoungeRepository(instance()) }
         }
     }
 }

@@ -33,6 +33,7 @@ class Api(private val appState: AppState) {
     suspend fun getBookmarks(): List<Session> = getWithAuth<SessionList>("$endpoint/bookmarks").value
     suspend fun getArticle(id: Long): Article = client.get("$endpoint/article/$id")
     suspend fun getArticles(): List<Article> = client.get<ArticleList>("$endpoint/articles").value
+    suspend fun getBooths(): List<Booth> = client.get<BoothList>("$endpoint/booths").value
 
     // Update
     suspend fun postBookmark(sessionId: Long, enable: Boolean): Session = postWithAuth("$endpoint/bookmark")
