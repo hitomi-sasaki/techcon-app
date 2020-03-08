@@ -49,6 +49,7 @@ fun SessionTabList(
     }
 }
 
+// TODO: move to common
 @Composable
 fun SessionList(
     sessions: List<SessionListItem>,

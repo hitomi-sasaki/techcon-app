@@ -40,7 +40,6 @@ class SessionListFragment : Fragment() {
     }
 
     private fun onClick(session: SessionListItem) {
-        // findNavController().navigate(SessionListFragmentDirections.toArticle())
         findNavController().navigate(SessionListFragmentDirections.toDetail(session.id))
     }
 

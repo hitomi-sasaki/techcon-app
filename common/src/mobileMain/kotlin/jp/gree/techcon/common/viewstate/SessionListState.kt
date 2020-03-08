@@ -8,6 +8,7 @@ data class SessionListState(val tracks: List<SessionListTrack>)
 
 data class SessionListTrack(val name: String, val sessions: List<SessionListItem>)
 
+// TODO: move this class to viewstate/common
 data class SessionListItem(
     val id: Long,
     val tags: String,

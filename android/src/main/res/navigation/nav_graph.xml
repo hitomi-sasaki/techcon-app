@@ -12,13 +12,14 @@
         <action
             android:id="@+id/to_detail"
             app:destination="@+id/sessionDetail" />
-        <action
-            android:id="@+id/to_article"
-            app:destination="@+id/articleList" />
     </fragment>
     <fragment
         android:id="@+id/bookmark"
-        android:name="jp.gree.techcon.screens.bookmark.BookmarkFragment" />
+        android:name="jp.gree.techcon.screens.bookmark.BookmarkFragment">
+        <action
+            android:id="@+id/to_detail"
+            app:destination="@+id/sessionDetail" />
+    </fragment>
     <fragment
         android:id="@+id/lounge"
         android:name="jp.gree.techcon.screens.lounge.LoungeFragment" />
