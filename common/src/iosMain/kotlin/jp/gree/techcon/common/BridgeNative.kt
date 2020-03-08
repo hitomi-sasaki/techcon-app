@@ -5,6 +5,12 @@ import com.squareup.sqldelight.drivers.ios.NativeSqliteDriver
 import kotlinx.coroutines.*
 import platform.darwin.*
 import kotlin.coroutines.CoroutineContext
+import jp.gree.techcon.common.model.*
+import jp.gree.techcon.common.viewstate.*
+
+val Session.descriptionText: String get() = description
+val Speaker.descriptionText: String get() = description
+val ArticleListItem.descriptionText: String get() = description
 
 internal actual fun dispatcher(): CoroutineDispatcher = UI
 internal actual fun logDebug(message: String) = println(message)

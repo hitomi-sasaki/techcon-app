@@ -8,16 +8,16 @@
 import SwiftUI
 
 struct BookmarkListView: View {
-    var body: some View {
-        NavigationView {
-            Text("スケジュール")
-                .navigationBarTitle("マイ スケジュール", displayMode: .inline)
-        }
+  var body: some View {
+    NavigationView {
+      Text("スケジュール")
+        .navigationBarTitle("マイ スケジュール", displayMode: .inline)
     }
+  }
 }
 
 struct BookmarkListView_Previews: PreviewProvider {
-    static var previews: some View {
-        BookmarkListView()
-    }
+  static var previews: some View {
+    BookmarkListView()
+  }
 }

@@ -13,11 +13,15 @@
 		B95C23DF23C3467900B1D53C /* SessionListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B95C23DE23C3467900B1D53C /* SessionListView.swift */; };
 		B95C23E123C34BB200B1D53C /* SessionRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B95C23E023C34BB200B1D53C /* SessionRowView.swift */; };
 		C922B825493C0F92826541A2 /* Pods_GREE_TechCon.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E0BA1D3210A3A38ABF8CA51E /* Pods_GREE_TechCon.framework */; };
+		D160D40724080F1F00E18F6E /* ArticleListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D160D40624080F1F00E18F6E /* ArticleListViewModel.swift */; };
+		D160D40924080F7900E18F6E /* ArticleListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D160D40824080F7900E18F6E /* ArticleListView.swift */; };
+		D160D40B24080FEC00E18F6E /* ArticleRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D160D40A24080FEC00E18F6E /* ArticleRowView.swift */; };
+		D160D40D2408228700E18F6E /* SessionDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D160D40C2408228700E18F6E /* SessionDetailView.swift */; };
+		D160D410240A94C200E18F6E /* SessionDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D160D40F240A94C200E18F6E /* SessionDetailViewModel.swift */; };
 		D1668DFB240214440002E2A0 /* AppState.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1668DFA240214440002E2A0 /* AppState.swift */; };
 		D1668E00240216AF0002E2A0 /* SessionListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1668DFF240216AF0002E2A0 /* SessionListViewModel.swift */; };
 		D1BABAAF24021ECC0068724B /* BookmarkListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1BABAAE24021ECC0068724B /* BookmarkListView.swift */; };
 		D1BABAB124021ED30068724B /* LoungeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1BABAB024021ED30068724B /* LoungeView.swift */; };
-		D1BABAB324021FC40068724B /* NoticeListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1BABAB224021FC40068724B /* NoticeListView.swift */; };
 		D1BC324C240232EE0008F0D3 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = D1BC324B240232EE0008F0D3 /* GoogleService-Info.plist */; };
 		D1BC32512402AE410008F0D3 /* SessionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1BC32502402AE410008F0D3 /* SessionViewController.swift */; };
 		D1BC3257240394EB0008F0D3 /* SessionPagingCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1BC3256240394EB0008F0D3 /* SessionPagingCell.swift */; };
@@ -60,11 +64,15 @@
 		B95C23DC23C3459500B1D53C /* MainTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabView.swift; sourceTree = "<group>"; };
 		B95C23DE23C3467900B1D53C /* SessionListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionListView.swift; sourceTree = "<group>"; };
 		B95C23E023C34BB200B1D53C /* SessionRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionRowView.swift; sourceTree = "<group>"; };
+		D160D40624080F1F00E18F6E /* ArticleListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticleListViewModel.swift; sourceTree = "<group>"; };
+		D160D40824080F7900E18F6E /* ArticleListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticleListView.swift; sourceTree = "<group>"; };
+		D160D40A24080FEC00E18F6E /* ArticleRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticleRowView.swift; sourceTree = "<group>"; };
+		D160D40C2408228700E18F6E /* SessionDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionDetailView.swift; sourceTree = "<group>"; };
+		D160D40F240A94C200E18F6E /* SessionDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionDetailViewModel.swift; sourceTree = "<group>"; };
 		D1668DFA240214440002E2A0 /* AppState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppState.swift; sourceTree = "<group>"; };
 		D1668DFF240216AF0002E2A0 /* SessionListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionListViewModel.swift; sourceTree = "<group>"; };
 		D1BABAAE24021ECC0068724B /* BookmarkListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookmarkListView.swift; sourceTree = "<group>"; };
 		D1BABAB024021ED30068724B /* LoungeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoungeView.swift; sourceTree = "<group>"; };
-		D1BABAB224021FC40068724B /* NoticeListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoticeListView.swift; sourceTree = "<group>"; };
 		D1BC324B240232EE0008F0D3 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		D1BC32502402AE410008F0D3 /* SessionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionViewController.swift; sourceTree = "<group>"; };
 		D1BC3256240394EB0008F0D3 /* SessionPagingCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionPagingCell.swift; sourceTree = "<group>"; };
@@ -109,10 +117,12 @@
 		D1668DFC240215760002E2A0 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				D160D40824080F7900E18F6E /* ArticleListView.swift */,
+				D160D40A24080FEC00E18F6E /* ArticleRowView.swift */,
 				D1BABAAE24021ECC0068724B /* BookmarkListView.swift */,
 				D1BABAB024021ED30068724B /* LoungeView.swift */,
 				B95C23DC23C3459500B1D53C /* MainTabView.swift */,
-				D1BABAB224021FC40068724B /* NoticeListView.swift */,
+				D160D40C2408228700E18F6E /* SessionDetailView.swift */,
 				B95C23DE23C3467900B1D53C /* SessionListView.swift */,
 				B95C23E023C34BB200B1D53C /* SessionRowView.swift */,
 			);
@@ -134,6 +144,8 @@
 		D1668DFE240216880002E2A0 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
+				D160D40624080F1F00E18F6E /* ArticleListViewModel.swift */,
+				D160D40F240A94C200E18F6E /* SessionDetailViewModel.swift */,
 				D1668DFF240216AF0002E2A0 /* SessionListViewModel.swift */,
 			);
 			path = ViewModel;
@@ -176,9 +188,11 @@
 				EA1A3A77688AD5CA7DBDFF07 /* Pods */,
 				115A8FFF51C0DCE9948A0585 /* Frameworks */,
 			);
-			indentWidth = 4;
+			indentWidth = 2;
 			sourceTree = "<group>";
-			tabWidth = 4;
+			tabWidth = 2;
+			usesTabs = 0;
+			wrapsLines = 1;
 		};
 		F861D7DE207FA40F0085E80D /* Products */ = {
 			isa = PBXGroup;
@@ -214,6 +228,7 @@
 				F861D7DB207FA40F0085E80D /* Resources */,
 				F861D811207FA4200085E80D /* Embed Frameworks */,
 				8A2D81BB2B45363CFD4E4D49 /* [CP] Embed Pods Frameworks */,
+				D160D40E240A5AF900E18F6E /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -248,7 +263,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0930;
-				LastUpgradeCheck = 0930;
+				LastUpgradeCheck = 1130;
 				TargetAttributes = {
 					F861D7DC207FA40F0085E80D = {
 						CreatedOnToolsVersion = 9.3;
@@ -332,6 +347,23 @@
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-GREE TechCon/Pods-GREE TechCon-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
+		D160D40E240A5AF900E18F6E /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "mint run swiftformat .\nmint run swiftlint autocorrect\nmint run swiftlint\n";
+		};
 		F861D812207FA4320085E80D /* ShellScript */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -353,14 +385,18 @@
 			buildActionMask = 2147483647;
 			files = (
 				B95C23DD23C3459500B1D53C /* MainTabView.swift in Sources */,
+				D160D40D2408228700E18F6E /* SessionDetailView.swift in Sources */,
+				D160D40924080F7900E18F6E /* ArticleListView.swift in Sources */,
+				D160D40724080F1F00E18F6E /* ArticleListViewModel.swift in Sources */,
 				B95C23E123C34BB200B1D53C /* SessionRowView.swift in Sources */,
 				D1668E00240216AF0002E2A0 /* SessionListViewModel.swift in Sources */,
 				D1BABAB124021ED30068724B /* LoungeView.swift in Sources */,
 				D1BC3257240394EB0008F0D3 /* SessionPagingCell.swift in Sources */,
 				B95C23DF23C3467900B1D53C /* SessionListView.swift in Sources */,
 				D1668DFB240214440002E2A0 /* AppState.swift in Sources */,
-				D1BABAB324021FC40068724B /* NoticeListView.swift in Sources */,
+				D160D410240A94C200E18F6E /* SessionDetailViewModel.swift in Sources */,
 				F861D7E1207FA40F0085E80D /* AppDelegate.swift in Sources */,
+				D160D40B24080FEC00E18F6E /* ArticleRowView.swift in Sources */,
 				D1BC32512402AE410008F0D3 /* SessionViewController.swift in Sources */,
 				D1BABAAF24021ECC0068724B /* BookmarkListView.swift in Sources */,
 				19896FA3238253E400FCFE3B /* SceneDelegate.swift in Sources */,
@@ -562,7 +598,7 @@
 		F861D80F207FA4200085E80D /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_IDENTITY = "";
 				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
@@ -596,7 +632,7 @@
 		F861D810207FA4200085E80D /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_IDENTITY = "";
 				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
