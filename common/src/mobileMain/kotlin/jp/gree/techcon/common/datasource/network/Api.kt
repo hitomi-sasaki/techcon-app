@@ -3,11 +3,16 @@ package jp.gree.techcon.common.datasource.network
 import io.ktor.client.HttpClient
 import io.ktor.client.features.json.JsonFeature
 import io.ktor.client.features.json.serializer.KotlinxSerializer
+import io.ktor.client.request.delete
 import io.ktor.client.request.get
 import io.ktor.client.request.header
+import io.ktor.client.request.post
+import io.ktor.http.ContentType
+import io.ktor.http.contentType
 import jp.gree.techcon.common.AppState
 import jp.gree.techcon.common.Platform
 import jp.gree.techcon.common.model.*
+import jp.gree.techcon.common.request.BookmarkParam
 
 class Api(private val appState: AppState) {
     private val endpoint = Platform.localhost // TODO: Use production URL for production build
@@ -21,8 +26,16 @@ class Api(private val appState: AppState) {
         header("Authorization", "Bearer ${appState.token}")
     }
 
-    private suspend inline fun <reified T> postWithAuth(url: String): T = client.get(url) {
+    private suspend inline fun <reified T> postWithAuth(url: String, param: Any): T = client.post(url) {
         header("Authorization", "Bearer ${appState.token}")
+        contentType(ContentType.Application.Json)
+        body = param
+    }
+
+    private suspend inline fun <reified T> deleteWithAuth(url: String, param: Any): T = client.delete(url) {
+        header("Authorization", "Bearer ${appState.token}")
+        contentType(ContentType.Application.Json)
+        body = param
     }
 
     // Read
@@ -36,6 +49,9 @@ class Api(private val appState: AppState) {
     suspend fun getBooths(): List<Booth> = client.get<BoothList>("$endpoint/booths").value
 
     // Update
-    suspend fun postBookmark(sessionId: Long, enable: Boolean): Session = postWithAuth("$endpoint/bookmark")
+    suspend fun addBookmark(sessionId: Long): Unit = postWithAuth("$endpoint/bookmark", BookmarkParam(sessionId))
+
+    // Delete
+    suspend fun removeBookmark(sessionId: Long): Unit = deleteWithAuth("$endpoint/bookmark", BookmarkParam(sessionId))
 }
 

@@ -4,8 +4,6 @@ import jp.gree.techcon.common.Platform
 import jp.gree.techcon.common.datasource.db.SessionDao
 import jp.gree.techcon.common.datasource.network.Api
 import jp.gree.techcon.common.model.Session
-import jp.gree.techcon.common.util.GlobalEvent
-import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.flow.*
 import kotlinx.coroutines.launch
 
@@ -30,6 +28,11 @@ class SessionRepository(private val dao: SessionDao, private val api: Api) {
     fun getSession(id: Long): Flow<Session> = flow { emit(api.getSession(id)) }
     fun getBookmarks(): Flow<List<Session>> = flow { emit(api.getBookmarks()) }
 
-    suspend fun updateBookmark(sessionId: Long, enable: Boolean): Session =
-        api.postBookmark(sessionId, enable)
+    suspend fun updateBookmark(sessionId: Long, enable: Boolean) {
+        if (enable) {
+            api.addBookmark(sessionId)
+        } else {
+            api.removeBookmark(sessionId)
+        }
+    }
 }

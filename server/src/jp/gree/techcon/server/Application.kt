@@ -25,6 +25,7 @@ import io.ktor.server.engine.embeddedServer
 import io.ktor.server.netty.Netty
 import io.ktor.util.KtorExperimentalAPI
 import jp.gree.techcon.common.model.*
+import jp.gree.techcon.common.request.BookmarkParam
 import jp.gree.techcon.server.service.*
 
 
@@ -115,7 +116,7 @@ fun Application.module() {
             }
             post("/bookmark") {
                 val firebaseUid: String? = call.authentication.firebaseUid()
-                val sessionId: Int = call.receive<Int>()
+                val sessionId: Int = call.receive<BookmarkParam>().sessionId.toInt() // TODO
                 if (firebaseUid == null) {
                     call.respond(HttpStatusCode.Unauthorized)
                 } else {
