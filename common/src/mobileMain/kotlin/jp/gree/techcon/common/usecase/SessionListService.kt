@@ -6,8 +6,11 @@ import jp.gree.techcon.common.util.CFlow
 import jp.gree.techcon.common.util.CoroutineScopeBuilder
 import jp.gree.techcon.common.util.wrap
 import jp.gree.techcon.common.viewstate.SessionListItem
+import jp.gree.techcon.common.viewstate.SessionListState
+import jp.gree.techcon.common.viewstate.SessionListTrack
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.combine
+import kotlinx.coroutines.flow.map
 import kotlinx.coroutines.launch
 import org.kodein.di.Kodein
 import org.kodein.di.KodeinAware
@@ -17,10 +20,10 @@ class SessionListService : KodeinAware {
     override val kodein: Kodein by lazy { CommonModule.kodein }
     private val scope = CoroutineScopeBuilder().build()
     private val repository: SessionRepository by kodein.instance()
-    val sessions: CFlow<List<SessionListItem>>
+    val state: CFlow<SessionListState>
 
     init {
-        sessions = get().wrap()
+        state = get().wrap()
     }
 
     fun updateBookmark(sessionId: Long, enable: Boolean) {
@@ -30,7 +33,14 @@ class SessionListService : KodeinAware {
         }
     }
 
-    private fun get(): Flow<List<SessionListItem>> {
+    private fun get(): Flow<SessionListState> {
+        val sessionListItems : Flow<List<SessionListItem>> = getSessionListItems()
+        sessionListItems.map {
+
+        }
+    }
+
+    private fun getSessionListItems(): Flow<List<SessionListItem>> {
         val sessionList = repository.getSessions()
         val bookmarkList = repository.getBookmarks()
         return sessionList.combine(bookmarkList) { sessions, bookmarks ->
@@ -41,5 +51,9 @@ class SessionListService : KodeinAware {
             }
             return@combine combinedList
         }
+    }
+
+    private fun listToTrack(list: List<SessionListItem>): List<SessionListTrack> {
+        list.groupBy { it.trackName }
     }
 }

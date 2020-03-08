@@ -102,7 +102,7 @@ fun SpeakerItem(speaker: Speaker) {
         }
         HorizontalSpace(16.dp)
         Column(modifier = LayoutHeight.Min(48.dp), arrangement = Arrangement.Center) {
-            PrimaryText(speaker.name, appTypography.subtitle1)
+            PrimaryText(speaker.name, appTypography.body1)
             VerticalSpace(8.dp)
             SecondaryText(speaker.title, appTypography.caption)
         }
