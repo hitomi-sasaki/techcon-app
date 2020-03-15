@@ -11,6 +11,7 @@ import jp.gree.techcon.common.viewstate.*
 val Session.descriptionText: String get() = description
 val Speaker.descriptionText: String get() = description
 val ArticleListItem.descriptionText: String get() = description
+val Booth.descriptionText: String get() = description
 
 internal actual fun dispatcher(): CoroutineDispatcher = UI
 internal actual fun logDebug(message: String) = println(message)
