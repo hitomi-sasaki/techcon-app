@@ -1,6 +1,6 @@
 object Deps {
     const val kotlinVersion = "1.3.61"
-    const val gradleVersion = "4.0.0-alpha09"
+    const val gradleVersion = "4.1.0-alpha02"
 
     const val ktorVersion = "1.2.6"
     const val coroutineVersion = "1.3.3"
