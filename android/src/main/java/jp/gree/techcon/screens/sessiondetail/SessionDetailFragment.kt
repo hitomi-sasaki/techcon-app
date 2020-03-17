@@ -1,5 +1,6 @@
 package jp.gree.techcon.screens.sessiondetail
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -28,20 +29,42 @@ class SessionDetailFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         val title = ""
-        val onBackClick = { findNavController().popBackStack(); Unit }
+        val onBackClick: () -> Unit = { findNavController().popBackStack() }
+        val onShareClick: (Session?) -> Unit = { share(it) }
 
         val root = FrameLayout(requireContext())
-        root.setContent { SessionDetailScreen(title, service.get(args.sessionId), onBackClick) }
+        root.setContent { SessionDetailScreen(title, service.get(args.sessionId), onBackClick, onShareClick) }
         return root
+    }
+
+    private fun share(session: Session?) {
+        if (session == null) return
+
+        val sendIntent: Intent = Intent().apply {
+            action = Intent.ACTION_SEND
+            putExtra(Intent.EXTRA_TEXT, "https://google.co.jp/search?q=${session.id}") // TODO: fix url
+            type = "text/plain"
+        }
+
+        val shareIntent = Intent.createChooser(sendIntent, null)
+        startActivity(shareIntent)
     }
 }
 
 @Composable
-fun SessionDetailScreen(title: String, observable: CFlow<Session>, onBackClick: () -> Unit) {
-    val session = observe(observable) ?: null
+fun SessionDetailScreen(
+    title: String,
+    observable: CFlow<Session>,
+    onBackClick: () -> Unit,
+    onShareClick: (Session?) -> Unit
+) {
+    val session = observe(observable)
     AppTheme {
         Column {
-            AppBar(title = title, onBackClick = onBackClick, onShareClick = onBackClick)
+            AppBar(
+                title = title,
+                onBackClick = onBackClick,
+                onShareClick = { onShareClick(session) })
             SessionDetail(session = session)
         }
     }

@@ -7,6 +7,7 @@ import androidx.ui.foundation.VerticalScroller
 import androidx.ui.foundation.shape.corner.RoundedCornerShape
 import androidx.ui.graphics.Color
 import androidx.ui.layout.*
+import androidx.ui.material.Divider
 import androidx.ui.material.Tab
 import androidx.ui.material.TabRow
 import androidx.ui.material.ripple.Ripple
@@ -32,10 +33,12 @@ fun SessionTabList(
 
     val tabTitles = tracks.map { it.name }
     var tabIndex: Int by state { 0 }
+
     TabRow(
         items = tabTitles,
         selectedIndex = tabIndex,
-        color = appColors.background
+        color = appColors.background,
+        contentColor = appColors.primary
     ) { index, text ->
         Tab(
             text = text,
@@ -112,10 +115,12 @@ fun SpeakerItem(speaker: Speaker) {
 fun CardHeader(session: SessionListItem, onBookmark: () -> Unit) {
     val bookmarkImage =
         if (session.isBookmarked) R.drawable.ic_bookmark_on else R.drawable.ic_bookmark_off
+    val tint = if (session.isBookmarked) appColors.primary else appColors.onBackground
+
     Stack(modifier = LayoutWidth.Fill) {
         PrimaryText(session.trackName, appTypography.subtitle2, modifier = LayoutGravity.CenterLeft)
         Container(modifier = LayoutGravity.CenterRight) {
-            VectorImageButton(id = bookmarkImage, onClick = onBookmark)
+            VectorImageButton(id = bookmarkImage, tint = tint, onClick = onBookmark)
         }
     }
 }

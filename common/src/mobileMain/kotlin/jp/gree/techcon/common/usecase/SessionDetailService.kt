@@ -7,9 +7,10 @@ import org.kodein.di.Kodein
 import org.kodein.di.KodeinAware
 import org.kodein.di.erased.instance
 
-class SessionDetailService: KodeinAware {
+class SessionDetailService : KodeinAware {
     override val kodein: Kodein by lazy { CommonModule.kodein }
     private val repository: SessionRepository by kodein.instance()
     fun get(sessionId: Long) = repository.getSession(sessionId).wrap()
-    suspend fun updateBookmark(sessionId: Long, enable: Boolean) = repository.updateBookmark(sessionId, enable)
+    suspend fun updateBookmark(sessionId: Long, enable: Boolean) =
+        repository.updateBookmark(sessionId, enable)
 }

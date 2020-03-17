@@ -10,10 +10,10 @@ import androidx.ui.material.ripple.Ripple
 import androidx.ui.res.vectorResource
 
 @Composable
-fun VectorImageButton(@DrawableRes id: Int, onClick: () -> Unit) {
+fun VectorImageButton(@DrawableRes id: Int, tint: Color = Color.Transparent, onClick: () -> Unit) {
     Ripple(bounded = false) {
         Clickable(onClick = onClick) {
-            VectorImage(id)
+            VectorImage(id, tint)
         }
     }
 }

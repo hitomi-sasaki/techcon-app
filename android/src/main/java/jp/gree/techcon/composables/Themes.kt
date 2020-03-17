@@ -13,6 +13,9 @@ import androidx.ui.unit.sp
 val appColors = lightColorPalette(
     background = Color(red = 255, green = 255, blue = 255),
     surface = Color(red = 230, green = 230, blue = 230),
+    primary = Color(red = 224, green = 62, blue = 99),
+    secondary = Color(red = 0, green = 159, blue = 175),
+    secondaryVariant = Color(red = 250, green = 174, blue = 60),
     onBackground = Color(red = 33, green = 37, blue = 41)
 )
 
